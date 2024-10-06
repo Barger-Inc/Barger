@@ -7,7 +7,7 @@
     "./generate": "./src/generate/index.ts"
   },
   "scripts": {
-    "generate:component": "turbo gen react-component"
+    "gen": "orval"
   },
   "devDependencies": {
     "@repo/typescript-config": "*",

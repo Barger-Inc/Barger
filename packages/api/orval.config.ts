@@ -6,8 +6,8 @@ export default defineConfig({
     output: {
       target: "./src/generate",
       schemas: "./src/model",
-      prettier: true,
       client: "react-query",
+      biome: true,
       mode: "tags",
       override: {
         mutator: {
