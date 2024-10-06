@@ -6,11 +6,11 @@
  */
 
 export interface CreateOrderResponse {
-  days: number;
-  distance: number;
-  id: number;
-  productId: number;
-  start: number;
-  volume: number;
-  weight: number;
+  days: number
+  distance: number
+  id: number
+  productId: number
+  start: number
+  volume: number
+  weight: number
 }

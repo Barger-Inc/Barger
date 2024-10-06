@@ -6,7 +6,7 @@
  */
 
 export interface CreateCarBodyRequest {
-  liftingCapacity: number;
-  number: string;
-  volume: number;
+  liftingCapacity: number
+  number: string
+  volume: number
 }

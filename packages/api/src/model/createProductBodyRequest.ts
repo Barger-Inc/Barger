@@ -6,5 +6,5 @@
  */
 
 export interface CreateProductBodyRequest {
-  name: string;
+  name: string
 }

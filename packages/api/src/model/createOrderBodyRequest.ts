@@ -6,9 +6,9 @@
  */
 
 export interface CreateOrderBodyRequest {
-  days: number;
-  distance: number;
-  productId: number;
-  volume: number;
-  weight: number;
+  days: number
+  distance: number
+  productId: number
+  volume: number
+  weight: number
 }

@@ -4,7 +4,7 @@
  * The cats API description
  * OpenAPI spec version: 1.0
  */
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query"
 import type {
   DefinedInitialDataOptions,
   DefinedUseQueryResult,
@@ -16,15 +16,15 @@ import type {
   UseMutationResult,
   UseQueryOptions,
   UseQueryResult,
-} from "@tanstack/react-query";
-import type { CreateOrderBodyRequest, CreateOrderResponse } from "../model";
-import { createInstance } from "../api-instance";
+} from "@tanstack/react-query"
+import type { CreateOrderBodyRequest, CreateOrderResponse } from "../model"
+import { createInstance } from "../api-instance"
 
-type SecondParameter<T extends (...args: any) => any> = Parameters<T>[1];
+type SecondParameter<T extends (...args: any) => any> = Parameters<T>[1]
 
 export const orderControllerCreate = (
   createOrderBodyRequest: CreateOrderBodyRequest,
-  options?: SecondParameter<typeof createInstance>,
+  options?: SecondParameter<typeof createInstance>
 ) => {
   return createInstance<CreateOrderResponse>(
     {
@@ -33,9 +33,9 @@ export const orderControllerCreate = (
       headers: { "Content-Type": "application/json" },
       data: createOrderBodyRequest,
     },
-    options,
-  );
-};
+    options
+  )
+}
 
 export const getOrderControllerCreateMutationOptions = <
   TError = unknown,
@@ -46,33 +46,33 @@ export const getOrderControllerCreateMutationOptions = <
     TError,
     { data: CreateOrderBodyRequest },
     TContext
-  >;
-  request?: SecondParameter<typeof createInstance>;
+  >
+  request?: SecondParameter<typeof createInstance>
 }): UseMutationOptions<
   Awaited<ReturnType<typeof orderControllerCreate>>,
   TError,
   { data: CreateOrderBodyRequest },
   TContext
 > => {
-  const { mutation: mutationOptions, request: requestOptions } = options ?? {};
+  const { mutation: mutationOptions, request: requestOptions } = options ?? {}
 
   const mutationFn: MutationFunction<
     Awaited<ReturnType<typeof orderControllerCreate>>,
     { data: CreateOrderBodyRequest }
   > = (props) => {
-    const { data } = props ?? {};
+    const { data } = props ?? {}
 
-    return orderControllerCreate(data, requestOptions);
-  };
+    return orderControllerCreate(data, requestOptions)
+  }
 
-  return { mutationFn, ...mutationOptions };
-};
+  return { mutationFn, ...mutationOptions }
+}
 
 export type OrderControllerCreateMutationResult = NonNullable<
   Awaited<ReturnType<typeof orderControllerCreate>>
->;
-export type OrderControllerCreateMutationBody = CreateOrderBodyRequest;
-export type OrderControllerCreateMutationError = unknown;
+>
+export type OrderControllerCreateMutationBody = CreateOrderBodyRequest
+export type OrderControllerCreateMutationError = unknown
 
 export const useOrderControllerCreate = <
   TError = unknown,
@@ -83,31 +83,31 @@ export const useOrderControllerCreate = <
     TError,
     { data: CreateOrderBodyRequest },
     TContext
-  >;
-  request?: SecondParameter<typeof createInstance>;
+  >
+  request?: SecondParameter<typeof createInstance>
 }): UseMutationResult<
   Awaited<ReturnType<typeof orderControllerCreate>>,
   TError,
   { data: CreateOrderBodyRequest },
   TContext
 > => {
-  const mutationOptions = getOrderControllerCreateMutationOptions(options);
+  const mutationOptions = getOrderControllerCreateMutationOptions(options)
 
-  return useMutation(mutationOptions);
-};
+  return useMutation(mutationOptions)
+}
 export const orderControllerGetAll = (
   options?: SecondParameter<typeof createInstance>,
-  signal?: AbortSignal,
+  signal?: AbortSignal
 ) => {
   return createInstance<CreateOrderResponse[]>(
     { url: `/order`, method: "GET", signal },
-    options,
-  );
-};
+    options
+  )
+}
 
 export const getOrderControllerGetAllQueryKey = () => {
-  return [`/order`] as const;
-};
+  return [`/order`] as const
+}
 
 export const getOrderControllerGetAllQueryOptions = <
   TData = Awaited<ReturnType<typeof orderControllerGetAll>>,
@@ -119,28 +119,28 @@ export const getOrderControllerGetAllQueryOptions = <
       TError,
       TData
     >
-  >;
-  request?: SecondParameter<typeof createInstance>;
+  >
+  request?: SecondParameter<typeof createInstance>
 }) => {
-  const { query: queryOptions, request: requestOptions } = options ?? {};
+  const { query: queryOptions, request: requestOptions } = options ?? {}
 
-  const queryKey = queryOptions?.queryKey ?? getOrderControllerGetAllQueryKey();
+  const queryKey = queryOptions?.queryKey ?? getOrderControllerGetAllQueryKey()
 
   const queryFn: QueryFunction<
     Awaited<ReturnType<typeof orderControllerGetAll>>
-  > = ({ signal }) => orderControllerGetAll(requestOptions, signal);
+  > = ({ signal }) => orderControllerGetAll(requestOptions, signal)
 
   return { queryKey, queryFn, ...queryOptions } as UseQueryOptions<
     Awaited<ReturnType<typeof orderControllerGetAll>>,
     TError,
     TData
-  > & { queryKey: QueryKey };
-};
+  > & { queryKey: QueryKey }
+}
 
 export type OrderControllerGetAllQueryResult = NonNullable<
   Awaited<ReturnType<typeof orderControllerGetAll>>
->;
-export type OrderControllerGetAllQueryError = unknown;
+>
+export type OrderControllerGetAllQueryError = unknown
 
 export function useOrderControllerGetAll<
   TData = Awaited<ReturnType<typeof orderControllerGetAll>>,
@@ -160,9 +160,9 @@ export function useOrderControllerGetAll<
         TData
       >,
       "initialData"
-    >;
-  request?: SecondParameter<typeof createInstance>;
-}): DefinedUseQueryResult<TData, TError> & { queryKey: QueryKey };
+    >
+  request?: SecondParameter<typeof createInstance>
+}): DefinedUseQueryResult<TData, TError> & { queryKey: QueryKey }
 export function useOrderControllerGetAll<
   TData = Awaited<ReturnType<typeof orderControllerGetAll>>,
   TError = unknown,
@@ -181,9 +181,9 @@ export function useOrderControllerGetAll<
         TData
       >,
       "initialData"
-    >;
-  request?: SecondParameter<typeof createInstance>;
-}): UseQueryResult<TData, TError> & { queryKey: QueryKey };
+    >
+  request?: SecondParameter<typeof createInstance>
+}): UseQueryResult<TData, TError> & { queryKey: QueryKey }
 export function useOrderControllerGetAll<
   TData = Awaited<ReturnType<typeof orderControllerGetAll>>,
   TError = unknown,
@@ -194,9 +194,9 @@ export function useOrderControllerGetAll<
       TError,
       TData
     >
-  >;
-  request?: SecondParameter<typeof createInstance>;
-}): UseQueryResult<TData, TError> & { queryKey: QueryKey };
+  >
+  request?: SecondParameter<typeof createInstance>
+}): UseQueryResult<TData, TError> & { queryKey: QueryKey }
 
 export function useOrderControllerGetAll<
   TData = Awaited<ReturnType<typeof orderControllerGetAll>>,
@@ -208,29 +208,29 @@ export function useOrderControllerGetAll<
       TError,
       TData
     >
-  >;
-  request?: SecondParameter<typeof createInstance>;
+  >
+  request?: SecondParameter<typeof createInstance>
 }): UseQueryResult<TData, TError> & { queryKey: QueryKey } {
-  const queryOptions = getOrderControllerGetAllQueryOptions(options);
+  const queryOptions = getOrderControllerGetAllQueryOptions(options)
 
   const query = useQuery(queryOptions) as UseQueryResult<TData, TError> & {
-    queryKey: QueryKey;
-  };
+    queryKey: QueryKey
+  }
 
-  query.queryKey = queryOptions.queryKey;
+  query.queryKey = queryOptions.queryKey
 
-  return query;
+  return query
 }
 
 export const orderControllerDelete = (
   id: number,
-  options?: SecondParameter<typeof createInstance>,
+  options?: SecondParameter<typeof createInstance>
 ) => {
   return createInstance<number>(
     { url: `/order/${id}`, method: "DELETE" },
-    options,
-  );
-};
+    options
+  )
+}
 
 export const getOrderControllerDeleteMutationOptions = <
   TError = unknown,
@@ -241,33 +241,33 @@ export const getOrderControllerDeleteMutationOptions = <
     TError,
     { id: number },
     TContext
-  >;
-  request?: SecondParameter<typeof createInstance>;
+  >
+  request?: SecondParameter<typeof createInstance>
 }): UseMutationOptions<
   Awaited<ReturnType<typeof orderControllerDelete>>,
   TError,
   { id: number },
   TContext
 > => {
-  const { mutation: mutationOptions, request: requestOptions } = options ?? {};
+  const { mutation: mutationOptions, request: requestOptions } = options ?? {}
 
   const mutationFn: MutationFunction<
     Awaited<ReturnType<typeof orderControllerDelete>>,
     { id: number }
   > = (props) => {
-    const { id } = props ?? {};
+    const { id } = props ?? {}
 
-    return orderControllerDelete(id, requestOptions);
-  };
+    return orderControllerDelete(id, requestOptions)
+  }
 
-  return { mutationFn, ...mutationOptions };
-};
+  return { mutationFn, ...mutationOptions }
+}
 
 export type OrderControllerDeleteMutationResult = NonNullable<
   Awaited<ReturnType<typeof orderControllerDelete>>
->;
+>
 
-export type OrderControllerDeleteMutationError = unknown;
+export type OrderControllerDeleteMutationError = unknown
 
 export const useOrderControllerDelete = <
   TError = unknown,
@@ -278,15 +278,15 @@ export const useOrderControllerDelete = <
     TError,
     { id: number },
     TContext
-  >;
-  request?: SecondParameter<typeof createInstance>;
+  >
+  request?: SecondParameter<typeof createInstance>
 }): UseMutationResult<
   Awaited<ReturnType<typeof orderControllerDelete>>,
   TError,
   { id: number },
   TContext
 > => {
-  const mutationOptions = getOrderControllerDeleteMutationOptions(options);
+  const mutationOptions = getOrderControllerDeleteMutationOptions(options)
 
-  return useMutation(mutationOptions);
-};
+  return useMutation(mutationOptions)
+}

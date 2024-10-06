@@ -4,7 +4,7 @@
  * The cats API description
  * OpenAPI spec version: 1.0
  */
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query"
 import type {
   DefinedInitialDataOptions,
   DefinedUseQueryResult,
@@ -16,15 +16,15 @@ import type {
   UseMutationResult,
   UseQueryOptions,
   UseQueryResult,
-} from "@tanstack/react-query";
-import type { CarResponse, CreateCarBodyRequest } from "../model";
-import { createInstance } from "../api-instance";
+} from "@tanstack/react-query"
+import type { CarResponse, CreateCarBodyRequest } from "../model"
+import { createInstance } from "../api-instance"
 
-type SecondParameter<T extends (...args: any) => any> = Parameters<T>[1];
+type SecondParameter<T extends (...args: any) => any> = Parameters<T>[1]
 
 export const carControllerCreate = (
   createCarBodyRequest: CreateCarBodyRequest,
-  options?: SecondParameter<typeof createInstance>,
+  options?: SecondParameter<typeof createInstance>
 ) => {
   return createInstance<CarResponse>(
     {
@@ -33,9 +33,9 @@ export const carControllerCreate = (
       headers: { "Content-Type": "application/json" },
       data: createCarBodyRequest,
     },
-    options,
-  );
-};
+    options
+  )
+}
 
 export const getCarControllerCreateMutationOptions = <
   TError = unknown,
@@ -46,33 +46,33 @@ export const getCarControllerCreateMutationOptions = <
     TError,
     { data: CreateCarBodyRequest },
     TContext
-  >;
-  request?: SecondParameter<typeof createInstance>;
+  >
+  request?: SecondParameter<typeof createInstance>
 }): UseMutationOptions<
   Awaited<ReturnType<typeof carControllerCreate>>,
   TError,
   { data: CreateCarBodyRequest },
   TContext
 > => {
-  const { mutation: mutationOptions, request: requestOptions } = options ?? {};
+  const { mutation: mutationOptions, request: requestOptions } = options ?? {}
 
   const mutationFn: MutationFunction<
     Awaited<ReturnType<typeof carControllerCreate>>,
     { data: CreateCarBodyRequest }
   > = (props) => {
-    const { data } = props ?? {};
+    const { data } = props ?? {}
 
-    return carControllerCreate(data, requestOptions);
-  };
+    return carControllerCreate(data, requestOptions)
+  }
 
-  return { mutationFn, ...mutationOptions };
-};
+  return { mutationFn, ...mutationOptions }
+}
 
 export type CarControllerCreateMutationResult = NonNullable<
   Awaited<ReturnType<typeof carControllerCreate>>
->;
-export type CarControllerCreateMutationBody = CreateCarBodyRequest;
-export type CarControllerCreateMutationError = unknown;
+>
+export type CarControllerCreateMutationBody = CreateCarBodyRequest
+export type CarControllerCreateMutationError = unknown
 
 export const useCarControllerCreate = <
   TError = unknown,
@@ -83,31 +83,31 @@ export const useCarControllerCreate = <
     TError,
     { data: CreateCarBodyRequest },
     TContext
-  >;
-  request?: SecondParameter<typeof createInstance>;
+  >
+  request?: SecondParameter<typeof createInstance>
 }): UseMutationResult<
   Awaited<ReturnType<typeof carControllerCreate>>,
   TError,
   { data: CreateCarBodyRequest },
   TContext
 > => {
-  const mutationOptions = getCarControllerCreateMutationOptions(options);
+  const mutationOptions = getCarControllerCreateMutationOptions(options)
 
-  return useMutation(mutationOptions);
-};
+  return useMutation(mutationOptions)
+}
 export const carControllerGetAll = (
   options?: SecondParameter<typeof createInstance>,
-  signal?: AbortSignal,
+  signal?: AbortSignal
 ) => {
   return createInstance<CarResponse[]>(
     { url: `/car`, method: "GET", signal },
-    options,
-  );
-};
+    options
+  )
+}
 
 export const getCarControllerGetAllQueryKey = () => {
-  return [`/car`] as const;
-};
+  return [`/car`] as const
+}
 
 export const getCarControllerGetAllQueryOptions = <
   TData = Awaited<ReturnType<typeof carControllerGetAll>>,
@@ -119,28 +119,28 @@ export const getCarControllerGetAllQueryOptions = <
       TError,
       TData
     >
-  >;
-  request?: SecondParameter<typeof createInstance>;
+  >
+  request?: SecondParameter<typeof createInstance>
 }) => {
-  const { query: queryOptions, request: requestOptions } = options ?? {};
+  const { query: queryOptions, request: requestOptions } = options ?? {}
 
-  const queryKey = queryOptions?.queryKey ?? getCarControllerGetAllQueryKey();
+  const queryKey = queryOptions?.queryKey ?? getCarControllerGetAllQueryKey()
 
   const queryFn: QueryFunction<
     Awaited<ReturnType<typeof carControllerGetAll>>
-  > = ({ signal }) => carControllerGetAll(requestOptions, signal);
+  > = ({ signal }) => carControllerGetAll(requestOptions, signal)
 
   return { queryKey, queryFn, ...queryOptions } as UseQueryOptions<
     Awaited<ReturnType<typeof carControllerGetAll>>,
     TError,
     TData
-  > & { queryKey: QueryKey };
-};
+  > & { queryKey: QueryKey }
+}
 
 export type CarControllerGetAllQueryResult = NonNullable<
   Awaited<ReturnType<typeof carControllerGetAll>>
->;
-export type CarControllerGetAllQueryError = unknown;
+>
+export type CarControllerGetAllQueryError = unknown
 
 export function useCarControllerGetAll<
   TData = Awaited<ReturnType<typeof carControllerGetAll>>,
@@ -160,9 +160,9 @@ export function useCarControllerGetAll<
         TData
       >,
       "initialData"
-    >;
-  request?: SecondParameter<typeof createInstance>;
-}): DefinedUseQueryResult<TData, TError> & { queryKey: QueryKey };
+    >
+  request?: SecondParameter<typeof createInstance>
+}): DefinedUseQueryResult<TData, TError> & { queryKey: QueryKey }
 export function useCarControllerGetAll<
   TData = Awaited<ReturnType<typeof carControllerGetAll>>,
   TError = unknown,
@@ -181,9 +181,9 @@ export function useCarControllerGetAll<
         TData
       >,
       "initialData"
-    >;
-  request?: SecondParameter<typeof createInstance>;
-}): UseQueryResult<TData, TError> & { queryKey: QueryKey };
+    >
+  request?: SecondParameter<typeof createInstance>
+}): UseQueryResult<TData, TError> & { queryKey: QueryKey }
 export function useCarControllerGetAll<
   TData = Awaited<ReturnType<typeof carControllerGetAll>>,
   TError = unknown,
@@ -194,9 +194,9 @@ export function useCarControllerGetAll<
       TError,
       TData
     >
-  >;
-  request?: SecondParameter<typeof createInstance>;
-}): UseQueryResult<TData, TError> & { queryKey: QueryKey };
+  >
+  request?: SecondParameter<typeof createInstance>
+}): UseQueryResult<TData, TError> & { queryKey: QueryKey }
 
 export function useCarControllerGetAll<
   TData = Awaited<ReturnType<typeof carControllerGetAll>>,
@@ -208,29 +208,29 @@ export function useCarControllerGetAll<
       TError,
       TData
     >
-  >;
-  request?: SecondParameter<typeof createInstance>;
+  >
+  request?: SecondParameter<typeof createInstance>
 }): UseQueryResult<TData, TError> & { queryKey: QueryKey } {
-  const queryOptions = getCarControllerGetAllQueryOptions(options);
+  const queryOptions = getCarControllerGetAllQueryOptions(options)
 
   const query = useQuery(queryOptions) as UseQueryResult<TData, TError> & {
-    queryKey: QueryKey;
-  };
+    queryKey: QueryKey
+  }
 
-  query.queryKey = queryOptions.queryKey;
+  query.queryKey = queryOptions.queryKey
 
-  return query;
+  return query
 }
 
 export const carControllerDelete = (
   id: number,
-  options?: SecondParameter<typeof createInstance>,
+  options?: SecondParameter<typeof createInstance>
 ) => {
   return createInstance<number>(
     { url: `/car/${id}`, method: "DELETE" },
-    options,
-  );
-};
+    options
+  )
+}
 
 export const getCarControllerDeleteMutationOptions = <
   TError = unknown,
@@ -241,33 +241,33 @@ export const getCarControllerDeleteMutationOptions = <
     TError,
     { id: number },
     TContext
-  >;
-  request?: SecondParameter<typeof createInstance>;
+  >
+  request?: SecondParameter<typeof createInstance>
 }): UseMutationOptions<
   Awaited<ReturnType<typeof carControllerDelete>>,
   TError,
   { id: number },
   TContext
 > => {
-  const { mutation: mutationOptions, request: requestOptions } = options ?? {};
+  const { mutation: mutationOptions, request: requestOptions } = options ?? {}
 
   const mutationFn: MutationFunction<
     Awaited<ReturnType<typeof carControllerDelete>>,
     { id: number }
   > = (props) => {
-    const { id } = props ?? {};
+    const { id } = props ?? {}
 
-    return carControllerDelete(id, requestOptions);
-  };
+    return carControllerDelete(id, requestOptions)
+  }
 
-  return { mutationFn, ...mutationOptions };
-};
+  return { mutationFn, ...mutationOptions }
+}
 
 export type CarControllerDeleteMutationResult = NonNullable<
   Awaited<ReturnType<typeof carControllerDelete>>
->;
+>
 
-export type CarControllerDeleteMutationError = unknown;
+export type CarControllerDeleteMutationError = unknown
 
 export const useCarControllerDelete = <
   TError = unknown,
@@ -278,15 +278,15 @@ export const useCarControllerDelete = <
     TError,
     { id: number },
     TContext
-  >;
-  request?: SecondParameter<typeof createInstance>;
+  >
+  request?: SecondParameter<typeof createInstance>
 }): UseMutationResult<
   Awaited<ReturnType<typeof carControllerDelete>>,
   TError,
   { id: number },
   TContext
 > => {
-  const mutationOptions = getCarControllerDeleteMutationOptions(options);
+  const mutationOptions = getCarControllerDeleteMutationOptions(options)
 
-  return useMutation(mutationOptions);
-};
+  return useMutation(mutationOptions)
+}

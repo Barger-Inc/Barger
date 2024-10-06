@@ -4,24 +4,24 @@
  * The cats API description
  * OpenAPI spec version: 1.0
  */
-import { useMutation } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query"
 import type {
   MutationFunction,
   UseMutationOptions,
   UseMutationResult,
-} from "@tanstack/react-query";
-import { createInstance } from "../api-instance";
+} from "@tanstack/react-query"
+import { createInstance } from "../api-instance"
 
-type SecondParameter<T extends (...args: any) => any> = Parameters<T>[1];
+type SecondParameter<T extends (...args: any) => any> = Parameters<T>[1]
 
 export const orderManagementControllerCreateOrderManagement = (
-  options?: SecondParameter<typeof createInstance>,
+  options?: SecondParameter<typeof createInstance>
 ) => {
   return createInstance<number>(
     { url: `/order-management`, method: "POST" },
-    options,
-  );
-};
+    options
+  )
+}
 
 export const getOrderManagementControllerCreateOrderManagementMutationOptions =
   <TError = unknown, TContext = unknown>(options?: {
@@ -32,16 +32,15 @@ export const getOrderManagementControllerCreateOrderManagementMutationOptions =
       TError,
       void,
       TContext
-    >;
-    request?: SecondParameter<typeof createInstance>;
+    >
+    request?: SecondParameter<typeof createInstance>
   }): UseMutationOptions<
     Awaited<ReturnType<typeof orderManagementControllerCreateOrderManagement>>,
     TError,
     void,
     TContext
   > => {
-    const { mutation: mutationOptions, request: requestOptions } =
-      options ?? {};
+    const { mutation: mutationOptions, request: requestOptions } = options ?? {}
 
     const mutationFn: MutationFunction<
       Awaited<
@@ -49,19 +48,19 @@ export const getOrderManagementControllerCreateOrderManagementMutationOptions =
       >,
       void
     > = () => {
-      return orderManagementControllerCreateOrderManagement(requestOptions);
-    };
+      return orderManagementControllerCreateOrderManagement(requestOptions)
+    }
 
-    return { mutationFn, ...mutationOptions };
-  };
+    return { mutationFn, ...mutationOptions }
+  }
 
 export type OrderManagementControllerCreateOrderManagementMutationResult =
   NonNullable<
     Awaited<ReturnType<typeof orderManagementControllerCreateOrderManagement>>
-  >;
+  >
 
 export type OrderManagementControllerCreateOrderManagementMutationError =
-  unknown;
+  unknown
 
 export const useOrderManagementControllerCreateOrderManagement = <
   TError = unknown,
@@ -72,8 +71,8 @@ export const useOrderManagementControllerCreateOrderManagement = <
     TError,
     void,
     TContext
-  >;
-  request?: SecondParameter<typeof createInstance>;
+  >
+  request?: SecondParameter<typeof createInstance>
 }): UseMutationResult<
   Awaited<ReturnType<typeof orderManagementControllerCreateOrderManagement>>,
   TError,
@@ -81,7 +80,7 @@ export const useOrderManagementControllerCreateOrderManagement = <
   TContext
 > => {
   const mutationOptions =
-    getOrderManagementControllerCreateOrderManagementMutationOptions(options);
+    getOrderManagementControllerCreateOrderManagementMutationOptions(options)
 
-  return useMutation(mutationOptions);
-};
+  return useMutation(mutationOptions)
+}

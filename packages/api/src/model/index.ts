@@ -5,9 +5,9 @@
  * OpenAPI spec version: 1.0
  */
 
-export * from "./carResponse";
-export * from "./createCarBodyRequest";
-export * from "./createOrderBodyRequest";
-export * from "./createOrderResponse";
-export * from "./createProductBodyRequest";
-export * from "./createProductResponse";
+export * from "./carResponse"
+export * from "./createCarBodyRequest"
+export * from "./createOrderBodyRequest"
+export * from "./createOrderResponse"
+export * from "./createProductBodyRequest"
+export * from "./createProductResponse"

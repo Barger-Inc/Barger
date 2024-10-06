@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "exports": {
-    "./model": "./src/model/index.ts", 
-    "./generate": "./src/generate/index.ts" 
+    "./model": "./src/model/index.ts",
+    "./generate": "./src/generate/index.ts"
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",

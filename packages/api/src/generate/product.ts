@@ -4,7 +4,7 @@
  * The cats API description
  * OpenAPI spec version: 1.0
  */
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query"
 import type {
   DefinedInitialDataOptions,
   DefinedUseQueryResult,
@@ -16,15 +16,15 @@ import type {
   UseMutationResult,
   UseQueryOptions,
   UseQueryResult,
-} from "@tanstack/react-query";
-import type { CreateProductBodyRequest, CreateProductResponse } from "../model";
-import { createInstance } from "../api-instance";
+} from "@tanstack/react-query"
+import type { CreateProductBodyRequest, CreateProductResponse } from "../model"
+import { createInstance } from "../api-instance"
 
-type SecondParameter<T extends (...args: any) => any> = Parameters<T>[1];
+type SecondParameter<T extends (...args: any) => any> = Parameters<T>[1]
 
 export const productControllerCreate = (
   createProductBodyRequest: CreateProductBodyRequest,
-  options?: SecondParameter<typeof createInstance>,
+  options?: SecondParameter<typeof createInstance>
 ) => {
   return createInstance<CreateProductResponse>(
     {
@@ -33,9 +33,9 @@ export const productControllerCreate = (
       headers: { "Content-Type": "application/json" },
       data: createProductBodyRequest,
     },
-    options,
-  );
-};
+    options
+  )
+}
 
 export const getProductControllerCreateMutationOptions = <
   TError = unknown,
@@ -46,33 +46,33 @@ export const getProductControllerCreateMutationOptions = <
     TError,
     { data: CreateProductBodyRequest },
     TContext
-  >;
-  request?: SecondParameter<typeof createInstance>;
+  >
+  request?: SecondParameter<typeof createInstance>
 }): UseMutationOptions<
   Awaited<ReturnType<typeof productControllerCreate>>,
   TError,
   { data: CreateProductBodyRequest },
   TContext
 > => {
-  const { mutation: mutationOptions, request: requestOptions } = options ?? {};
+  const { mutation: mutationOptions, request: requestOptions } = options ?? {}
 
   const mutationFn: MutationFunction<
     Awaited<ReturnType<typeof productControllerCreate>>,
     { data: CreateProductBodyRequest }
   > = (props) => {
-    const { data } = props ?? {};
+    const { data } = props ?? {}
 
-    return productControllerCreate(data, requestOptions);
-  };
+    return productControllerCreate(data, requestOptions)
+  }
 
-  return { mutationFn, ...mutationOptions };
-};
+  return { mutationFn, ...mutationOptions }
+}
 
 export type ProductControllerCreateMutationResult = NonNullable<
   Awaited<ReturnType<typeof productControllerCreate>>
->;
-export type ProductControllerCreateMutationBody = CreateProductBodyRequest;
-export type ProductControllerCreateMutationError = unknown;
+>
+export type ProductControllerCreateMutationBody = CreateProductBodyRequest
+export type ProductControllerCreateMutationError = unknown
 
 export const useProductControllerCreate = <
   TError = unknown,
@@ -83,31 +83,31 @@ export const useProductControllerCreate = <
     TError,
     { data: CreateProductBodyRequest },
     TContext
-  >;
-  request?: SecondParameter<typeof createInstance>;
+  >
+  request?: SecondParameter<typeof createInstance>
 }): UseMutationResult<
   Awaited<ReturnType<typeof productControllerCreate>>,
   TError,
   { data: CreateProductBodyRequest },
   TContext
 > => {
-  const mutationOptions = getProductControllerCreateMutationOptions(options);
+  const mutationOptions = getProductControllerCreateMutationOptions(options)
 
-  return useMutation(mutationOptions);
-};
+  return useMutation(mutationOptions)
+}
 export const productControllerGetAll = (
   options?: SecondParameter<typeof createInstance>,
-  signal?: AbortSignal,
+  signal?: AbortSignal
 ) => {
   return createInstance<CreateProductResponse[]>(
     { url: `/product`, method: "GET", signal },
-    options,
-  );
-};
+    options
+  )
+}
 
 export const getProductControllerGetAllQueryKey = () => {
-  return [`/product`] as const;
-};
+  return [`/product`] as const
+}
 
 export const getProductControllerGetAllQueryOptions = <
   TData = Awaited<ReturnType<typeof productControllerGetAll>>,
@@ -119,29 +119,29 @@ export const getProductControllerGetAllQueryOptions = <
       TError,
       TData
     >
-  >;
-  request?: SecondParameter<typeof createInstance>;
+  >
+  request?: SecondParameter<typeof createInstance>
 }) => {
-  const { query: queryOptions, request: requestOptions } = options ?? {};
+  const { query: queryOptions, request: requestOptions } = options ?? {}
 
   const queryKey =
-    queryOptions?.queryKey ?? getProductControllerGetAllQueryKey();
+    queryOptions?.queryKey ?? getProductControllerGetAllQueryKey()
 
   const queryFn: QueryFunction<
     Awaited<ReturnType<typeof productControllerGetAll>>
-  > = ({ signal }) => productControllerGetAll(requestOptions, signal);
+  > = ({ signal }) => productControllerGetAll(requestOptions, signal)
 
   return { queryKey, queryFn, ...queryOptions } as UseQueryOptions<
     Awaited<ReturnType<typeof productControllerGetAll>>,
     TError,
     TData
-  > & { queryKey: QueryKey };
-};
+  > & { queryKey: QueryKey }
+}
 
 export type ProductControllerGetAllQueryResult = NonNullable<
   Awaited<ReturnType<typeof productControllerGetAll>>
->;
-export type ProductControllerGetAllQueryError = unknown;
+>
+export type ProductControllerGetAllQueryError = unknown
 
 export function useProductControllerGetAll<
   TData = Awaited<ReturnType<typeof productControllerGetAll>>,
@@ -161,9 +161,9 @@ export function useProductControllerGetAll<
         TData
       >,
       "initialData"
-    >;
-  request?: SecondParameter<typeof createInstance>;
-}): DefinedUseQueryResult<TData, TError> & { queryKey: QueryKey };
+    >
+  request?: SecondParameter<typeof createInstance>
+}): DefinedUseQueryResult<TData, TError> & { queryKey: QueryKey }
 export function useProductControllerGetAll<
   TData = Awaited<ReturnType<typeof productControllerGetAll>>,
   TError = unknown,
@@ -182,9 +182,9 @@ export function useProductControllerGetAll<
         TData
       >,
       "initialData"
-    >;
-  request?: SecondParameter<typeof createInstance>;
-}): UseQueryResult<TData, TError> & { queryKey: QueryKey };
+    >
+  request?: SecondParameter<typeof createInstance>
+}): UseQueryResult<TData, TError> & { queryKey: QueryKey }
 export function useProductControllerGetAll<
   TData = Awaited<ReturnType<typeof productControllerGetAll>>,
   TError = unknown,
@@ -195,9 +195,9 @@ export function useProductControllerGetAll<
       TError,
       TData
     >
-  >;
-  request?: SecondParameter<typeof createInstance>;
-}): UseQueryResult<TData, TError> & { queryKey: QueryKey };
+  >
+  request?: SecondParameter<typeof createInstance>
+}): UseQueryResult<TData, TError> & { queryKey: QueryKey }
 
 export function useProductControllerGetAll<
   TData = Awaited<ReturnType<typeof productControllerGetAll>>,
@@ -209,29 +209,29 @@ export function useProductControllerGetAll<
       TError,
       TData
     >
-  >;
-  request?: SecondParameter<typeof createInstance>;
+  >
+  request?: SecondParameter<typeof createInstance>
 }): UseQueryResult<TData, TError> & { queryKey: QueryKey } {
-  const queryOptions = getProductControllerGetAllQueryOptions(options);
+  const queryOptions = getProductControllerGetAllQueryOptions(options)
 
   const query = useQuery(queryOptions) as UseQueryResult<TData, TError> & {
-    queryKey: QueryKey;
-  };
+    queryKey: QueryKey
+  }
 
-  query.queryKey = queryOptions.queryKey;
+  query.queryKey = queryOptions.queryKey
 
-  return query;
+  return query
 }
 
 export const productControllerDelete = (
   id: number,
-  options?: SecondParameter<typeof createInstance>,
+  options?: SecondParameter<typeof createInstance>
 ) => {
   return createInstance<void>(
     { url: `/product/${id}`, method: "DELETE" },
-    options,
-  );
-};
+    options
+  )
+}
 
 export const getProductControllerDeleteMutationOptions = <
   TError = unknown,
@@ -242,33 +242,33 @@ export const getProductControllerDeleteMutationOptions = <
     TError,
     { id: number },
     TContext
-  >;
-  request?: SecondParameter<typeof createInstance>;
+  >
+  request?: SecondParameter<typeof createInstance>
 }): UseMutationOptions<
   Awaited<ReturnType<typeof productControllerDelete>>,
   TError,
   { id: number },
   TContext
 > => {
-  const { mutation: mutationOptions, request: requestOptions } = options ?? {};
+  const { mutation: mutationOptions, request: requestOptions } = options ?? {}
 
   const mutationFn: MutationFunction<
     Awaited<ReturnType<typeof productControllerDelete>>,
     { id: number }
   > = (props) => {
-    const { id } = props ?? {};
+    const { id } = props ?? {}
 
-    return productControllerDelete(id, requestOptions);
-  };
+    return productControllerDelete(id, requestOptions)
+  }
 
-  return { mutationFn, ...mutationOptions };
-};
+  return { mutationFn, ...mutationOptions }
+}
 
 export type ProductControllerDeleteMutationResult = NonNullable<
   Awaited<ReturnType<typeof productControllerDelete>>
->;
+>
 
-export type ProductControllerDeleteMutationError = unknown;
+export type ProductControllerDeleteMutationError = unknown
 
 export const useProductControllerDelete = <
   TError = unknown,
@@ -279,15 +279,15 @@ export const useProductControllerDelete = <
     TError,
     { id: number },
     TContext
-  >;
-  request?: SecondParameter<typeof createInstance>;
+  >
+  request?: SecondParameter<typeof createInstance>
 }): UseMutationResult<
   Awaited<ReturnType<typeof productControllerDelete>>,
   TError,
   { id: number },
   TContext
 > => {
-  const mutationOptions = getProductControllerDeleteMutationOptions(options);
+  const mutationOptions = getProductControllerDeleteMutationOptions(options)
 
-  return useMutation(mutationOptions);
-};
+  return useMutation(mutationOptions)
+}

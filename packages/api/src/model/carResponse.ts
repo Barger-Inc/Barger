@@ -6,8 +6,8 @@
  */
 
 export interface CarResponse {
-  id: number;
-  liftingCapacity: number;
-  number: string;
-  volume: number;
+  id: number
+  liftingCapacity: number
+  number: string
+  volume: number
 }
