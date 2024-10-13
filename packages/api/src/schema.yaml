@@ -1,0 +1,263 @@
+openapi: 3.0.0
+paths:
+  /car:
+    post:
+      operationId: CarController_create
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCarBodyRequest'
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CarResponse'
+      tags:
+        - car
+    get:
+      operationId: CarController_getAll
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CarResponse'
+      tags:
+        - car
+  /car/{id}:
+    delete:
+      operationId: CarController_delete
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: number
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: number
+      tags:
+        - car
+  /product:
+    post:
+      operationId: ProductController_create
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateProductBodyRequest'
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateProductResponse'
+      tags:
+        - product
+    get:
+      operationId: ProductController_getAll
+      parameters: []
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CreateProductResponse'
+      tags:
+        - product
+  /product/{id}:
+    delete:
+      operationId: ProductController_delete
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: number
+      responses:
+        '200':
+          description: ''
+      tags:
+        - product
+  /order:
+    post:
+      operationId: OrderController_create
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateOrderBodyRequest'
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateOrderResponse'
+      tags:
+        - order
+    get:
+      operationId: OrderController_getAll
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CreateOrderResponse'
+      tags:
+        - order
+  /order/{id}:
+    delete:
+      operationId: OrderController_delete
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: number
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: number
+      tags:
+        - order
+  /order-management:
+    post:
+      operationId: OrderManagementController_createOrderManagement
+      parameters: []
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: number
+      tags:
+        - ordermanagmant
+info:
+  title: ''
+  description: The cats API description
+  version: '1.0'
+  contact: {}
+tags: []
+servers: []
+components:
+  schemas:
+    CreateCarBodyRequest:
+      type: object
+      properties:
+        number:
+          type: string
+        liftingCapacity:
+          type: number
+        volume:
+          type: number
+      required:
+        - number
+        - liftingCapacity
+        - volume
+    CarResponse:
+      type: object
+      properties:
+        id:
+          type: number
+        number:
+          type: string
+        liftingCapacity:
+          type: number
+        volume:
+          type: number
+      required:
+        - id
+        - number
+        - liftingCapacity
+        - volume
+    CreateProductBodyRequest:
+      type: object
+      properties:
+        name:
+          type: string
+      required:
+        - name
+    CreateProductResponse:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+      required:
+        - id
+        - name
+    CreateOrderBodyRequest:
+      type: object
+      properties:
+        volume:
+          type: number
+        weight:
+          type: number
+        productId:
+          type: number
+        distance:
+          type: number
+        days:
+          type: number
+      required:
+        - volume
+        - weight
+        - productId
+        - distance
+        - days
+    CreateOrderResponse:
+      type: object
+      properties:
+        id:
+          type: number
+        volume:
+          type: number
+        weight:
+          type: number
+        productId:
+          type: number
+        distance:
+          type: number
+        days:
+          type: number
+        start:
+          type: number
+      required:
+        - id
+        - volume
+        - weight
+        - productId
+        - distance
+        - days
+        - start

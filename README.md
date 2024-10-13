@@ -1,3 +1,11 @@
-# Barger
+# Подготовка проекта к старту
 
-Headless self-hosted CMS
+```sh
+yarn
+```
+
+## Запуск проекта
+
+```sh
+yarn dev
+```
