@@ -1,5 +1,5 @@
 {
   "css.customData": [".vscode/tailwind.json"],
-  "editor.indentSize": 2,
-  "editor.defaultFormatter": "biomejs.biome",
+  "editor.indentSize": 2
+  // "editor.defaultFormatter": "biomejs.biome"
 }
