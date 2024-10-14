@@ -11,7 +11,7 @@ type SidePanelProps = {
 
 export const SidePanel = (props: SidePanelProps) => {
   return (
-    <div className="w-64 border-border border-r h-screen flex flex-col p-4">
+    <div className="w-64 border-border border-r h-screen flex flex-col p-2">
       {props.links.map((link) => (
         <Link
           key={link.href}
