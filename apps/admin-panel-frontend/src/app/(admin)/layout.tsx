@@ -41,7 +41,7 @@ export default function RootLayout({
         ]}
       />
       <main>
-        <NextTopLoader />
+        <NextTopLoader showSpinner={false} />
         {children}
       </main>
     </div>
