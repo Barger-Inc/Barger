@@ -1,4 +1,4 @@
-import Providers from "@/src/shared/utils/providers"
+import Providers from "@/shared/utils/providers"
 import type { Metadata } from "next"
 import localFont from "next/font/local"
 import "./globals.css"
