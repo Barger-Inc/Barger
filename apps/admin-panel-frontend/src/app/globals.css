@@ -4,7 +4,6 @@
 
 body {
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
-  @apply bg-foreground text-primary-foreground;
 }
 
 @layer base {
