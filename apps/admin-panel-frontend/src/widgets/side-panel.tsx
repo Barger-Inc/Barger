@@ -1,4 +1,4 @@
-import { buttonVariants } from "@/shared/ui/button"
+import { buttonVariants } from "@/shared/ui/privitive-button"
 import { cn } from "@/shared/utils"
 import Link from "next/link"
 import { ThemeToggle } from "./theme-toggle"
