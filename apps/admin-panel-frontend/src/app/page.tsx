@@ -3,8 +3,8 @@ import { Input } from "@/shared/ui/input"
 
 export default function Home() {
   return (
-    <div className="flex flex-col">
-      <Input value={"123"} />
+    <div className="flex flex-col p-4 gap-4">
+      <Input />
       <Button children="Test" />
     </div>
   )
