@@ -12,25 +12,32 @@ type SidePanelProps = {
 
 export const SidePanel = (props: SidePanelProps) => {
   return (
-    <div className="w-64 border-border border-r h-screen flex flex-col p-2">
-      <div className="flex flex-col flex-1">
-        {props.links.map((link) => (
-          <Link
-            key={link.href}
-            href={link.href}
-            children={link.title}
-            className={cn(
-              buttonVariants({
-                variant: "ghost",
-                size: "sm",
-              }),
-              "justify-start"
-            )}
-          />
-        ))}
-      </div>
+    <>
+      <div className="h-screen w-64 border-r border-transparent" />
+      <div
+        className={
+          "fixed w-64 border-border border-r h-screen flex flex-col p-2"
+        }
+      >
+        <div className="flex flex-col flex-1">
+          {props.links.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              children={link.title}
+              className={cn(
+                buttonVariants({
+                  variant: "ghost",
+                  size: "sm",
+                }),
+                "justify-start"
+              )}
+            />
+          ))}
+        </div>
 
-      <ThemeToggle />
-    </div>
+        <ThemeToggle />
+      </div>
+    </>
   )
 }

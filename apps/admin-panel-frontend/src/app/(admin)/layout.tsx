@@ -1,11 +1,11 @@
 import { SidePanel } from "@/widgets/side-panel"
 import NextTopLoader from "nextjs-toploader"
 
-export default function RootLayout({
-  children,
-}: Readonly<{
+type RootLayoutProps = Readonly<{
   children: React.ReactNode
-}>) {
+}>
+
+export default function RootLayout(props: RootLayoutProps) {
   return (
     <div className="flex">
       <SidePanel
@@ -42,7 +42,7 @@ export default function RootLayout({
       />
       <main>
         <NextTopLoader showSpinner={false} />
-        {children}
+        {props.children}
       </main>
     </div>
   )
