@@ -4,6 +4,7 @@ import {
   forwardRef,
   useMemo,
 } from "react"
+import { cn } from "../utils"
 import { getIconProps } from "../utils/get-icon-props"
 import { Icon, type IconProps } from "./icon"
 import { PrimitiveButton } from "./privitive-button"
@@ -62,11 +63,14 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props) => {
   )
 
   return (
-    <PrimitiveButton {...otherProps}>
+    <PrimitiveButton
+      {...otherProps}
+      className={cn(props.icon && "w-9 px-0", otherProps.className)}
+    >
       {before}
       {memoizedLeadingIcon}
       {memoizedIcon}
-      <span className="text-center w-full">{label}</span>
+      {label && <span className="text-center w-full">{label}</span>}
       {memoizedTrailingIcon}
       {after}
     </PrimitiveButton>
