@@ -7,22 +7,11 @@ export default function Page() {
 
       <div className="flex gap-2">
         <Button
-          leadingIcon={{
-            name: "attach",
-          }}
-          trailingIcon={{
-            name: "attach",
-          }}
+          leadingIcon={"attach"}
+          trailingIcon={"attach"}
           label="Click me"
         />
-
-        <Button
-          variant={"secondary"}
-          label="123"
-          leadingIcon={{
-            name: "attach",
-          }}
-        />
+        <Button variant={"secondary"} label="123" leadingIcon={"attach"} />
       </div>
     </div>
   )

@@ -4,19 +4,20 @@ import {
   forwardRef,
   useMemo,
 } from "react"
+import type { IconResolvable } from "../types/icon-resolvable"
 import { cn } from "../utils"
 import { getIconProps } from "../utils/get-icon-props"
-import { Icon, type IconProps } from "./icon"
+import { Icon } from "./icon"
 import { PrimitiveButton } from "./privitive-button"
 
 type ButtonProps = {
   before?: ReactNode
   after?: ReactNode
-  leadingIcon?: IconProps
-  trailingIcon?: IconProps
+  leadingIcon?: IconResolvable
+  trailingIcon?: IconResolvable
 } & (
   | {
-      icon?: IconProps
+      icon?: IconResolvable
       label?: undefined
     }
   | {

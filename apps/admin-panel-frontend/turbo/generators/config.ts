@@ -21,7 +21,6 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
               const name = file.replace(".svg", "")
               return `  | "${name}"`
             }),
-            "  | ({} & string)",
           ].join("\n")
         },
       },

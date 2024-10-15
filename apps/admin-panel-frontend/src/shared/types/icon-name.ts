@@ -8,4 +8,3 @@ export type IconName =
   | "profile"
   | "user"
   | "users"
-  | ({} & string)
