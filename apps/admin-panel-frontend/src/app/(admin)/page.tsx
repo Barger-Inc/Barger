@@ -9,19 +9,18 @@ export default function Page() {
         <Button
           leadingIcon={{
             name: "attach",
-            color: "black",
           }}
           trailingIcon={{
             name: "attach",
-            color: "black",
           }}
           label="Click me"
         />
 
         <Button
-          icon={{
+          variant={"secondary"}
+          label="123"
+          leadingIcon={{
             name: "attach",
-            color: "black",
           }}
         />
       </div>

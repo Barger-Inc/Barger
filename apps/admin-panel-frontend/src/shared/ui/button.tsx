@@ -2,7 +2,9 @@ import {
   type ComponentPropsWithoutRef,
   type ReactNode,
   forwardRef,
+  useMemo,
 } from "react"
+import { getIconProps } from "../utils/get-icon-props"
 import { Icon, type IconProps } from "./icon"
 import { PrimitiveButton } from "./privitive-button"
 
@@ -11,9 +13,17 @@ type ButtonProps = {
   after?: ReactNode
   leadingIcon?: IconProps
   trailingIcon?: IconProps
-  icon?: IconProps
-  label?: string
-} & ComponentPropsWithoutRef<typeof PrimitiveButton>
+} & (
+  | {
+      icon?: IconProps
+      label?: undefined
+    }
+  | {
+      icon?: undefined
+      label?: string
+    }
+) &
+  ComponentPropsWithoutRef<typeof PrimitiveButton>
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props) => {
   const {
@@ -26,25 +36,38 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props) => {
     ...otherProps
   } = props
 
+  const memoizedLeadingIcon = useMemo(
+    () =>
+      leadingIcon && (
+        <span className="mr-2">
+          <Icon {...getIconProps(leadingIcon, { size: 16 })} />
+        </span>
+      ),
+    [leadingIcon]
+  )
+
+  const memoizedIcon = useMemo(
+    () => icon && <Icon {...getIconProps(icon, { size: 16 })} />,
+    [icon]
+  )
+
+  const memoizedTrailingIcon = useMemo(
+    () =>
+      trailingIcon && (
+        <span className="ml-2">
+          <Icon {...getIconProps(trailingIcon, { size: 16 })} />
+        </span>
+      ),
+    [trailingIcon]
+  )
+
   return (
     <PrimitiveButton {...otherProps}>
       {before}
-      {leadingIcon && (
-        <span className="mr-2">
-          <Icon size={16} {...leadingIcon} />
-        </span>
-      )}
-      {icon && (
-        <span>
-          <Icon size={16} {...icon} />
-        </span>
-      )}
+      {memoizedLeadingIcon}
+      {memoizedIcon}
       <span className="text-center w-full">{label}</span>
-      {trailingIcon && (
-        <span className="ml-2">
-          <Icon size={16} {...trailingIcon} />
-        </span>
-      )}
+      {memoizedTrailingIcon}
       {after}
     </PrimitiveButton>
   )

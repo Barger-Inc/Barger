@@ -18,7 +18,7 @@ export const Icon = (props: IconProps) => {
       maskImage: `url(/icons/${props.name}.svg)`,
       maskPosition: "center center",
       maskSize: "var(--size)",
-      color: props.color,
+      color: props.color ?? "currentcolor",
     }),
     [size, props.name, props.color]
   )
