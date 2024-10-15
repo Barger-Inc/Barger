@@ -13,34 +13,41 @@ export default function RootLayout(props: RootLayoutProps) {
           {
             href: "/",
             title: "Home",
+            icon: "home",
           },
           {
             href: "/profile",
             title: "Profile",
+            icon: "profile",
           },
           {
             href: "/users",
             title: "Users",
+            icon: "users",
           },
           {
             href: "/collections",
             title: "Collections",
+            icon: "database",
           },
           {
             href: "/content",
             title: "Content",
+            icon: "posts-carousel",
           },
           {
             href: "/media",
             title: "Media",
+            icon: "photo",
           },
           {
             href: "/settings",
             title: "Settings",
+            icon: "gear",
           },
         ]}
       />
-      <main>
+      <main className="flex-1">
         <NextTopLoader showSpinner={false} />
         {props.children}
       </main>

@@ -1,9 +1,10 @@
 import { cn } from "@/shared/utils/cn"
 import type { ClassValue } from "clsx"
 import { type CSSProperties, useMemo } from "react"
+import type { IconName } from "../types/icon-name"
 
 export type IconProps = {
-  name: string
+  name: IconName
   size?: number
   color?: string
   className?: ClassValue

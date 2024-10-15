@@ -1,5 +1,6 @@
 "use client"
 
+import type { IconName } from "@/shared/types/icon-name"
 import { Button } from "@/shared/ui/button"
 import { Icon } from "@/shared/ui/icon"
 import { buttonVariants } from "@/shared/ui/privitive-button"
@@ -12,12 +13,12 @@ type SidePanelProps = {
   links: {
     href: string
     title: string
-    icon: string
+    icon: IconName
   }[]
 }
 
 export const SidePanel = (props: SidePanelProps) => {
-  const [isCollapsed, setIsCollapsed] = useState(true)
+  const [isCollapsed, setIsCollapsed] = useState(false)
 
   return (
     <>
