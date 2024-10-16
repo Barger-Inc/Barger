@@ -31,6 +31,9 @@
         "noCommentText": "warn",
         "noConsoleLog": "info",
         "noSelfCompare": "error"
+      },
+      "a11y": {
+        "useKeyWithClickEvents": "off"
       }
     }
   },
