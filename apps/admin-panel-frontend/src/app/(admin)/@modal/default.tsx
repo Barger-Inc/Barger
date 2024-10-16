@@ -1,7 +1,3 @@
-import type { FC } from "react"
-
-const Default: FC = () => {
+export default function Default() {
   return null
 }
-
-export default Default
