@@ -2,6 +2,8 @@ import { SidePanel } from "@/widgets/side-panel"
 import NextTopLoader from "nextjs-toploader"
 import type { ReactNode } from "react"
 
+const SHOW_TOP_LOADER = false
+
 type RootLayoutProps = Readonly<{
   children: ReactNode
   modal: ReactNode
@@ -51,7 +53,7 @@ export default function Layout(props: RootLayoutProps) {
           ]}
         />
         <main className="flex-1">
-          <NextTopLoader showSpinner={false} />
+          {SHOW_TOP_LOADER && <NextTopLoader showSpinner={false} />}
           {props.children}
         </main>
       </div>
