@@ -4,7 +4,16 @@ export default function Page() {
   return (
     <div>
       <h1>Media Page</h1>
-      <Link href={"/media/preview"} children="Open modal" />
+      <Link
+        className="block"
+        href={"/media/1"}
+        children="Open media preview 1"
+      />
+      <Link
+        className="block"
+        href={"/media/2"}
+        children="Open media preview 2"
+      />
     </div>
   )
 }

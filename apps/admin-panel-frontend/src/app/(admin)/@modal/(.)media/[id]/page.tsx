@@ -1,11 +1,18 @@
 import { DialogContent } from "@/shared/ui/dialog"
 import { DialogUncontrolled } from "@/shared/ui/dialog-uncontrolled"
+import { MediaPreview } from "@/widgets/media-preview"
 
-const Page = async () => {
+const Page = async ({
+  params: { id },
+}: {
+  params: {
+    id: number
+  }
+}) => {
   return (
     <DialogUncontrolled>
       <DialogContent>
-        <h1>Test</h1>
+        <MediaPreview id={id} />
       </DialogContent>
     </DialogUncontrolled>
   )
