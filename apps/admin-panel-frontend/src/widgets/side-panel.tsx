@@ -24,7 +24,7 @@ export const SidePanel = (props: SidePanelProps) => {
       <div className={cn("h-screen w-64", isCollapsed && "w-20")} />
       <div
         className={cn(
-          "fixed w-64 border-border border-r h-screen flex flex-col p-2",
+          "fixed w-64 border-gray-6 border-r h-screen flex flex-col p-2",
           isCollapsed && "w-20"
         )}
       >
@@ -49,7 +49,7 @@ export const SidePanel = (props: SidePanelProps) => {
                   href={link.href}
                   className="flex !gap-[var(--button-ghost-padding-x)] !justify-start"
                 >
-                  <Icon size={24} name={link.icon} />
+                  <Icon size={20} name={link.icon} />
                   {!isCollapsed && <span children={link.title} />}
                 </Link>
               </Button>

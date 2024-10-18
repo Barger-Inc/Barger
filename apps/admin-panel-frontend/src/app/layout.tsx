@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   title: "Barger",
 }
 
-export default function RootLayout({
+export default function Layout({
   children,
   modal,
 }: Readonly<{
