@@ -1,10 +1,9 @@
 "use client"
 
 import type { IconName } from "@/shared/types/icon-name"
-import { Button } from "@/shared/ui/button"
 import { Icon } from "@/shared/ui/icon"
-import { buttonVariants } from "@/shared/ui/privitive-button"
 import { cn } from "@/shared/utils"
+import { Button, IconButton } from "@radix-ui/themes"
 import Link from "next/link"
 import { useState } from "react"
 import { ThemeToggle } from "./theme-toggle"
@@ -30,37 +29,31 @@ export const SidePanel = (props: SidePanelProps) => {
         )}
       >
         <div className="flex gap-2 items-center px-3 pb-2">
-          <Button
+          {/* TODO: Change component */}
+          <IconButton
             variant={"outline"}
-            icon={{ name: "menu" }}
             onClick={() => {
               setIsCollapsed(!isCollapsed)
             }}
-          />
+          >
+            <Icon size={16} name="home" />
+          </IconButton>
           {!isCollapsed && <h1>Barger</h1>}
         </div>
 
         <div className="flex flex-col flex-1">
           {props.links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              children={
-                <>
-                  {link.icon && (
-                    <Icon name={link.icon} size={16} className="mr-2" />
-                  )}
-                  {!isCollapsed && <span>{link.title}</span>}
-                </>
-              }
-              className={cn(
-                buttonVariants({
-                  variant: "ghost",
-                  size: "sm",
-                }),
-                "justify-start"
-              )}
-            />
+            <div key={link.href} className="relative flex flex-col">
+              <Button className="!m-0" variant="ghost" asChild>
+                <Link
+                  href={link.href}
+                  className="flex !gap-[var(--button-ghost-padding-x)] !justify-start"
+                >
+                  <Icon size={24} name={link.icon} />
+                  {!isCollapsed && <span children={link.title} />}
+                </Link>
+              </Button>
+            </div>
           ))}
         </div>
 

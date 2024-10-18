@@ -2,69 +2,172 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 10% 3.9%;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
+:root,
+.light,
+.light-theme,
+.radix-themes {
+  --color-background: #fff;
+}
+
+.dark,
+.dark-theme,
+:is(.dark, .dark-theme) :where(.radix-themes:not(.light, .light-theme)) {
+  --color-background: #111;
+}
+
+:root,
+.light,
+.light-theme,
+.radix-themes {
+  --indigo-1: #fcfdff;
+  --indigo-2: #f6f9ff;
+  --indigo-3: #eaf3ff;
+  --indigo-4: #dcebff;
+  --indigo-5: #cae1ff;
+  --indigo-6: #b6d4ff;
+  --indigo-7: #9dc2fb;
+  --indigo-8: #79a9f4;
+  --indigo-9: #1868db;
+  --indigo-10: #0059cb;
+  --indigo-11: #1666d9;
+  --indigo-12: #103063;
+
+  --indigo-a1: #0055ff03;
+  --indigo-a2: #0055ff09;
+  --indigo-a3: #006eff15;
+  --indigo-a4: #006eff23;
+  --indigo-a5: #006fff35;
+  --indigo-a6: #0069ff49;
+  --indigo-a7: #0061f562;
+  --indigo-a8: #005ceb86;
+  --indigo-a9: #0058d7e7;
+  --indigo-a10: #0059cb;
+  --indigo-a11: #0058d5e9;
+  --indigo-a12: #002259ef;
+
+  --indigo-contrast: #fff;
+  --indigo-surface: #f4f8ffcc;
+  --indigo-indicator: #1868db;
+  --indigo-track: #1868db;
+}
+
+@supports (color: color(display-p3 1 1 1)) {
+  @media (color-gamut: p3) {
+    :root,
+    .light,
+    .light-theme,
+    .radix-themes {
+      --indigo-1: oklch(99.4% 0.0025 259);
+      --indigo-2: oklch(98.2% 0.0091 259);
+      --indigo-3: oklch(96% 0.019 259);
+      --indigo-4: oklch(93.6% 0.0365 259);
+      --indigo-5: oklch(90.5% 0.0541 259);
+      --indigo-6: oklch(86.3% 0.0721 259);
+      --indigo-7: oklch(80.8% 0.0905 259);
+      --indigo-8: oklch(73.3% 0.1213 259);
+      --indigo-9: oklch(54.1% 0.1913 259);
+      --indigo-10: oklch(49.4% 0.1913 259);
+      --indigo-11: oklch(53.5% 0.1913 259);
+      --indigo-12: oklch(31.9% 0.0967 259);
+
+      --indigo-a1: color(display-p3 0.0235 0.349 1 / 0.012);
+      --indigo-a2: color(display-p3 0.0196 0.2667 0.8784 / 0.032);
+      --indigo-a3: color(display-p3 0.0078 0.3725 0.949 / 0.075);
+      --indigo-a4: color(display-p3 0.0078 0.3804 0.9412 / 0.126);
+      --indigo-a5: color(display-p3 0.0078 0.3725 0.9412 / 0.193);
+      --indigo-a6: color(display-p3 0.0039 0.3451 0.9412 / 0.263);
+      --indigo-a7: color(display-p3 0.0039 0.3216 0.902 / 0.357);
+      --indigo-a8: color(display-p3 0.0039 0.302 0.8627 / 0.487);
+      --indigo-a9: color(display-p3 0 0.2549 0.7922 / 0.804);
+      --indigo-a10: color(display-p3 0 0.2392 0.7294 / 0.859);
+      --indigo-a11: color(display-p3 0 0.2471 0.7804 / 0.808);
+      --indigo-a12: color(display-p3 0 0.0941 0.3098 / 0.902);
+
+      --indigo-contrast: #fff;
+      --indigo-surface: color(display-p3 0.9569 0.9725 1 / 0.8);
+      --indigo-indicator: oklch(54.1% 0.1913 259);
+      --indigo-track: oklch(54.1% 0.1913 259);
+    }
   }
-  .dark,
-  [data-theme="dark"] {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+}
+
+.dark,
+.dark-theme,
+:is(.dark, .dark-theme) :where(.radix-themes:not(.light, .light-theme)) {
+  --indigo-1: #0a111c;
+  --indigo-2: #0f1825;
+  --indigo-3: #102648;
+  --indigo-4: #113161;
+  --indigo-5: #173c74;
+  --indigo-6: #204784;
+  --indigo-7: #295598;
+  --indigo-8: #3064b3;
+  --indigo-9: #1868db;
+  --indigo-10: #2c5fae;
+  --indigo-11: #85b7ff;
+  --indigo-12: #d1e3ff;
+
+  --indigo-a1: #0012fb0c;
+  --indigo-a2: #0062f916;
+  --indigo-a3: #0d6cff3b;
+  --indigo-a4: #1170ff56;
+  --indigo-a5: #2078fd6b;
+  --indigo-a6: #3080fd7c;
+  --indigo-a7: #3c89ff91;
+  --indigo-a8: #3f8bffae;
+  --indigo-a9: #1977fed9;
+  --indigo-a10: #3a87fea9;
+  --indigo-a11: #85b7ff;
+  --indigo-a12: #d1e3ff;
+
+  --indigo-contrast: #fff;
+  --indigo-surface: #0e1f3980;
+  --indigo-indicator: #1868db;
+  --indigo-track: #1868db;
+}
+
+@supports (color: color(display-p3 1 1 1)) {
+  @media (color-gamut: p3) {
+    .dark,
+    .dark-theme,
+    :is(.dark, .dark-theme) :where(.radix-themes:not(.light, .light-theme)) {
+      --indigo-1: oklch(17.8% 0.0248 259);
+      --indigo-2: oklch(20.7% 0.03 259);
+      --indigo-3: oklch(27.1% 0.0689 259);
+      --indigo-4: oklch(31.8% 0.094 259);
+      --indigo-5: oklch(36.2% 0.1048 259);
+      --indigo-6: oklch(40.6% 0.1106 259);
+      --indigo-7: oklch(45.4% 0.1202 259);
+      --indigo-8: oklch(50.9% 0.1374 259);
+      --indigo-9: oklch(54.1% 0.1913 259);
+      --indigo-10: oklch(49.4% 0.1374 259);
+      --indigo-11: oklch(77.6% 0.1239 259);
+      --indigo-12: oklch(91% 0.0433 259);
+
+      --indigo-a1: color(display-p3 0 0.0706 0.9804 / 0.043);
+      --indigo-a2: color(display-p3 0.0667 0.4118 1 / 0.08);
+      --indigo-a3: color(display-p3 0.1373 0.4196 1 / 0.223);
+      --indigo-a4: color(display-p3 0.1765 0.4431 1 / 0.324);
+      --indigo-a5: color(display-p3 0.2235 0.4784 1 / 0.4);
+      --indigo-a6: color(display-p3 0.2784 0.5137 1 / 0.467);
+      --indigo-a7: color(display-p3 0.3176 0.5451 1 / 0.547);
+      --indigo-a8: color(display-p3 0.3294 0.5569 1 / 0.656);
+      --indigo-a9: color(display-p3 0.2235 0.4745 1 / 0.82);
+      --indigo-a10: color(display-p3 0.3137 0.5451 1 / 0.635);
+      --indigo-a11: color(display-p3 0.5804 0.7333 1 / 0.975);
+      --indigo-a12: color(display-p3 0.8431 0.898 1 / 0.988);
+
+      --indigo-contrast: #fff;
+      --indigo-surface: color(display-p3 0.0627 0.1176 0.2118 / 0.5);
+      --indigo-indicator: oklch(54.1% 0.1913 259);
+      --indigo-track: oklch(54.1% 0.1913 259);
+    }
   }
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
   body {
     font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
-    @apply bg-background text-foreground select-none;
+    user-select: none;
   }
 }

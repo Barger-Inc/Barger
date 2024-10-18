@@ -1,6 +1,9 @@
 import Providers from "@/shared/utils/providers"
+import { Theme } from "@radix-ui/themes"
 import type { Metadata } from "next"
 import localFont from "next/font/local"
+
+import "@radix-ui/themes/styles.css"
 import "./globals.css"
 
 const geistSans = localFont({
@@ -29,8 +32,10 @@ export default function RootLayout({
   return (
     <html lang="ru" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <Providers>{children}</Providers>
-        {modal}
+        <Theme>
+          <Providers>{children}</Providers>
+          {modal}
+        </Theme>
       </body>
     </html>
   )

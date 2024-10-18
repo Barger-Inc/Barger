@@ -1,6 +1,6 @@
-import { DialogContent } from "@/shared/ui/dialog"
 import { DialogUncontrolled } from "@/shared/ui/dialog-uncontrolled"
 import { MediaPreview } from "@/widgets/media-preview"
+import { Dialog } from "@radix-ui/themes"
 
 const Page = async ({
   params: { id },
@@ -11,9 +11,9 @@ const Page = async ({
 }) => {
   return (
     <DialogUncontrolled>
-      <DialogContent>
+      <Dialog.Content>
         <MediaPreview id={id} />
-      </DialogContent>
+      </Dialog.Content>
     </DialogUncontrolled>
   )
 }
