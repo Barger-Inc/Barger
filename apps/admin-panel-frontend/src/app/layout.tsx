@@ -3,7 +3,6 @@ import { Theme } from "@radix-ui/themes"
 import type { Metadata } from "next"
 import localFont from "next/font/local"
 
-import "@radix-ui/themes/styles.css"
 import "./globals.css"
 
 const geistSans = localFont({

@@ -26,10 +26,7 @@ export const Icon = (props: IconProps) => {
 
   return (
     <span
-      className={cn(
-        "block size-[var(--size)] bg-current text-primary",
-        props.className
-      )}
+      className={cn("block size-[var(--size)] bg-current", props.className)}
       style={styles}
     />
   )
