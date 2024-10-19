@@ -25,7 +25,7 @@ export const NavigationButton = (props: NavigationButtonProps) => {
       )}
     >
       <Icon {...getIconProps(props.icon, { size: 24 })} />
-      <Text size={"3"} children={props.title} />
+      {!props.isMinified && <Text size={"3"} children={props.title} />}
     </Link>
   )
 }
