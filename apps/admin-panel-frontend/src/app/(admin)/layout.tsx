@@ -18,37 +18,37 @@ export default function Layout(props: RootLayoutProps) {
             {
               href: "/",
               title: "Home",
-              icon: "home",
-            },
-            {
-              href: "/profile",
-              title: "Profile",
-              icon: "profile",
-            },
-            {
-              href: "/users",
-              title: "Users",
-              icon: "users",
+              icon: "home-2",
             },
             {
               href: "/collections",
               title: "Collections",
-              icon: "database",
+              icon: "folder-open",
             },
             {
               href: "/content",
               title: "Content",
-              icon: "posts-carousel",
+              icon: "pen-new-square",
             },
             {
               href: "/media",
               title: "Media",
-              icon: "photo",
+              icon: "wallpaper",
+            },
+            {
+              href: "/profile",
+              title: "Profile",
+              icon: "user-circle",
+            },
+            {
+              href: "/users",
+              title: "Users",
+              icon: "users-group-two",
             },
             {
               href: "/settings",
               title: "Settings",
-              icon: "gear",
+              icon: "settings",
             },
           ]}
         />
