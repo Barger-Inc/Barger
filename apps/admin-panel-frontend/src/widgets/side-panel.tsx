@@ -2,6 +2,7 @@
 
 import { NavigationButton } from "@/features/navigation/ui/navigation-button"
 import type { IconName } from "@/shared/types/icon-name"
+import { Icon } from "@/shared/ui/icon"
 import { cn } from "@/shared/utils"
 import { Button, Heading } from "@radix-ui/themes"
 import { useState } from "react"
@@ -42,6 +43,7 @@ export const SidePanel = (props: SidePanelProps) => {
         <div className="flex flex-col gap-2 items-start">
           {/* <ThemeToggle /> */}
           <Button variant="soft" size={"3"}>
+            <Icon name="exit" size={18} />
             Выйти
           </Button>
         </div>
