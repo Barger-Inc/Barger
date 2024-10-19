@@ -20,7 +20,7 @@ export const NavigationButton = (props: NavigationButtonProps) => {
       href={props.href}
       className={cn(
         "px-2 h-10 flex gap-4 rounded-[6px] items-center cursor-default text-gray-11",
-        !props.isActive && "hover:bg-gray-4",
+        !props.isActive && "hover:bg-gray-4 active:bg-gray-5",
         props.isActive && "bg-accent-4 text-accent-11"
       )}
     >

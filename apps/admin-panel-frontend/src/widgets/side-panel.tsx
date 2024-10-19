@@ -20,57 +20,69 @@ export const SidePanel = (props: SidePanelProps) => {
 
   return (
     <>
-      <div className={cn("h-screen w-[260px]", isCollapsed && "w-[105px]")} />
       <div
         className={cn(
-          "fixed w-[260px] border-gray-6 border-r h-screen flex flex-col p-8",
-          "group",
+          "h-screen w-[260px] transition-[width]",
+          isCollapsed && "w-[105px]"
+        )}
+      />
+      <div
+        className={cn(
+          "border-gray-6 border-r fixed w-[260px] transition-[width]",
           isCollapsed && "w-[105px]"
         )}
       >
         <div
-          className="minimize-button invisible group-hover:visible absolute right-1 top-8 h-10 text-gray-11 hover:bg-gray-4 rounded-3 grid place-items-center"
-          onClick={() => {
-            setIsCollapsed(!isCollapsed)
-          }}
+          className={cn(
+            "w-[260px] h-screen flex flex-col p-8 group",
+            isCollapsed && "w-[104px]"
+          )}
         >
-          <Icon
-            name="minimize"
-            className={cn("transition-transform", isCollapsed && "rotate-180")}
-          />
-        </div>
+          <div
+            className="invisible group-hover:visible absolute right-1 top-8 h-10 text-gray-11 hover:bg-gray-4 active:bg-gray-5 rounded-3 grid place-items-center"
+            onClick={() => setIsCollapsed(!isCollapsed)}
+          >
+            <Icon
+              name="minimize"
+              className={cn(
+                "transition-transform",
+                isCollapsed && "rotate-180"
+              )}
+            />
+          </div>
 
-        <div className="flex flex-col gap-6 flex-1">
-          <div className="flex items-center gap-2">
-            <div className="size-10 bg-[#3341FB] rounded-[6px]" />
-            {!isCollapsed && (
-              <Heading size={"7"} weight={"bold"} children={"Barger"} />
+          <div className="flex flex-col gap-6 flex-1">
+            <div className="flex items-center gap-2">
+              <div className="size-10 bg-[#3341FB] rounded-[6px]" />
+              {!isCollapsed && (
+                <Heading size={"7"} weight={"bold"} children={"Barger"} />
+              )}
+            </div>
+
+            <div className="flex flex-col gap-3">
+              {props.links.map((link, i) => (
+                <NavigationButton
+                  key={link.href}
+                  {...link}
+                  isActive={i === 0}
+                  isMinified={isCollapsed}
+                />
+              ))}
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-2 items-start">
+            {isCollapsed ? (
+              <IconButton variant="soft" size={"3"}>
+                <Icon name="exit" size={18} />
+              </IconButton>
+            ) : (
+              <Button className="px-[11px]" variant="soft" size={"3"}>
+                <Icon name="exit" size={18} />
+                Выйти
+              </Button>
             )}
           </div>
-
-          <div className="flex flex-col gap-3">
-            {props.links.map((link, i) => (
-              <NavigationButton
-                key={link.href}
-                {...link}
-                isActive={i === 0}
-                isMinified={isCollapsed}
-              />
-            ))}
-          </div>
-        </div>
-
-        <div className="flex flex-col gap-2 items-start">
-          {isCollapsed ? (
-            <IconButton variant="soft" size={"3"}>
-              <Icon name="exit" size={18} />
-            </IconButton>
-          ) : (
-            <Button className="px-[11px]" variant="soft" size={"3"}>
-              <Icon name="exit" size={18} />
-              Выйти
-            </Button>
-          )}
         </div>
       </div>
     </>
