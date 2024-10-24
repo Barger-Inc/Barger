@@ -12,7 +12,7 @@ type RootLayoutProps = Readonly<{
 export default function Layout(props: RootLayoutProps) {
   return (
     <>
-      <div className="flex">
+      <div className="flex bg-gray-2">
         <SidePanel
           links={[
             {
@@ -52,10 +52,12 @@ export default function Layout(props: RootLayoutProps) {
             },
           ]}
         />
-        <main className="flex-1">
-          {SHOW_TOP_LOADER && <NextTopLoader showSpinner={false} />}
-          {props.children}
-        </main>
+        <div className={"p-3 pl-0 flex flex-1 max-h-screen overflow-hidden"}>
+          <main className="flex-1 rounded-6 border border-gray-6 bg-gray-1 overflow-scroll overscroll-contain">
+            {SHOW_TOP_LOADER && <NextTopLoader showSpinner={false} />}
+            {props.children}
+          </main>
+        </div>
       </div>
       {props.modal}
     </>
