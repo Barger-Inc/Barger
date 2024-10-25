@@ -4,6 +4,7 @@ import { cn } from "@/shared/utils"
 import { getIconProps } from "@/shared/utils/get-icon-props"
 import { Text } from "@radix-ui/themes"
 import Link from "next/link"
+import type { ComponentProps } from "react"
 
 type NavigationButtonProps = {
   icon: IconResolvable
@@ -12,11 +13,12 @@ type NavigationButtonProps = {
   isMinified?: boolean
   isActive?: boolean
   disableGhostArea?: boolean
-}
+} & ComponentProps<typeof Link>
 
 export const NavigationButton = (props: NavigationButtonProps) => {
   return (
     <Link
+      {...props}
       key={props.href}
       href={props.href}
       className={cn(
