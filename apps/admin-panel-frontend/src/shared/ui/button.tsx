@@ -1,26 +1,26 @@
-import { Button as PrimitiveButton } from "@radix-ui/themes";
+import { Button as PrimitiveButton } from "@radix-ui/themes"
 import {
   type ComponentPropsWithoutRef,
   type ReactNode,
   forwardRef,
   useMemo,
-} from "react";
-import type { IconResolvable } from "../types/icon-resolvable";
-import { getIconProps } from "../utils/get-icon-props";
-import { Icon } from "./icon";
+} from "react"
+import type { IconResolvable } from "../types/icon-resolvable"
+import { getIconProps } from "../utils/get-icon-props"
+import { Icon } from "./icon"
 
 type ButtonProps = {
-  before?: ReactNode;
-  after?: ReactNode;
-  leadingIcon?: IconResolvable;
-  trailingIcon?: IconResolvable;
-  label?: string;
-} & ComponentPropsWithoutRef<typeof PrimitiveButton>;
+  before?: ReactNode
+  after?: ReactNode
+  leadingIcon?: IconResolvable
+  trailingIcon?: IconResolvable
+  label?: string
+} & ComponentPropsWithoutRef<typeof PrimitiveButton>
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (props, ref) => {
     const { before, after, leadingIcon, trailingIcon, label, ...otherProps } =
-      props;
+      props
 
     const memoizedLeadingIcon = useMemo(
       () =>
@@ -30,7 +30,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           </span>
         ),
       [leadingIcon]
-    );
+    )
 
     const memoizedTrailingIcon = useMemo(
       () =>
@@ -40,7 +40,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           </span>
         ),
       [trailingIcon]
-    );
+    )
 
     return (
       <PrimitiveButton {...otherProps} ref={ref}>
@@ -50,6 +50,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         {memoizedTrailingIcon}
         {after}
       </PrimitiveButton>
-    );
+    )
   }
-);
+)

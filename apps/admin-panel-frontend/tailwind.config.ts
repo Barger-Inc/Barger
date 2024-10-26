@@ -1,5 +1,5 @@
-import { radixThemePreset } from "radix-themes-tw";
-import type { Config } from "tailwindcss";
+import { radixThemePreset } from "radix-themes-tw"
+import type { Config } from "tailwindcss"
 
 const config: Config = {
   darkMode: ["class"],
@@ -13,5 +13,5 @@ const config: Config = {
     },
   },
   plugins: [require("postcss-import"), require("tailwindcss-animate")],
-};
-export default config;
+}
+export default config

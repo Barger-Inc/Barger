@@ -336,11 +336,11 @@
   animation: modalClosing 0.3s forwards;
 }
 
-.bg-molda-opening {
+.bg-modal-opening {
   animation: backModalOpening 0.3s forwards;
 }
 
-.bg-molda-closing {
+.bg-modal-closing {
   background-color: rgba(0, 0, 0, 0.2);
   animation: backModalClosing 0.3s forwards;
 }
