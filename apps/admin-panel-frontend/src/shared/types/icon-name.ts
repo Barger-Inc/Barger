@@ -1,7 +1,8 @@
-export type IconName =
+export type StrokeIconName =
   | "exit"
   | "folder-open"
   | "gallery"
+  | "hamburger"
   | "home-2"
   | "pen-new-square"
   | "settings"
@@ -11,7 +12,6 @@ export type IconName =
 export type FillIconName =
   | "folder-open"
   | "gallery"
-  | "hamburger"
   | "home-2"
   | "maximize"
   | "minimize"
@@ -19,4 +19,3 @@ export type FillIconName =
   | "settings"
   | "user-circle"
   | "users-group-two"
-  | "wallpaper"
