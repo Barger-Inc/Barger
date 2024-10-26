@@ -18,7 +18,7 @@ export default function Layout(props: RootLayoutProps) {
         <div className="hidden sm:flex">
           <SidePanel links={sidePanelLinks} />
         </div>
-        <div className="sm:hidden px-4 py-3">
+        <div className="sm:hidden p-4">
           <SidePanelTrigger />
         </div>
         <div className="sm:p-2 sm:pl-0 flex flex-1 max-h-screen overflow-hidden">
