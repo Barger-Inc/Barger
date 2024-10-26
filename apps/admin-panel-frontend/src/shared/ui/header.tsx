@@ -16,7 +16,7 @@ export const Header = (props: HeaderProps) => {
     <div className="flex items-center gap-2">
       {variant === "logo" && (
         <Image
-          className="size-10 rounded-2"
+          className="size-10 rounded-3"
           src={logo}
           alt=""
           draggable={false}
