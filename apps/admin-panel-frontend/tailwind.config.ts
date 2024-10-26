@@ -9,8 +9,6 @@ const config: Config = {
     extend: {
       colors: {
         current: "currentColor",
-        "blue-100": "rgba(51, 65, 251, 1)",
-        "gray-100": "rgba(0, 68, 148, 0.07)",
       },
     },
   },

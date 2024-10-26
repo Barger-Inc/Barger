@@ -26,22 +26,22 @@ export const Modal = (props: ModalProps) => {
   return (
     <div
       className={
-        "fixed inset-0  bg-opacity-50 flex justify-center items-center " +
-        (props.isOpen ? "bg_molda_opening" : "bg_molda_closening")
+        "fixed flex justify-center inset-0 items-end sm:bg-opacity-50 sm:items-center " +
+        (props.isOpen ? "bg-molda-opening" : "bg-molda-closing")
       }
     >
       <div
         className={
-          "flex flex-col p-1 gap-1 bg-[#F6F9FE] border border-solid border-[#D2DBE7] rounded-[5px] max-w-[572px] z-10 " +
-          (props.isOpen ? "modal-opening" : "modal-closening")
+          "flex flex-col p-1 gap-1 bg-gray-2 rounded-t-[5px] max-w-[580px] z-10 rounded-b-none sm:rounded-5 sm:border-gray-6 sm:border sm:border-solid " +
+          (props.isOpen ? "modal-opening" : "modal-closing")
         }
         onAnimationEnd={handleAnimationEnd}
       >
-        <div className="">{props.header}</div>
-        <div className="p-4 bg-[#FBFCFE] border border-solid border-[#D2DBE7] rounded-[6px]">
+        {props.header}
+        <div className="p-4 bg-gray-1 border border-solid border-gray-6 rounded-4">
           {props.children}
         </div>
-        <div className="">{props.footer}</div>
+        {props.footer}
       </div>
     </div>
   );

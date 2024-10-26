@@ -44,11 +44,11 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     return (
       <PrimitiveButton {...otherProps} ref={ref}>
-        {before&&before}
-        {memoizedLeadingIcon&&memoizedLeadingIcon}
+        {before}
+        {memoizedLeadingIcon}
         {label && <span className="text-center w-full">{label}</span>}
-        {memoizedTrailingIcon &&memoizedTrailingIcon}
-        {after&&after}
+        {memoizedTrailingIcon}
+        {after}
       </PrimitiveButton>
     );
   }

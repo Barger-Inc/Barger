@@ -1,21 +1,20 @@
-import cross from "./../../../public/icons/cross.svg";
-import { Heading, IconButton } from "@radix-ui/themes";
-import Image from "next/image";
+import { Heading, IconButton } from "@radix-ui/themes"
+import { Icon } from "./icon"
 
 type ModalHeaderProps = {
-  isOpen: any;
-  title: string;
-};
+  isOpen: any
+  title: string
+}
 
 export const ModalHeader = (props: ModalHeaderProps) => {
   return (
-    <div className="container flex p-4 w-full justify-between items-center">
-      <Heading weight="medium" className="text-blue-100" size="5">
+    <div className="flex p-4 w-full justify-between items-center">
+      <Heading weight="medium" className="text-indigo-10" size="5">
         {props.title}
       </Heading>
-      <IconButton className="bg-gray-100 cursor-pointer" onClick={props.isOpen}>
-        <Image src={cross} alt="cross" />
+      <IconButton size={"2"} variant="soft" color="gray" className="bg-grayA-3 cursor-pointer" onClick={props.isOpen}>
+				<Icon name={"cross"} size={10}/>
       </IconButton>
     </div>
-  );
-};
+  )
+}

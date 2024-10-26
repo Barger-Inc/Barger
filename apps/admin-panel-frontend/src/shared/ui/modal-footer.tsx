@@ -1,12 +1,12 @@
-import { ReactNode } from "react";
+import { ReactNode } from "react"
 
-type ModalHeaderProps = {
-  children: ReactNode;
-};
-export const ModalFooter = (props: ModalHeaderProps) => {
+type ModalFooterProps = {
+  children: ReactNode
+}
+export const ModalFooter = (props: ModalFooterProps) => {
   return (
-    <div className="flex gap-[8px] p-4 w-full max-w-[572px] justify-end items-center">
+    <div className="flex gap-2 p-4 w-full justify-end items-center">
       {props.children}
     </div>
-  );
-};
+  )
+}
