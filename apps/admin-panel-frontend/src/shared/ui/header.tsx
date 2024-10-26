@@ -15,7 +15,12 @@ export const Header = (props: HeaderProps) => {
   return (
     <div className="flex items-center gap-2">
       {variant === "logo" && (
-        <Image className="size-10 rounded-2" src={logo} alt="" />
+        <Image
+          className="size-10 rounded-2"
+          src={logo}
+          alt=""
+          draggable={false}
+        />
       )}
 
       {variant === "hamburger" && (
