@@ -319,6 +319,7 @@
 
 @layer base {
   body {
+    /*noinspection CssUnresolvedCustomProperty*/
     font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
     user-select: none;
   }
@@ -326,7 +327,7 @@
 
 .modal-opening {
   opacity: 0;
-  transform: translateY(-20px);
+  transform: translateY(20px);
   animation: modalOpening 0.3s forwards;
 }
 
@@ -355,7 +356,7 @@
 @keyframes modalClosing {
   to {
     opacity: 0;
-    transform: translateY(-20px);
+    transform: translateY(20px);
   }
 }
 
