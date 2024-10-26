@@ -1,21 +1,23 @@
-import { DialogUncontrolled } from "@/shared/ui/dialog-uncontrolled"
+import { Button } from "@/shared/ui/button"
+import { ModalBody } from "@/shared/ui/modal-body"
+import { ModalFooter } from "@/shared/ui/modal-footer"
+import { ModalHeader } from "@/shared/ui/modal-header"
+import { ModalRoot } from "@/shared/ui/modal-root"
 import { MediaPreview } from "@/widgets/media-preview"
-import { Dialog } from "@radix-ui/themes"
 
-const Page = async ({
+export default async function Page({
   params: { id },
-}: {
-  params: {
-    id: number
-  }
-}) => {
+}: { params: { id: number } }) {
   return (
-    <DialogUncontrolled>
-      <Dialog.Content>
+    <ModalRoot>
+      <ModalHeader title="Modal title" />
+      <ModalBody>
         <MediaPreview id={id} />
-      </Dialog.Content>
-    </DialogUncontrolled>
+      </ModalBody>
+      <ModalFooter>
+        <Button variant={"outline"} label="Отменить" />
+        <Button label="Сохранить" />
+      </ModalFooter>
+    </ModalRoot>
   )
 }
-
-export default Page
