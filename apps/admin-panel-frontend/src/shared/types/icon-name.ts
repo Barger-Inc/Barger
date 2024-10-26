@@ -4,8 +4,10 @@ export type StrokeIconName =
   | "gallery"
   | "hamburger"
   | "home-2"
+  | "moon"
   | "pen-new-square"
   | "settings"
+  | "sun"
   | "user-circle"
   | "users-group-two"
 

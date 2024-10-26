@@ -5,6 +5,7 @@ import type { SidePanelLink } from "@/shared/types/side-panel-link"
 import { Header } from "@/shared/ui/header"
 import { Icon } from "@/shared/ui/icon"
 import { cn } from "@/shared/utils"
+import { ThemeToggle } from "@/widgets/theme-toggle"
 import { Button, IconButton } from "@radix-ui/themes"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
@@ -81,7 +82,11 @@ export const SidePanel = (props: SidePanelProps) => {
             </div>
           </div>
 
-          <div className="flex flex-col gap-2 items-start">
+          <div
+            className={cn("flex gap-2 items-start", isCollapsed && "flex-col")}
+          >
+            <ThemeToggle />
+
             {isCollapsed ? (
               <IconButton variant="soft" size={"3"}>
                 <Icon name="exit" size={18} />
