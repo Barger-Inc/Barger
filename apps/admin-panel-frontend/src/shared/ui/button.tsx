@@ -1,13 +1,11 @@
+import type { IconResolvable } from "@/shared/types/icon-resolvable"
+import { ButtonIcon } from "@/shared/ui/button-icon"
 import { Button as PrimitiveButton } from "@radix-ui/themes"
 import {
   type ComponentPropsWithoutRef,
   type ReactNode,
   forwardRef,
-  useMemo,
 } from "react"
-import type { IconResolvable } from "../types/icon-resolvable"
-import { getIconProps } from "../utils/get-icon-props"
-import { Icon } from "./icon"
 
 type ButtonProps = {
   before?: ReactNode
@@ -22,32 +20,14 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     const { before, after, leadingIcon, trailingIcon, label, ...otherProps } =
       props
 
-    const memoizedLeadingIcon = useMemo(
-      () =>
-        leadingIcon && (
-          <span className="mr-2">
-            <Icon {...getIconProps(leadingIcon, { size: 16 })} />
-          </span>
-        ),
-      [leadingIcon]
-    )
-
-    const memoizedTrailingIcon = useMemo(
-      () =>
-        trailingIcon && (
-          <span className="ml-2">
-            <Icon {...getIconProps(trailingIcon, { size: 16 })} />
-          </span>
-        ),
-      [trailingIcon]
-    )
-
     return (
       <PrimitiveButton {...otherProps} ref={ref}>
         {before}
-        {memoizedLeadingIcon}
+        {leadingIcon && <ButtonIcon variant={"leading"} icon={leadingIcon} />}
         {label && <span className="text-center w-full">{label}</span>}
-        {memoizedTrailingIcon}
+        {trailingIcon && (
+          <ButtonIcon variant={"trailing"} icon={trailingIcon} />
+        )}
         {after}
       </PrimitiveButton>
     )

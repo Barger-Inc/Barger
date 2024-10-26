@@ -28,18 +28,18 @@ export const SidePanel = (props: SidePanelProps) => {
       />
       <div
         className={cn(
-          "border-gray-6 border-r fixed w-[260px] transition-[width]",
+          "fixed w-[260px] transition-[width]",
           isCollapsed && "w-[105px]"
         )}
       >
         <div
           className={cn(
-            "w-[260px] h-screen flex flex-col p-8 group",
-            isCollapsed && "w-[104px]"
+            "w-[260px] h-screen flex flex-col px-8 pt-[38px] pb-[28px] group",
+            isCollapsed && "w-[105px]"
           )}
         >
           <div
-            className="invisible group-hover:visible absolute right-1 top-8 h-10 text-gray-11 hover:bg-gray-4 active:bg-gray-5 rounded-3 grid place-items-center"
+            className="invisible group-hover:visible absolute right-1 top-[38px] h-10 text-gray-11 hover:bg-gray-4 active:bg-gray-5 rounded-3 grid place-items-center"
             onClick={() => setIsCollapsed(!isCollapsed)}
           >
             <Icon

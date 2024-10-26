@@ -2,6 +2,7 @@ import Providers from "@/shared/utils/providers"
 import { Theme } from "@radix-ui/themes"
 import type { Metadata } from "next"
 import localFont from "next/font/local"
+import type { ReactNode } from "react"
 
 import "./globals.css"
 
@@ -25,12 +26,14 @@ export default function Layout({
   children,
   modal,
 }: Readonly<{
-  children: React.ReactNode
-  modal: React.ReactNode
+  children: ReactNode
+  modal: ReactNode
 }>) {
   return (
     <html lang="ru" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} bg-gray-2 overflow-hidden`}
+      >
         <Theme>
           <Providers>{children}</Providers>
           {modal}
