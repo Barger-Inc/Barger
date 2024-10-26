@@ -9,3 +9,4 @@ export type IconName =
   | "user-circle"
   | "users-group-two"
   | "wallpaper"
+  | "cross";
