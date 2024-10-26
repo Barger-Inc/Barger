@@ -35,7 +35,10 @@ export const NavigationButton = (props: NavigationButtonProps) => {
             "bg-accent-4 text-accent-11 group-active/nav-item:bg-accent-5"
         )}
       >
-        <Icon {...getIconProps(props.icon, { size: 24 })} />
+        <Icon
+          {...getIconProps(props.icon, { size: 24 })}
+          variant={props.isActive ? "fill" : "stroke"}
+        />
         {!props.isMinified && <Text size={"3"} children={props.title} />}
       </div>
     </Link>

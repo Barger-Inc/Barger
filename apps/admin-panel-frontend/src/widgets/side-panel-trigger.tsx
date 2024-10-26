@@ -24,7 +24,7 @@ export const SidePanelTrigger = () => {
               className="fixed inset-0"
               onClick={() => setIsOpened(false)}
               transition={{
-                duration: 0.6,
+                duration: 0.4,
                 ease: [0.43, 0.13, 0.23, 0.96],
               }}
             >
@@ -34,7 +34,7 @@ export const SidePanelTrigger = () => {
                 exit={{ x: "-100%" }}
                 className="flex"
                 transition={{
-                  duration: 0.6,
+                  duration: 0.4,
                   ease: [0.43, 0.13, 0.23, 0.96],
                 }}
               >

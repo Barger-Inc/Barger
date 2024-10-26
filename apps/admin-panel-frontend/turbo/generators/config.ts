@@ -1,5 +1,5 @@
-import type { PlopTypes } from "@turbo/gen"
 import fs from "node:fs"
+import type { PlopTypes } from "@turbo/gen"
 
 export default function generator(plop: PlopTypes.NodePlopAPI): void {
   plop.setGenerator("icons", {
@@ -16,11 +16,20 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
           const files = fs.readdirSync(path)
 
           return [
-            "export type IconName =",
-            ...files.map((file) => {
-              const name = file.replace(".svg", "")
-              return `  | "${name}"`
-            }),
+            "export type StrokeIconName =",
+            ...files
+              .filter((file) => file.includes("stroke"))
+              .map((file) => {
+                const name = file.replace("-stroke.svg", "")
+                return `  | "${name}"`
+              }),
+            "\nexport type FillIconName =",
+            ...files
+              .filter((file) => file.includes("fill"))
+              .map((file) => {
+                const name = file.replace("-fill.svg", "")
+                return `  | "${name}"`
+              }),
           ].join("\n")
         },
       },

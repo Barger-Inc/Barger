@@ -19,7 +19,7 @@ export const sidePanelLinks: SidePanelLink[] = [
   {
     href: "/media",
     title: "Media",
-    icon: "wallpaper",
+    icon: "gallery",
   },
   {
     href: "/profile",
