@@ -1,12 +1,12 @@
-"use client";
-import { ModalFooter } from "@/shared/ui/modal-footer";
-import { ModalHeader } from "@/shared/ui/modal-header";
-import { Button } from "@/shared/ui/button";
-import { Modal } from "@/shared/ui/modal-root";
-import { useState } from "react";
+"use client"
+import { ModalFooter } from "@/shared/ui/modal-footer"
+import { ModalHeader } from "@/shared/ui/modal-header"
+import { Button } from "@/shared/ui/button"
+import { ModalRoot } from "@/shared/ui/modal-root"
+import { useState } from "react"
 
 export default function Page() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   return (
     <div className="p-4">
@@ -18,12 +18,12 @@ export default function Page() {
           label="open modal"
           onClick={() => setIsModalOpen(true)}
         />
-        <Modal
+        <ModalRoot
           isOpen={isModalOpen}
           header={
             <ModalHeader
               title="Modal title"
-              isOpen={() => setIsModalOpen(false)}
+              onClose={() => setIsModalOpen(false)}
             />
           }
           footer={
@@ -46,8 +46,8 @@ export default function Page() {
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
           </p>
-        </Modal>
+        </ModalRoot>
       </div>
     </div>
-  );
+  )
 }

@@ -1,13 +1,14 @@
 "use client"
-import { ReactNode, useEffect, useState } from "react"
+import { type ReactNode, useEffect, useState } from "react"
+import { cn } from "../utils/cn"
 
-type ModalProps = {
+type ModalRootProps = {
   header: ReactNode
   footer: ReactNode
   children: ReactNode
   isOpen: boolean
 }
-export const Modal = (props: ModalProps) => {
+export const ModalRoot = (props: ModalRootProps) => {
   const [isAnimating, setIsAnimating] = useState(false)
 
   useEffect(() => {
@@ -25,16 +26,18 @@ export const Modal = (props: ModalProps) => {
   if (!isAnimating && !props.isOpen) return null
   return (
     <div
-      className={
-        "fixed flex justify-center inset-0 items-end sm:bg-opacity-50 sm:items-center " +
-        (props.isOpen ? "bg-modal-opening" : "bg-modal-closing")
-      }
+      className={cn(
+        "fixed flex justify-center inset-0 items-end sm:bg-opacity-50 sm:items-center",
+        props.isOpen && "bg-modal-opening",
+        !props.isOpen && "bg-modal-closing"
+      )}
     >
       <div
-        className={
-          "flex flex-col p-1 gap-1 bg-gray-2 rounded-t-5 max-w-[580px] z-10 rounded-b-none sm:rounded-5 sm:border-gray-6 sm:border sm:border-solid " +
-          (props.isOpen ? "modal-opening" : "modal-closing")
-        }
+        className={cn(
+          "flex flex-col p-1 gap-1 bg-gray-2 rounded-t-5 max-w-[580px] z-10 rounded-b-none sm:rounded-5 sm:border-gray-6 sm:border sm:border-solid",
+          props.isOpen && "modal-opening",
+          !props.isOpen && "modal-closing"
+        )}
         onAnimationEnd={handleAnimationEnd}
       >
         {props.header}

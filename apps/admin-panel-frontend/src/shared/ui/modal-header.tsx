@@ -2,7 +2,7 @@ import { Heading, IconButton } from "@radix-ui/themes"
 import { Icon } from "./icon"
 
 type ModalHeaderProps = {
-  isOpen: any
+  onClose: () => void
   title: string
 }
 
@@ -16,7 +16,7 @@ export const ModalHeader = (props: ModalHeaderProps) => {
         size={"2"}
         variant="soft"
         color="gray"
-        onClick={props.isOpen}
+        onClick={props.onClose}
       >
         <Icon name={"cross"} size={10} />
       </IconButton>
