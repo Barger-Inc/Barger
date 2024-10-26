@@ -10,6 +10,7 @@ export type StrokeIconName =
   | "users-group-two"
 
 export type FillIconName =
+  | "cross"
   | "folder-open"
   | "gallery"
   | "home-2"

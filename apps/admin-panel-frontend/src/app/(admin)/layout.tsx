@@ -21,8 +21,8 @@ export default function Layout(props: RootLayoutProps) {
         <div className="sm:hidden px-4 py-3">
           <SidePanelTrigger />
         </div>
-        <div className="sm:p-3 sm:pl-0 flex flex-1 max-h-screen overflow-hidden">
-          <main className="flex-1 rounded-6 border-t sm:border border-gray-6 bg-gray-1 overflow-scroll overscroll-contain">
+        <div className="sm:p-2 sm:pl-0 flex flex-1 max-h-screen overflow-hidden">
+          <main className="flex-1 rounded-6 border-t sm:border border-gray-6 bg-gray-1 overflow-scroll overscroll-contain p-4 sm:p-8">
             {SHOW_TOP_LOADER && <NextTopLoader showSpinner={false} />}
             {props.children}
           </main>
