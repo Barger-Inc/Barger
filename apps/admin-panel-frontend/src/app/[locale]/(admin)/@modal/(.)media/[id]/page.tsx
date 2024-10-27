@@ -1,20 +1,19 @@
-import initTranslations from "@/app/i18n";
-import { Button } from "@/shared/ui/button";
-import { ModalBody } from "@/shared/ui/modal-body";
-import { ModalFooter } from "@/shared/ui/modal-footer";
-import { ModalHeader } from "@/shared/ui/modal-header";
-import { ModalRoot } from "@/shared/ui/modal-root";
-import { MediaPreview } from "@/widgets/media-preview";
+import initTranslations from "@/app/i18n"
+import { Button } from "@/shared/ui/button"
+import { ModalBody } from "@/shared/ui/modal-body"
+import { ModalFooter } from "@/shared/ui/modal-footer"
+import { ModalHeader } from "@/shared/ui/modal-header"
+import { ModalRoot } from "@/shared/ui/modal-root"
+import { MediaPreview } from "@/widgets/media-preview"
 
 export default async function Page({
   params: { id, locale },
 }: {
-  params: { 
-		id: number,
-		locale: string
-	 }
+  params: {
+    id: number
+    locale: string
+  }
 }) {
-
   return (
     <ModalRoot>
       <ModalHeader title="Modal title" />
@@ -26,5 +25,5 @@ export default async function Page({
         <Button label="Сохранить" />
       </ModalFooter>
     </ModalRoot>
-  );
+  )
 }

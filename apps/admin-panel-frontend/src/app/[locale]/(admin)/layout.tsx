@@ -7,12 +7,12 @@ const SHOW_TOP_LOADER = false
 
 type RootLayoutProps = Readonly<{
   children: ReactNode
-  modal: ReactNode,
-	locale: string
+  modal: ReactNode
+  locale: string
 }>
 
 export default async function Layout(props: RootLayoutProps) {
-	const { t } = await initTranslations(props.locale, [''])
+  const { t } = await initTranslations(props.locale, [""])
 
   return (
     <>

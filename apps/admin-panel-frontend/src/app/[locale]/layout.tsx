@@ -24,10 +24,10 @@ export const metadata: Metadata = {
 
 function Layout({
   children,
-  // modal,
+  modal,
 }: Readonly<{
   children: ReactNode
-  // modal: ReactNode
+  modal: ReactNode
 }>) {
   return (
     <html lang="ru" suppressHydrationWarning>
@@ -36,11 +36,11 @@ function Layout({
       >
         <Theme>
           <Providers>{children}</Providers>
-          {/* {modal} */}
+          {modal}
         </Theme>
       </body>
     </html>
   )
 }
 
-export default Layout;
+export default Layout

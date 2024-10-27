@@ -1,2 +1,2 @@
-import en from '@repo/leng/en'
-export default en;
+import en from "@repo/leng/en"
+export default en
