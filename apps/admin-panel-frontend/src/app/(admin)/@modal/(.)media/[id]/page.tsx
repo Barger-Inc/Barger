@@ -1,4 +1,3 @@
-import initTranslations from "@/app/i18n"
 import { Button } from "@/shared/ui/button"
 import { ModalBody } from "@/shared/ui/modal-body"
 import { ModalFooter } from "@/shared/ui/modal-footer"
@@ -7,13 +6,8 @@ import { ModalRoot } from "@/shared/ui/modal-root"
 import { MediaPreview } from "@/widgets/media-preview"
 
 export default async function Page({
-  params: { id, locale },
-}: {
-  params: {
-    id: number
-    locale: string
-  }
-}) {
+  params: { id },
+}: { params: { id: number } }) {
   return (
     <ModalRoot>
       <ModalHeader title="Modal title" />
