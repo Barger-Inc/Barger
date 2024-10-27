@@ -1,12 +1,12 @@
 import Providers from "@/shared/utils/providers"
 import { Theme } from "@radix-ui/themes"
 import type { Metadata } from "next"
+import { NextIntlClientProvider } from "next-intl"
+import { getLocale, getMessages } from "next-intl/server"
 import localFont from "next/font/local"
 import type { ReactNode } from "react"
 
 import "./globals.css"
-import { NextIntlClientProvider } from "next-intl"
-import { getLocale, getMessages } from "next-intl/server"
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",

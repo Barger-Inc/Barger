@@ -1,9 +1,8 @@
-@import "../../../../node_modules/tailwindcss/base.css";
-@import "../../../../node_modules/@radix-ui/themes/styles.css";
+@import "tailwindcss/base";
+@import "@radix-ui/themes/styles.css";
 
 @tailwind components;
 @tailwind utilities;
-@tailwind base;
 
 :root,
 .light,
