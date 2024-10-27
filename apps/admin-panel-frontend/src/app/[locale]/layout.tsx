@@ -7,13 +7,13 @@ import type { ReactNode } from "react"
 import "./globals.css"
 
 const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
+  src: "./../fonts/GeistVF.woff",
   variable: "--font-geist-sans",
   weight: "100 900",
 })
 
 const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
+  src: "./../fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
 })
@@ -22,12 +22,12 @@ export const metadata: Metadata = {
   title: "Barger",
 }
 
-export default function Layout({
+function Layout({
   children,
-  modal,
+  // modal,
 }: Readonly<{
   children: ReactNode
-  modal: ReactNode
+  // modal: ReactNode
 }>) {
   return (
     <html lang="ru" suppressHydrationWarning>
@@ -36,9 +36,11 @@ export default function Layout({
       >
         <Theme>
           <Providers>{children}</Providers>
-          {modal}
+          {/* {modal} */}
         </Theme>
       </body>
     </html>
   )
 }
+
+export default Layout;

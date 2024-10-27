@@ -1,3 +1,4 @@
+import initTranslations from "@/app/i18n"
 import { SidePanel } from "@/widgets/side-panel"
 import NextTopLoader from "nextjs-toploader"
 import type { ReactNode } from "react"
@@ -6,10 +7,13 @@ const SHOW_TOP_LOADER = false
 
 type RootLayoutProps = Readonly<{
   children: ReactNode
-  modal: ReactNode
+  modal: ReactNode,
+	locale: string
 }>
 
-export default function Layout(props: RootLayoutProps) {
+export default async function Layout(props: RootLayoutProps) {
+	const { t } = await initTranslations(props.locale, [''])
+
   return (
     <>
       <div className="flex bg-gray-2">
