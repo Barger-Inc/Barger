@@ -5,9 +5,7 @@ import { ModalHeader } from "@/shared/ui/modal-header"
 import { ModalRoot } from "@/shared/ui/modal-root"
 import { MediaPreview } from "@/widgets/media-preview"
 
-export default async function Page({
-  params: { id },
-}: { params: { id: number } }) {
+export default function Page({ params: { id } }: { params: { id: number } }) {
   return (
     <ModalRoot>
       <ModalHeader title="Modal title" />
