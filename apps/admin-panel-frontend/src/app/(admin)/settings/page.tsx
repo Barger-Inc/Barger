@@ -1,3 +1,5 @@
+import { LanguageSelector } from "@/widgets/language-selector"
+
 type Props = {
   params: {
     locale: string
@@ -5,5 +7,10 @@ type Props = {
 }
 
 export default function Page({ params: { locale } }: Props) {
-  return <div>Settings Page</div>
+  return (
+    <div>
+      Settings Page
+      <LanguageSelector />
+    </div>
+  )
 }
