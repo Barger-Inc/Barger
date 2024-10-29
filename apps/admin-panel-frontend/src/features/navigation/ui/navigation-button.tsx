@@ -16,30 +16,30 @@ type NavigationButtonProps = {
 } & ComponentProps<typeof Link>
 
 export const NavigationButton = (props: NavigationButtonProps) => {
+  const { icon, title, isMinified, isActive, href, disableGhostArea, ...rest } =
+    props
+
   return (
     <Link
-      {...props}
-      key={props.href}
-      href={props.href}
+      {...rest}
+      key={href}
+      href={href}
       className={cn(
         "group/nav-item cursor-default",
-        !props.disableGhostArea && "-mx-8 -my-2 px-8 py-2"
+        !disableGhostArea && "-mx-8 -my-2 px-8 py-2"
       )}
     >
       <div
         className={cn(
           "px-2 h-10 flex gap-4 rounded-[6px] items-center text-gray-11",
-          !props.isActive &&
+          !isActive &&
             "group-hover/nav-item:bg-gray-4 group-active/nav-item:bg-gray-5",
-          props.isActive &&
+          isActive &&
             "bg-accent-4 text-accent-11 group-active/nav-item:bg-accent-5"
         )}
       >
-        <Icon
-          {...getIconProps(props.icon, { size: 24 })}
-          variant={props.isActive ? "fill" : "stroke"}
-        />
-        {!props.isMinified && <Text size={"3"} children={props.title} />}
+        <Icon {...getIconProps(icon)} variant={isActive ? "fill" : "stroke"} />
+        {!isMinified && <Text size={"3"} children={title} />}
       </div>
     </Link>
   )

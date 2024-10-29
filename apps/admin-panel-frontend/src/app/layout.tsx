@@ -24,7 +24,9 @@ export const metadata: Metadata = {
   title: "Barger",
 }
 
-export default async function Layout({ children }: Readonly<{ children: ReactNode }>) {
+export default async function Layout(
+  props: Readonly<{ children: ReactNode; modal: ReactNode }>
+) {
   const locale = await getLocale()
   const messages = await getMessages()
 
@@ -35,7 +37,10 @@ export default async function Layout({ children }: Readonly<{ children: ReactNod
       >
         <NextIntlClientProvider messages={messages}>
           <Theme id={"root"}>
-            <Providers>{children}</Providers>
+            <Providers>
+              {props.children}
+              {props.modal}
+            </Providers>
           </Theme>
         </NextIntlClientProvider>
       </body>
