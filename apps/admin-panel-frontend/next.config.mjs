@@ -1,7 +1,11 @@
+import createNextIntlPlugin from "next-intl/plugin"
+
+const withNextIntl = createNextIntlPlugin()
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  rewrites() {
+  async rewrites() {
     return [
       {
         source: "/api/:path*",
@@ -9,7 +13,7 @@ const nextConfig = {
       },
     ]
   },
-  headers() {
+  async headers() {
     return [
       {
         source: "/:all*(svg|jpg|png)",
@@ -25,4 +29,4 @@ const nextConfig = {
   },
 }
 
-export default nextConfig
+export default withNextIntl(nextConfig)

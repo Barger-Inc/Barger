@@ -1,11 +1,7 @@
-import { Button } from "@/shared/ui/button"
+import { useTranslations } from "next-intl"
 
 export default function Page() {
-  return (
-    <div>
-      <h1>Home Page</h1>
+  const t = useTranslations()
 
-      <Button variant={"solid"} label="open modal" />
-    </div>
-  )
+  return <h1>{t("home")}</h1>
 }

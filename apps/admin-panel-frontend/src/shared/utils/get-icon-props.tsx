@@ -1,3 +1,4 @@
+import type { StrokeIconName } from "@/shared/types/icon-name"
 import type { IconResolvable } from "../types/icon-resolvable"
 import type { IconProps } from "../ui/icon"
 
@@ -8,7 +9,7 @@ export const getIconProps = (
   if (typeof opts === "string")
     return {
       ...fallback,
-      name: opts as IconResolvable,
+      name: opts as StrokeIconName,
     }
 
   return {
