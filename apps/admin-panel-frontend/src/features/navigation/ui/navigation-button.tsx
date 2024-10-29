@@ -1,13 +1,12 @@
-import type { IconResolvable } from "@/shared/types/icon-resolvable"
+import type { FillIconName, StrokeIconName } from "@/shared/types/icon-name"
 import { Icon } from "@/shared/ui/icon"
 import { cn } from "@/shared/utils"
-import { getIconProps } from "@/shared/utils/get-icon-props"
 import { Text } from "@radix-ui/themes"
 import Link from "next/link"
 import type { ComponentProps } from "react"
 
 type NavigationButtonProps = {
-  icon: IconResolvable
+  icon: StrokeIconName & FillIconName
   href: string
   title: string
   isMinified?: boolean
@@ -38,7 +37,7 @@ export const NavigationButton = (props: NavigationButtonProps) => {
             "bg-accent-4 text-accent-11 group-active/nav-item:bg-accent-5"
         )}
       >
-        <Icon {...getIconProps(icon)} variant={isActive ? "fill" : "stroke"} />
+        <Icon name={icon} size={24} variant={isActive ? "fill" : "stroke"} />
         {!isMinified && <Text size={"3"} children={title} />}
       </div>
     </Link>

@@ -1,7 +1,7 @@
-import type { IconResolvable } from "@/shared/types/icon-resolvable"
+import type { FillIconName, StrokeIconName } from "@/shared/types/icon-name"
 
 export type SidePanelLink = {
   href: string
   title: string
-  icon: IconResolvable
+  icon: StrokeIconName & FillIconName
 }

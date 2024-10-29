@@ -67,7 +67,7 @@ export const SidePanel = (props: SidePanelProps) => {
             <div className={"bg-gray-6 rounded-full w-full h-px"} />
 
             <div className="flex flex-col gap-3">
-              {props.links.map((link, i) => {
+              {props.links.map((link) => {
                 return (
                   <NavigationButton
                     key={link.href}
