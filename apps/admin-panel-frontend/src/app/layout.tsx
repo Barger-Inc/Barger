@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   title: "Barger",
 }
 
-async function Layout({ children }: Readonly<{ children: ReactNode }>) {
+export default async function Layout({ children }: Readonly<{ children: ReactNode }>) {
   const locale = await getLocale()
   const messages = await getMessages()
 
@@ -34,7 +34,7 @@ async function Layout({ children }: Readonly<{ children: ReactNode }>) {
         className={`${geistSans.variable} ${geistMono.variable} bg-gray-2 overflow-hidden`}
       >
         <NextIntlClientProvider messages={messages}>
-          <Theme>
+          <Theme id={"root"}>
             <Providers>{children}</Providers>
           </Theme>
         </NextIntlClientProvider>
@@ -42,5 +42,3 @@ async function Layout({ children }: Readonly<{ children: ReactNode }>) {
     </html>
   )
 }
-
-export default Layout
