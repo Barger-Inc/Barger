@@ -363,11 +363,13 @@
 @keyframes backModalOpening {
   to {
     background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(8px);
   }
 }
 
 @keyframes backModalClosing {
   to {
     background-color: rgba(0, 0, 0, 0.0);
+    backdrop-filter: blur(0px);
   }
 }

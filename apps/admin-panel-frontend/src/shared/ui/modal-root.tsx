@@ -13,7 +13,8 @@ type ModalRootProps = {
 
 export const ModalRoot = (props: ModalRootProps) => {
   const router = useRouter()
-  const isOpen = props.isOpen === undefined ? true : props.isOpen
+  const [isOpen, setIsOpen] =
+    props.isOpen === undefined ? useState(true) : [props.isOpen, () => {}]
   const [isAnimating, setIsAnimating] = useState(false)
 
   useEffect(() => {
@@ -21,7 +22,11 @@ export const ModalRoot = (props: ModalRootProps) => {
   }, [isOpen])
 
   const handleAnimationEnd = () => {
-    if (!isOpen) setIsAnimating(false)
+    if (!isOpen) {
+      setIsAnimating(false)
+
+      if (!props.onIsOpenChange) router.back()
+    }
   }
 
   if (!isAnimating && !isOpen) return null
@@ -29,7 +34,11 @@ export const ModalRoot = (props: ModalRootProps) => {
   return (
     <ModalContext.Provider
       value={{
-        onIsOpenChange: props.onIsOpenChange ?? router.back,
+        onIsOpenChange:
+          props.onIsOpenChange ??
+          (() => {
+            setIsOpen(false)
+          }),
       }}
     >
       <div
@@ -39,7 +48,7 @@ export const ModalRoot = (props: ModalRootProps) => {
           !isOpen && "bg-modal-closing"
         )}
         onClick={() =>
-          props.onIsOpenChange ? props.onIsOpenChange(false) : router.back()
+          props.onIsOpenChange ? props.onIsOpenChange(false) : setIsOpen(false)
         }
       >
         <div

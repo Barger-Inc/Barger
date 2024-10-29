@@ -1,5 +1,7 @@
+import logo from "@/assets/logo.svg"
 import { Icon } from "@/shared/ui/icon"
 import { Heading, IconButton } from "@radix-ui/themes"
+import Image from "next/image"
 
 type HeaderProps = {
   variant?: "logo" | "hamburger"
@@ -13,7 +15,12 @@ export const Header = (props: HeaderProps) => {
   return (
     <div className="flex items-center gap-2">
       {variant === "logo" && (
-        <div className="size-10 bg-[#3341FB] rounded-[6px]" />
+        <Image
+          className="size-10 rounded-3"
+          src={logo}
+          alt=""
+          draggable={false}
+        />
       )}
 
       {variant === "hamburger" && (

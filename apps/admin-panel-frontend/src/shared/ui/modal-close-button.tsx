@@ -14,7 +14,7 @@ export const ModalCloseButton = () => {
       color="gray"
       onClick={() => modal.onIsOpenChange(false)}
     >
-      <Icon name={"cross"} size={10} />
+      <Icon name={"cross"} variant={"fill"} size={16} />
     </IconButton>
   )
 }

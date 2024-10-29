@@ -6,6 +6,7 @@ import { Header } from "@/shared/ui/header"
 import { Icon } from "@/shared/ui/icon"
 import { cn } from "@/shared/utils"
 import { Button, IconButton } from "@radix-ui/themes"
+import { usePathname } from "next/navigation"
 import { useState } from "react"
 
 type SidePanelProps = {
@@ -18,6 +19,8 @@ export const SidePanel = (props: SidePanelProps) => {
   const [isCollapsed, setIsCollapsed] = useState(false)
 
   const headerVariant = props.headerVariant ?? "logo"
+
+  const route = `/${usePathname().split("/")[1]}`
 
   return (
     <>
@@ -46,6 +49,7 @@ export const SidePanel = (props: SidePanelProps) => {
           >
             <Icon
               name="minimize"
+              variant="fill"
               className={cn(
                 "transition-transform",
                 isCollapsed && "rotate-180"
@@ -63,15 +67,17 @@ export const SidePanel = (props: SidePanelProps) => {
             <div className={"bg-gray-6 rounded-full w-full h-px"} />
 
             <div className="flex flex-col gap-3">
-              {props.links.map((link, i) => (
-                <NavigationButton
-                  key={link.href}
-                  {...link}
-                  isActive={i === 0}
-                  isMinified={isCollapsed}
-                  onClick={props.onClose}
-                />
-              ))}
+              {props.links.map((link, i) => {
+                return (
+                  <NavigationButton
+                    key={link.href}
+                    {...link}
+                    isActive={route === link.href}
+                    isMinified={isCollapsed}
+                    onClick={props.onClose}
+                  />
+                )
+              })}
             </div>
           </div>
 
