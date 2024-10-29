@@ -9,10 +9,9 @@ const SHOW_TOP_LOADER = false
 type RootLayoutProps = Readonly<{
   children: ReactNode
   modal: ReactNode
-  locale: string
 }>
 
-export default async function Layout(props: RootLayoutProps) {
+export default function Layout(props: RootLayoutProps) {
   return (
     <>
       <div className="flex flex-col sm:flex-row bg-gray-2 h-screen">
