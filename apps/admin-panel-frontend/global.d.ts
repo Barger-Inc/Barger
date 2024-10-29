@@ -1,7 +1,7 @@
-import type en from "./locales/en.json"
+// import type en from "./locales/en.json"
 
-type Messages = typeof en
+// type Messages = typeof en
 
-declare global {
-  interface IntlMessages extends Messages {}
-}
+// declare global {
+//   interface IntlMessages extends Messages {}
+// }

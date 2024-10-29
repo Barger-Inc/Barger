@@ -7,6 +7,7 @@ import { Icon } from "@/shared/ui/icon"
 import { cn } from "@/shared/utils"
 import { ThemeToggle } from "@/widgets/theme-toggle"
 import { Button, IconButton } from "@radix-ui/themes"
+import { useTranslations } from "next-intl"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
 
@@ -17,6 +18,8 @@ type SidePanelProps = {
 }
 
 export const SidePanel = (props: SidePanelProps) => {
+  const t = useTranslations("sidePanel")
+
   const [isCollapsed, setIsCollapsed] = useState(false)
 
   const headerVariant = props.headerVariant ?? "logo"
@@ -72,7 +75,9 @@ export const SidePanel = (props: SidePanelProps) => {
                 return (
                   <NavigationButton
                     key={link.href}
-                    {...link}
+                    icon={link.icon}
+                    title={t(`links.${link.title}`)}
+                    href={link.href}
                     isActive={route === link.href}
                     isMinified={isCollapsed}
                     onClick={props.onClose}
@@ -94,7 +99,7 @@ export const SidePanel = (props: SidePanelProps) => {
             ) : (
               <Button className="px-[11px]" variant="soft" size={"3"}>
                 <Icon name="exit" size={18} />
-                Выйти
+                {t("exit")}
               </Button>
             )}
           </div>

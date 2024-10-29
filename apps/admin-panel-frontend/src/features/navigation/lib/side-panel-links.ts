@@ -3,37 +3,37 @@ import type { SidePanelLink } from "@/shared/types/side-panel-link"
 export const sidePanelLinks: SidePanelLink[] = [
   {
     href: "/",
-    title: "Home",
+    title: "home",
     icon: "home-2",
   },
   {
     href: "/collections",
-    title: "Collections",
+    title: "collections",
     icon: "folder-open",
   },
   {
     href: "/content",
-    title: "Content",
+    title: "content",
     icon: "pen-new-square",
   },
   {
     href: "/media",
-    title: "Media",
+    title: "media",
     icon: "gallery",
   },
   {
     href: "/profile",
-    title: "Profile",
+    title: "profile",
     icon: "user-circle",
   },
   {
     href: "/users",
-    title: "Users",
+    title: "users",
     icon: "users-group-two",
   },
   {
     href: "/settings",
-    title: "Settings",
+    title: "settings",
     icon: "settings",
   },
 ]
