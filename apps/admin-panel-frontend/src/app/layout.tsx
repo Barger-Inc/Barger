@@ -34,7 +34,7 @@ export default function Layout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} bg-gray-2 overflow-hidden`}
       >
-        <Theme>
+        <Theme id={"root"}>
           <Providers>{children}</Providers>
           {modal}
         </Theme>

@@ -1,6 +1,7 @@
 export type IconName =
   | "exit"
   | "folder-open"
+  | "hamburger"
   | "home-2"
   | "maximize"
   | "minimize"
