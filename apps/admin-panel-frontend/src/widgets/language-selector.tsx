@@ -16,6 +16,8 @@ export const LanguageSelector = () => {
   const handleLanguageChange = (language: string) => {
     setCurrentLanguage(language)
     setCookie("preferredLanguage", language)
+
+    window.location.reload()
   }
 
   return (
