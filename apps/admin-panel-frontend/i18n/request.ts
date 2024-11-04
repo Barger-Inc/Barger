@@ -4,9 +4,9 @@ import { cookies } from "next/headers"
 const availableLanguages = ["ru", "en"]
 
 export default getRequestConfig(async () => {
-  let locale = cookies().get("preferredLanguage")?.value ?? "en"
+  let locale = cookies().get("preferredLanguage")?.value ?? "ru"
 
-  if (!availableLanguages.includes(locale)) locale = "en"
+  if (!availableLanguages.includes(locale)) locale = "ru"
 
   try {
     return {
@@ -17,8 +17,8 @@ export default getRequestConfig(async () => {
     console.error(`Error loading translation ${locale} file`, error)
 
     return {
-      locale: "en",
-      messages: (await import("../locales/en.json")).default,
+      locale: "ru",
+      messages: (await import("../locales/ru.json")).default,
     }
   }
 })
