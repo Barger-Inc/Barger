@@ -6,11 +6,11 @@ import {
   Button,
   Text,
   Switch,
-  Badge
+  Badge,
 } from "@radix-ui/themes";
 import { Icon } from "@/shared/ui/icon";
 import { useTranslations } from "next-intl";
-import { ButtonIcon } from "@/shared/ui/button-icon";
+import Link from "next/link";
 
 type Props = {
   params: {
@@ -20,27 +20,30 @@ type Props = {
 
 const fillOfTable = [
   {
-    "display_name": "Text",
-    "fname_and_lname": "Text",
-    "email": "Text",
-    "role": "Text",
-    "blocked": false
+    id: "1",
+    display_name: "Text",
+    fname_and_lname: "Text text",
+    email: "Text",
+    role: "badge",
+    blocked: false,
   },
   {
-    "display_name": "Text",
-    "fname_and_lname": "Text",
-    "email": "Text",
-    "role": "Text",
-    "blocked": false
+    id: "2",
+    display_name: "Text",
+    fname_and_lname: "Text text",
+    email: "Text",
+    role: "badge",
+    blocked: false,
   },
   {
-    "display_name": "Text",
-    "fname_and_lname": "Text",
-    "email": "Text",
-    "role": "Text",
-    "blocked": false
+    id: "3",
+    display_name: "Text",
+    fname_and_lname: "Text text",
+    email: "Text",
+    role: "badge",
+    blocked: false,
   },
-]
+];
 
 export default function Page({ params: { locale } }: Props) {
   const t = useTranslations();
@@ -99,23 +102,24 @@ export default function Page({ params: { locale } }: Props) {
             {fillOfTable.map((user, index) => (
               <Table.Row align="center" key={index}>
                 <Table.RowHeaderCell>
-                  {user.display_name}
+                  <Link href={`/users/editUser/${user.id}`} className="underline cursor-pointer">
+                    {user.display_name}
+                  </Link>
                 </Table.RowHeaderCell>
+
+                <Table.Cell>{user.fname_and_lname}</Table.Cell>
+                <Table.Cell>{user.email}</Table.Cell>
                 <Table.Cell>
-                  {user.fname_and_lname}
+                  <Badge size="1" variant="soft">
+                    <Text>{user.role}</Text>
+                  </Badge>
                 </Table.Cell>
                 <Table.Cell>
-                  {user.email}
-                </Table.Cell>
-                <Table.Cell>
-                  <Badge size="1" variant="soft"><Text>{user.role}</Text></Badge>
-                </Table.Cell>
-                <Table.Cell>
-                  <Switch size="2" variant="classic" checked={user.blocked}/>
+                  <Switch size="2" variant="classic" checked={user.blocked} />
                 </Table.Cell>
                 <Table.Cell>
                   <IconButton variant="soft">
-                    <Icon name="trash-bin" size={24}/>
+                    <Icon name="trash-bin" size={24} />
                   </IconButton>
                 </Table.Cell>
               </Table.Row>

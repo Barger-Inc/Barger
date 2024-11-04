@@ -5,6 +5,7 @@ export type StrokeIconName =
   | "gallery"
   | "hamburger"
   | "home-2"
+  | "key"
   | "magnifer"
   | "moon"
   | "pen-new-square"
