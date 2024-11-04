@@ -12,5 +12,5 @@ WORKDIR /app/apps/admin-panel-frontend
 
 RUN npx next build
 
-CMD ["npx", "next start"]
+CMD ["yarn", "start"]
 
