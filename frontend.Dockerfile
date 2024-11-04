@@ -10,7 +10,7 @@ COPY . .
 
 WORKDIR /app/apps/admin-panel-frontend
 
-RUN yarn build
+RUN npx next build
 
 CMD ["yarn", "start"]
 
