@@ -10,5 +10,20 @@
       "settings": "Настройки"
     },
     "exit": "Выход"
+  },
+  "settingsSidePanel": {
+    "title": "Настройки",
+    "links": {
+      "tokens": "Токены",
+      "media": "Медиа",
+      "language": "Язык",
+      "roles": "Роли",
+      "users": "Пользователи"
+    }
+  },
+  "themeToggle": {
+    "dark": "Темная",
+    "light": "Светлая",
+    "system": "Системная"
   }
 }

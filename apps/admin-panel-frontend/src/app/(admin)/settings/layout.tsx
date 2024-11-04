@@ -4,6 +4,7 @@ import { NavigationButton } from "@/features/navigation/ui/navigation-button"
 import { Icon } from "@/shared/ui/icon"
 import { cn } from "@/shared/utils"
 import { Button, Text } from "@radix-ui/themes"
+import { useTranslations } from "next-intl"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import type { ReactNode } from "react"
@@ -14,6 +15,8 @@ export default function Layout(props: { children: ReactNode }) {
   const pathname = usePathname()
   const isRoot = pathname === "/settings"
 
+  const t = useTranslations("settingsSidePanel")
+
   return (
     <div className="-m-4 sm:-m-8 flex h-[calc(100%+64px)]">
       {/* TODO: move to separate component */}
@@ -23,14 +26,14 @@ export default function Layout(props: { children: ReactNode }) {
           !isRoot && "hidden sm:flex"
         )}
       >
-        <Text size="7" weight="bold" children="Настройки" />
+        <Text size="7" weight="bold" children={t("title")} />
         <div className="w-full h-px rounded-full bg-gray-6" />
 
         {links.map((link) => (
           <NavigationButton
             key={link}
             href={`/settings/${link}`}
-            title={link}
+            title={t(`links.${link}`)}
           />
         ))}
       </div>
