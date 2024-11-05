@@ -21,5 +21,20 @@
     "email": "Изменить электронную почту",
     "password": "Изменить пароль",
     "save": "Сохранить"
+  },
+  "settingsSidePanel": {
+    "title": "Настройки",
+    "links": {
+      "tokens": "Токены",
+      "media": "Медиа",
+      "language": "Язык",
+      "roles": "Роли",
+      "users": "Пользователи"
+    }
+  },
+  "themeToggle": {
+    "dark": "Темная",
+    "light": "Светлая",
+    "system": "Системная"
   }
 }

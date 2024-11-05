@@ -6,7 +6,7 @@ import Link from "next/link"
 import type { ComponentProps } from "react"
 
 type NavigationButtonProps = {
-  icon: StrokeIconName & FillIconName
+  icon?: StrokeIconName & FillIconName
   href: string
   title: string
   isMinified?: boolean
@@ -37,7 +37,9 @@ export const NavigationButton = (props: NavigationButtonProps) => {
             "bg-accent-4 text-accent-11 group-active/nav-item:bg-accent-5"
         )}
       >
-        <Icon name={icon} size={24} variant={isActive ? "fill" : "stroke"} />
+        {icon && (
+          <Icon name={icon} size={24} variant={isActive ? "fill" : "stroke"} />
+        )}
         {!isMinified && <Text size={"3"} children={title} />}
       </div>
     </Link>

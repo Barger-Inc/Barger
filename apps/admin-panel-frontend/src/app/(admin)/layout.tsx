@@ -4,7 +4,7 @@ import { SidePanelTrigger } from "@/widgets/side-panel-trigger"
 import NextTopLoader from "nextjs-toploader"
 import type { ReactNode } from "react"
 
-const SHOW_TOP_LOADER = false
+const SHOW_TOP_LOADER = true
 
 type RootLayoutProps = Readonly<{
   children: ReactNode
@@ -23,7 +23,9 @@ export default function Layout(props: RootLayoutProps) {
         </div>
         <div className="sm:p-2 sm:pl-0 flex flex-1 max-h-screen overflow-hidden">
           <main className="flex-1 rounded-6 border-t sm:border border-gray-6 bg-gray-1 overflow-scroll overscroll-contain p-4 sm:p-8">
-            {SHOW_TOP_LOADER && <NextTopLoader showSpinner={false} />}
+            {SHOW_TOP_LOADER && (
+              <NextTopLoader color={"#3341FB"} showSpinner={false} />
+            )}
             {props.children}
           </main>
         </div>
