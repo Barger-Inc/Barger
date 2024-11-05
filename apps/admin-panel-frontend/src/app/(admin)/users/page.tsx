@@ -115,7 +115,7 @@ export default function Page({ params: { locale } }: Props) {
                   </Badge>
                 </Table.Cell>
                 <Table.Cell>
-                  <Switch size="2" variant="classic" checked={user.blocked} />
+                  <Switch size="2" variant="classic" defaultChecked={user.blocked} />
                 </Table.Cell>
                 <Table.Cell>
                   <IconButton variant="soft">

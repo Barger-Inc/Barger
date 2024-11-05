@@ -5,12 +5,10 @@ import {
   TextField,
   Text,
   Select,
-  Checkbox,
-  Flex,
-  Button,
 } from "@radix-ui/themes";
 import { useTranslations } from "next-intl";
-import { useForm } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
+
 
 interface User {
   id: string;
@@ -21,10 +19,6 @@ interface User {
   blocked: boolean;
 }
 
-type EditUserProps = {
-  user: User;
-};
-
 interface FormValues {
   email: string;
   display_name: string;
@@ -34,22 +28,18 @@ interface FormValues {
   blocked: boolean;
 }
 
-export const EditUser = ({ user }: EditUserProps) => {
+export const CreateUser = () => {
   const t = useTranslations();
 
   const {
     register,
+    handleSubmit,
     formState: { errors },
-  } = useForm<FormValues>({
-    defaultValues: {
-      email: user.email,
-      display_name: user.display_name,
-      fname: user.fname_and_lname.split(" ")[0] || "",
-      lname: user.fname_and_lname.split(" ")[1] || "",
-      role: user.role,
-      blocked: user.blocked,
-    },
-  });
+  } = useForm<FormValues>();
+
+  const onSubmit: SubmitHandler<FormValues> = (data) => {
+    console.log("Form data:", data);
+  };
 
   const fillForSelectRole = [
     {
@@ -63,7 +53,7 @@ export const EditUser = ({ user }: EditUserProps) => {
   ];
 
   return (
-    <div className="flex flex-col gap-2">
+    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-2">
       <div className="flex flex-col sm:flex-row gap-2 justify-between">
         <div className="flex flex-col gap-2 w-full">
           <Text size="2" weight="medium">
@@ -108,7 +98,7 @@ export const EditUser = ({ user }: EditUserProps) => {
         <Text size="2" weight="medium">
           {t("users.modal_edit.role")}
         </Text>
-        <Select.Root size="2" defaultValue={user.role}>
+        <Select.Root size="2">
           <Select.Trigger {...register("role", { required: true })} />
           <Select.Content>
             {fillForSelectRole.map((role, index) => (
@@ -119,24 +109,7 @@ export const EditUser = ({ user }: EditUserProps) => {
           </Select.Content>
         </Select.Root>
       </div>
-      <Text as="label" size="2">
-        <Flex as="span" gap="2">
-          <Checkbox defaultChecked={user.blocked} {...register("blocked")} />
-          Заблокировать
-        </Flex>
-      </Text>
-      <Button
-        size="2"
-        variant="soft"
-        color="gray"
-        className="flex w-fit"
-        type="button"
-      >
-        <Icon name="key" size={16} />
-        <Text size="2" weight="medium">
-          Изменить пароль
-        </Text>
-      </Button>
-    </div>
+      <input type="submit"/>
+    </form>
   );
 };
