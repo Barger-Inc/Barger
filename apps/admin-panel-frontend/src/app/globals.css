@@ -322,6 +322,9 @@
     /*noinspection CssUnresolvedCustomProperty*/
     font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
     user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
   }
 }
 
