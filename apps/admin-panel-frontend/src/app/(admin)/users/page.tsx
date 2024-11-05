@@ -1,3 +1,5 @@
+"use client"
+
 import {
   Heading,
   TextField,
@@ -11,6 +13,7 @@ import {
 import { Icon } from "@/shared/ui/icon";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 type Props = {
   params: {
@@ -47,6 +50,7 @@ const fillOfTable = [
 
 export default function Page({ params: { locale } }: Props) {
   const t = useTranslations();
+  const router = useRouter();
 
   return (
     <div className="flex flex-col gap-6 relative">
@@ -54,10 +58,10 @@ export default function Page({ params: { locale } }: Props) {
         <Heading as="h1" size="7">
           {t("users.title")}
         </Heading>
-        <Button size="3" variant="soft" className="hidden sm:flex">
-          <Icon name="add-square" size={18} />
-          <Text>{t("users.add_user")}</Text>
-        </Button>
+        <Button size="3" variant="soft" className="hidden sm:flex" onClick={() => router.push("/users/createUser")}>
+            <Icon name="add-square" size={18} />
+            <Text>{t("users.add_user")}</Text>
+          </Button>
       </div>
       <div className="flex flex-col gap-6">
         <div className="flex gap-2">
@@ -128,7 +132,7 @@ export default function Page({ params: { locale } }: Props) {
         </Table.Root>
       </div>
       <div className="fixed bottom-0 left-0 w-full p-4">
-        <Button size="4" variant="solid" className="flex sm:hidden w-full">
+        <Button size="4" variant="solid" className="flex sm:hidden w-full" onClick={() => router.push("/users/createUser")}>
           <Icon name="add-square" size={20} />
           <Text>{t("users.add_user")}</Text>
         </Button>

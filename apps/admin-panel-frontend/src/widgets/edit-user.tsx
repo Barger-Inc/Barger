@@ -67,19 +67,19 @@ export const EditUser = ({ user }: EditUserProps) => {
       <div className="flex flex-col sm:flex-row gap-2 justify-between">
         <div className="flex flex-col gap-2 w-full">
           <Text size="2" weight="medium">
-            {t("users.modal_edit.email")}
+            {t("users.modal.email")}
           </Text>
           <TextField.Root
-            placeholder={t("users.modal_edit.email")}
+            placeholder={t("users.modal.email")}
             {...register("email", { required: true })}
           />
         </div>
         <div className="flex flex-col gap-2 w-full">
           <Text size="2" weight="medium">
-            {t("users.modal_edit.display_name")}
+            {t("users.modal.display_name")}
           </Text>
           <TextField.Root
-            placeholder={t("users.modal_edit.display_name")}
+            placeholder={t("users.modal.display_name")}
             {...register("display_name", { required: true })}
           />
         </div>
@@ -87,26 +87,26 @@ export const EditUser = ({ user }: EditUserProps) => {
       <div className="flex gap-2 justify-between">
         <div className="flex flex-col gap-2 w-full">
           <Text size="2" weight="medium">
-            {t("users.modal_edit.fname")}
+            {t("users.modal.fname")}
           </Text>
           <TextField.Root
-            placeholder={t("users.modal_edit.fname")}
+            placeholder={t("users.modal.fname")}
             {...register("fname", { required: true })}
           />
         </div>
         <div className="flex flex-col gap-2 w-full">
           <Text size="2" weight="medium">
-            {t("users.modal_edit.lname")}
+            {t("users.modal.lname")}
           </Text>
           <TextField.Root
-            placeholder={t("users.modal_edit.lname")}
+            placeholder={t("users.modal.lname")}
             {...register("lname", { required: true })}
           />
         </div>
       </div>
       <div className="flex flex-col gap-2 w-full">
         <Text size="2" weight="medium">
-          {t("users.modal_edit.role")}
+          {t("users.modal.role")}
         </Text>
         <Select.Root size="2" defaultValue={user.role}>
           <Select.Trigger {...register("role", { required: true })} />

@@ -23,7 +23,7 @@
       "blocked": "Заблокирован",
       "actions": "Действия"
     },
-    "modal_edit": {
+    "modal": {
       "edit_user": "Редактирование пользователя",
       "display_name": "Отображаемое имя",
       "fname": "Имя",
@@ -31,7 +31,11 @@
       "email": "Электронная почта",
       "role": "Роль",
       "blocked": "Заблокировать",
-      "edit_password": "Изменить пароль"
+      "edit_password": "Изменить пароль",
+      "password": "Пароль",
+      "repeat_password": "Повторите пароль",
+      "passwords_confirm": "Пароли не совпадают",
+      "passwords_required": "Пожалуйста, подтвердите пароль"
     }
   }
 }

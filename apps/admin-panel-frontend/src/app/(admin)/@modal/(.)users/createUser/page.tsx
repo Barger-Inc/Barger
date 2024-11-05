@@ -11,13 +11,15 @@ export default function Page({ params: { id } }: { params: { id: number } }) {
 
   return (
     <ModalRoot>
-      <ModalHeader title="Создание пользователя" />
-      <ModalBody>
-        <CreateUser/>
-      </ModalBody>
-      <ModalFooter>
-        <Button label="Сохранить" />
-      </ModalFooter>
+      <form action="">
+        <ModalHeader title="Создание пользователя" />
+        <ModalBody>
+          <CreateUser/>
+        </ModalBody>
+        <ModalFooter>
+          <Button label="Сохранить" />
+        </ModalFooter>
+      </form>
     </ModalRoot>
   )
 }
