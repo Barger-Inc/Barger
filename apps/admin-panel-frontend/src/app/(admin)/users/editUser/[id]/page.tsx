@@ -1,5 +1,4 @@
-import { EditUser } from "@/widgets/edit-user";
-
+import { FormEditUser } from "@/features/user/form-edit-user";
 
 export default function Page() {
   const user = {
@@ -11,5 +10,5 @@ export default function Page() {
     blocked: false,
   };
 
-  return <EditUser user={user} />;
+  return <FormEditUser user={user} />;
 }

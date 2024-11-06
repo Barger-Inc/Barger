@@ -1,29 +1,13 @@
 "use client";
 
-import { Icon } from "@/shared/ui/icon";
 import {
   TextField,
   Text,
   Select,
-  Checkbox,
-  Flex,
-  Button,
 } from "@radix-ui/themes";
 import { useTranslations } from "next-intl";
-import { useForm } from "react-hook-form";
-
-interface User {
-  id: string;
-  display_name: string;
-  fname_and_lname: string;
-  email: string;
-  role: string;
-  blocked: boolean;
-}
-
-type EditUserProps = {
-  user: User;
-};
+import { useState } from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
 
 interface FormValues {
   email: string;
@@ -31,25 +15,26 @@ interface FormValues {
   fname: string;
   lname: string;
   role: string;
-  blocked: boolean;
+  password: string;
+  confirmPassword: string;
 }
 
-export const EditUser = ({ user }: EditUserProps) => {
+export const FormCreateUser = () => {
   const t = useTranslations();
 
   const {
     register,
+    handleSubmit,
+    watch,
     formState: { errors },
-  } = useForm<FormValues>({
-    defaultValues: {
-      email: user.email,
-      display_name: user.display_name,
-      fname: user.fname_and_lname.split(" ")[0] || "",
-      lname: user.fname_and_lname.split(" ")[1] || "",
-      role: user.role,
-      blocked: user.blocked,
-    },
-  });
+  } = useForm<FormValues>();
+
+  const password = watch("password");
+
+  const onSubmit: SubmitHandler<FormValues> = (data) => {
+    data.role = role;
+    console.log("Form data:", data);
+  };
 
   const fillForSelectRole = [
     {
@@ -61,9 +46,11 @@ export const EditUser = ({ user }: EditUserProps) => {
       name: "Пользователь",
     },
   ];
+  
+  const [role, setRole] = useState(fillForSelectRole[0].value);
 
   return (
-    <div className="flex flex-col gap-2">
+    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-2">
       <div className="flex flex-col sm:flex-row gap-2 justify-between">
         <div className="flex flex-col gap-2 w-full">
           <Text size="2" weight="medium">
@@ -108,8 +95,8 @@ export const EditUser = ({ user }: EditUserProps) => {
         <Text size="2" weight="medium">
           {t("users.modal.role")}
         </Text>
-        <Select.Root size="2" defaultValue={user.role}>
-          <Select.Trigger {...register("role", { required: true })} />
+        <Select.Root size="2" defaultValue={role} onValueChange={setRole}>
+          <Select.Trigger  />
           <Select.Content>
             {fillForSelectRole.map((role, index) => (
               <Select.Item key={index} value={role.value}>
@@ -119,24 +106,37 @@ export const EditUser = ({ user }: EditUserProps) => {
           </Select.Content>
         </Select.Root>
       </div>
-      <Text as="label" size="2">
-        <Flex as="span" gap="2">
-          <Checkbox defaultChecked={user.blocked} {...register("blocked")} />
-          Заблокировать
-        </Flex>
-      </Text>
-      <Button
-        size="2"
-        variant="soft"
-        color="gray"
-        className="flex w-fit"
-        type="button"
-      >
-        <Icon name="key" size={16} />
-        <Text size="2" weight="medium">
-          Изменить пароль
-        </Text>
-      </Button>
-    </div>
+      <div className="flex flex-col sm:flex-row gap-2 justify-between">
+        <div className="flex flex-col gap-2 w-full">
+          <Text size="2" weight="medium">
+            {t("users.modal.password")}
+          </Text>
+          <TextField.Root
+            type="password"
+            placeholder={t("users.modal.password")}
+            {...register("password", { required: true })}
+          />
+        </div>
+        <div className="flex flex-col gap-2 w-full">
+          <Text size="2" weight="medium">
+            {t("users.modal.repeat_password")}
+          </Text>
+          <TextField.Root
+            type="password"
+            placeholder={t("users.modal.repeat_password")}
+            {...register("confirmPassword", {
+              required: `${t("users.modal.passwords_required")}`,
+              validate: (value) =>
+                value === password ||
+                `${t("users.modal.passwords_required")}`,
+            })}
+          />
+          {errors.confirmPassword && (
+            <p>{t("users.modal.passwords_confirm")}</p>
+          )}
+        </div>
+      </div>
+      <input type="submit" />
+  </form>
   );
 };

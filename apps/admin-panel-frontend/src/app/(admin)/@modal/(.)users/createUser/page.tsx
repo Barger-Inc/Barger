@@ -1,25 +1,23 @@
+import { FormCreateUser } from "@/features/user/form-create-user";
 import { Button } from "@/shared/ui/button"
 import { ModalBody } from "@/shared/ui/modal-body"
 import { ModalFooter } from "@/shared/ui/modal-footer"
 import { ModalHeader } from "@/shared/ui/modal-header"
 import { ModalRoot } from "@/shared/ui/modal-root"
-import { MediaPreview } from "@/widgets/media-preview"
-import { CreateUser } from "@/widgets/create-user"
-import { ModalForm } from "@/shared/ui/modal-form"
+import { useTranslations } from "next-intl";
 
-export default function Page({ params: { id } }: { params: { id: number } }) {
+export default function Page() {
+  const t = useTranslations();
 
   return (
     <ModalRoot>
-      <form action="">
-        <ModalHeader title="Создание пользователя" />
-        <ModalBody>
-          <CreateUser/>
-        </ModalBody>
-        <ModalFooter>
-          <Button label="Сохранить" />
-        </ModalFooter>
-      </form>
+      <ModalHeader title={`${t("users.modal.create_user")}`} />
+      <ModalBody>
+        <FormCreateUser/>
+      </ModalBody>
+      <ModalFooter>
+        <Button label="Сохранить" />
+      </ModalFooter>
     </ModalRoot>
-  )
+  );
 }

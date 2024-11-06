@@ -1,8 +1,6 @@
-import { CreateUser } from "@/widgets/create-user";
-
-
+import { FormCreateUser } from "@/features/user/form-create-user";
 
 export default function Page() {
 
-  return <CreateUser/>;
+  return <FormCreateUser/>
 }
