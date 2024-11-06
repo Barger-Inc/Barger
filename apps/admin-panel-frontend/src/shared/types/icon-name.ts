@@ -1,10 +1,12 @@
 export type StrokeIconName =
+  | "closedeye"
   | "exit"
   | "folder-open"
   | "gallery"
   | "hamburger"
   | "home-2"
   | "moon"
+  | "openeye"
   | "pen-new-square"
   | "settings"
   | "sun"

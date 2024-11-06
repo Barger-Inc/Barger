@@ -4,6 +4,7 @@ import { Box } from "@radix-ui/themes";
 import { TextField } from "@radix-ui/themes";
 import { Button } from "@radix-ui/themes";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 
 export default function Page() {
   const translation = useTranslations("profile")
@@ -37,7 +38,9 @@ export default function Page() {
         <Text size="5" weight="medium">{translation("security")}</Text>
         <div className="mt-6 flex-col sm:flex-row">
           <Button className="mb-2 w-full sm:w-[324px] sm:mr-2" size="3" variant="soft">{translation("email")}</Button>
-          <Button className="w-full sm:w-[324px]" size="3" variant="soft">{translation("password")}</Button>
+          <Link href={"/profile/changePassword"}>
+            <Button className="w-full sm:w-[324px]" size="3" variant="soft">{translation("password")}</Button>
+          </Link>
         </div>
       </div>
       <Button size="3" variant="solid" className="w-full absolute inset-x-0 bottom-0 mb-4 sm:static sm:mt-8 sm:w-auto">{translation("save")}</Button>
