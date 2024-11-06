@@ -10,8 +10,7 @@ import {
   Button,
 } from "@radix-ui/themes";
 import { useTranslations } from "next-intl";
-import { useState } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { useEditUserForm } from "../model/use-form-edit-user";
 
 interface User {
   id: string;
@@ -26,36 +25,19 @@ type EditUserProps = {
   user: User;
 };
 
-interface FormValues {
-  email: string;
-  display_name: string;
-  fname: string;
-  lname: string;
-  role: string;
-  blocked: boolean;
-}
-
-export const FormEditUser = ({ user }: EditUserProps) => {
+export const FormEditUser =  ({user}: EditUserProps) => {
   const t = useTranslations();
 
   const {
     register,
     handleSubmit,
-    formState: { errors },
-  } = useForm<FormValues>({
-    defaultValues: {
-      email: user.email,
-      display_name: user.display_name,
-      fname: user.fname_and_lname.split(" ")[0] || "",
-      lname: user.fname_and_lname.split(" ")[1] || "",
-    },
-  });
-
-  const onSubmit: SubmitHandler<FormValues> = (data) => {
-    data.role = role;
-    data.blocked = blocked;
-    console.log("Form data:", data);
-  };
+    errors,
+    role,
+    setRole,
+    blocked,
+    setBlocked,
+    onSubmit,
+  } = useEditUserForm({user});
 
   const fillForSelectRole = [
     {
@@ -67,9 +49,6 @@ export const FormEditUser = ({ user }: EditUserProps) => {
       name: "Пользователь",
     },
   ];
-
-  const [role, setRole] = useState(user.role);
-  const [blocked, setBlocked] = useState<boolean>(user.blocked);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

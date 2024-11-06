@@ -36,7 +36,8 @@
       "password": "Пароль",
       "repeat_password": "Повторите пароль",
       "passwords_confirm": "Пароли не совпадают",
-      "passwords_required": "Пожалуйста, подтвердите пароль"
+      "passwords_required": "Пожалуйста, подтвердите пароль",
+      "save": "Сохранить"
     }
   }
 }

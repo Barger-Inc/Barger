@@ -52,7 +52,7 @@ export default function Page({ params: { locale } }: Props) {
 
   return (
     <div className="flex flex-col gap-6 relative">
-      <div className="sm:flex block sm:justify-between sm:items-center gap-2">
+      <div className="sm:flex block sm:justify-between sm:items-center gap-3">
         <Heading as="h1" size="7">
           {t("users.title")}
         </Heading>

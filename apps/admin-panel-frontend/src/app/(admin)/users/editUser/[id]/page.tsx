@@ -1,6 +1,7 @@
-import { FormEditUser } from "@/features/user/form-edit-user";
+import { FormEditUser } from "@/features/user/ui/form-edit-user";
 
 export default function Page() {
+  
   const user = {
     id: "1",
     display_name: "Text",

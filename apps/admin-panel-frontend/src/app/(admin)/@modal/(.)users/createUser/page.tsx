@@ -1,4 +1,4 @@
-import { FormCreateUser } from "@/features/user/form-create-user";
+import { FormCreateUser } from "@/features/user/ui/form-create-user";
 import { Button } from "@/shared/ui/button"
 import { ModalBody } from "@/shared/ui/modal-body"
 import { ModalFooter } from "@/shared/ui/modal-footer"
@@ -16,7 +16,7 @@ export default function Page() {
         <FormCreateUser/>
       </ModalBody>
       <ModalFooter>
-        <Button label="Сохранить" />
+        <Button label={`${t("users.modal.save")}`} />
       </ModalFooter>
     </ModalRoot>
   );

@@ -8,6 +8,7 @@ import {
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { useCreateUserForm } from "../model/use-form-create-user";
 
 interface FormValues {
   email: string;
@@ -25,16 +26,12 @@ export const FormCreateUser = () => {
   const {
     register,
     handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm<FormValues>();
-
-  const password = watch("password");
-
-  const onSubmit: SubmitHandler<FormValues> = (data) => {
-    data.role = role;
-    console.log("Form data:", data);
-  };
+    errors,
+    password,
+    role,
+    setRole,
+    onSubmit,
+  } = useCreateUserForm();
 
   const fillForSelectRole = [
     {
@@ -47,7 +44,6 @@ export const FormCreateUser = () => {
     },
   ];
   
-  const [role, setRole] = useState(fillForSelectRole[0].value);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-2">

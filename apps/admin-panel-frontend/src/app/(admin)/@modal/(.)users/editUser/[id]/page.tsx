@@ -4,7 +4,7 @@ import { ModalFooter } from "@/shared/ui/modal-footer";
 import { ModalHeader } from "@/shared/ui/modal-header";
 import { ModalRoot } from "@/shared/ui/modal-root";
 import { useTranslations } from "next-intl";
-import { FormEditUser } from "@/features/user/form-edit-user";
+import { FormEditUser } from "@/features/user/ui/form-edit-user";
 
 export default function Page({ params: { id } }: { params: { id: number } }) {
   const t = useTranslations();
@@ -25,7 +25,7 @@ export default function Page({ params: { id } }: { params: { id: number } }) {
         <FormEditUser user={user}/>
       </ModalBody>
       <ModalFooter>
-        <Button label="Сохранить" />
+        <Button label={`${t("users.modal.save")}`} />
       </ModalFooter>
     </ModalRoot>
   );
