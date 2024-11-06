@@ -6,19 +6,7 @@ import {
   Select,
 } from "@radix-ui/themes";
 import { useTranslations } from "next-intl";
-import { useState } from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
 import { useCreateUserForm } from "../model/use-form-create-user";
-
-interface FormValues {
-  email: string;
-  display_name: string;
-  fname: string;
-  lname: string;
-  role: string;
-  password: string;
-  confirmPassword: string;
-}
 
 export const FormCreateUser = () => {
   const t = useTranslations();
