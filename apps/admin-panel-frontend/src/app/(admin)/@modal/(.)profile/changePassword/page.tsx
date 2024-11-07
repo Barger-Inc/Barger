@@ -1,3 +1,5 @@
+'use client'
+
 import { Button } from "@/shared/ui/button"
 import { ModalBody } from "@/shared/ui/modal-body"
 import { ModalFooter } from "@/shared/ui/modal-footer"
@@ -15,6 +17,10 @@ export default function Page() {
   const [passwordAgain, setpasswordAgain]=useState<string|null>(null)
 
   const router=useRouter();
+  
+  const routefun=()=>{
+    router.back()
+  }
 
   return (
     <ModalRoot>
@@ -31,11 +37,7 @@ export default function Page() {
       <ModalFooter>
         <Button variant={"outline"} label={t("undo")} />
         <Button label={t("save")} 
-          onClick={()=>{
-            console.log(currentPassword, newPassword, passwordAgain)
-
-            router.back()
-          }}
+          onClick={()=>{routefun()}}
         />
       </ModalFooter>
     </ModalRoot>

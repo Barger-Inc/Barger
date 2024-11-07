@@ -13,6 +13,10 @@ export default function Page() {
   const [passwordAgain, setpasswordAgain]=useState<string|null>(null)
 
   const router=useRouter();
+  
+  const routefun=()=>{
+    router.back()
+  }
 
   return(
     <div>
@@ -24,11 +28,7 @@ export default function Page() {
           }}
         />
       <Button label={t("save")} 
-          onClick={()=>{
-            console.log(currentPassword, newPassword, passwordAgain)
-
-            router.back()
-          }}
+          onClick={()=>{routefun()}}
         />
     </div>
   )
