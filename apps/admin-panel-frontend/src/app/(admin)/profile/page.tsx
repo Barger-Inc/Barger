@@ -1,6 +1,5 @@
+import { TextField } from "@/shared/ui/text-field"
 import { Heading } from "@radix-ui/themes"
-import { Text } from "@radix-ui/themes"
-import { TextField } from "@radix-ui/themes"
 import { Button } from "@radix-ui/themes"
 import { useTranslations } from "next-intl"
 
@@ -14,21 +13,11 @@ export default function Page() {
 
         <div className="flex flex-col gap-4">
           <div className="flex flex-col gap-4 sm:flex-row [&>*]:flex-1">
-            <Text size="2" as="label" weight="medium">
-              {t("firstName")}
-              <TextField.Root size="2" />
-            </Text>
-
-            <Text size="2" as="label" weight="medium">
-              {t("lastName")}
-              <TextField.Root size="2" />
-            </Text>
+            <TextField label={t("firstName")} />
+            <TextField label={t("lastName")} />
           </div>
 
-          <Text size="2" as="label" weight="medium">
-            {t("displayName")}
-            <TextField.Root size="2" />
-          </Text>
+          <TextField label={t("displayName")} />
         </div>
       </div>
 
