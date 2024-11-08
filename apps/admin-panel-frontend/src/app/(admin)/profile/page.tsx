@@ -6,35 +6,35 @@ import { Button } from "@radix-ui/themes"
 import { useTranslations } from "next-intl"
 
 export default function Page() {
-  const translation = useTranslations("profile")
+  const t = useTranslations("profile")
 
   return (
     <div>
       <Heading size="7" className="mb-6">
-        {translation("title")}
+        {t("title")}
       </Heading>
       <div className="flex-col">
         <div className="sm:flex sm:gap-2">
           <div className="mb-4">
             <Text size="2" as="label" htmlFor="label1" weight="medium">
-              {translation("name")}
+              {t("name")}
             </Text>
             <Box maxWidth="100%" className="sm:w-[320px]">
               <TextField.Root
                 size="2"
-                placeholder={translation("placeholder")}
+                placeholder={t("placeholder")}
                 id="label1"
               />
             </Box>
           </div>
           <div className="mb-4">
             <Text size="2" as="label" htmlFor="label1" weight="medium">
-              {translation("surname")}
+              {t("surname")}
             </Text>
             <Box maxWidth="100%" className="sm:w-[320px]">
               <TextField.Root
                 size="2"
-                placeholder={translation("placeholder")}
+                placeholder={t("placeholder")}
                 id="label1"
               />
             </Box>
@@ -42,12 +42,12 @@ export default function Page() {
         </div>
         <div>
           <Text size="2" as="label" htmlFor="label1" weight="medium">
-            {translation("nickname")}
+            {t("nickname")}
           </Text>
           <Box className="sm:w-[648px]" maxWidth="100%">
             <TextField.Root
               size="2"
-              placeholder={translation("placeholder")}
+              placeholder={t("placeholder")}
               id="label1"
             />
           </Box>
@@ -55,7 +55,7 @@ export default function Page() {
       </div>
       <div className="mt-8">
         <Text size="5" weight="medium">
-          {translation("security")}
+          {t("security")}
         </Text>
         <div className="mt-6 flex-col sm:flex-row">
           <Button
@@ -63,10 +63,10 @@ export default function Page() {
             size="3"
             variant="soft"
           >
-            {translation("email")}
+            {t("email")}
           </Button>
           <Button className="w-full sm:w-[324px]" size="3" variant="soft">
-            {translation("password")}
+            {t("password")}
           </Button>
         </div>
       </div>
@@ -75,7 +75,7 @@ export default function Page() {
         variant="solid"
         className="w-full absolute inset-x-0 bottom-0 mb-4 sm:static sm:mt-8 sm:w-auto"
       >
-        {translation("save")}
+        {t("save")}
       </Button>
     </div>
   )
