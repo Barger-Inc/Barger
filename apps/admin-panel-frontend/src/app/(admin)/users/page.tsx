@@ -1,16 +1,16 @@
 "use client"
 
-import {
-  Heading,
-  TextField,
-  IconButton,
-  Table,
-  Button,
-  Text,
-  Switch,
-  Badge,
-} from "@radix-ui/themes"
 import { Icon } from "@/shared/ui/icon"
+import {
+  Badge,
+  Button,
+  Heading,
+  IconButton,
+  Switch,
+  Table,
+  Text,
+  TextField,
+} from "@radix-ui/themes"
 import { useTranslations } from "next-intl"
 import Link from "next/link"
 
@@ -107,7 +107,7 @@ export default function Page({ params: { locale } }: Props) {
               <Table.Row align="center" key={index}>
                 <Table.RowHeaderCell>
                   <Link
-                    href={`/users/editUser/${user.id}`}
+                    href={`/users/edit/${user.id}`}
                     className="underline cursor-pointer"
                   >
                     {user.display_name}
@@ -139,7 +139,7 @@ export default function Page({ params: { locale } }: Props) {
         </Table.Root>
       </div>
       <div className="fixed bottom-0 left-0 w-full p-4">
-        <Link href={"/users/createUser"}>
+        <Link href={"/users/new"}>
           <Button size="4" variant="solid" className="flex sm:hidden w-full">
             <Icon name="add-square" size={20} />
             <Text>{t("users.add_user")}</Text>
