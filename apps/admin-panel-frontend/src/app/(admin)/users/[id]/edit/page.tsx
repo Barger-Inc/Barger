@@ -1,4 +1,4 @@
-import { FormEditUser } from "@/features/user/ui/form-edit-user"
+import { FormUser } from "@/features/user/ui/form-user"
 
 export default function Page() {
   const user = {
@@ -10,5 +10,5 @@ export default function Page() {
     blocked: false,
   }
 
-  return <FormEditUser user={user} />
+  return <FormUser user={user} />
 }

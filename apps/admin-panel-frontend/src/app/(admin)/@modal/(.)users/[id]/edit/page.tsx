@@ -1,4 +1,4 @@
-import { FormEditUser } from "@/features/user/ui/form-edit-user"
+import { FormUser } from "@/features/user/ui/form-user"
 import { Button } from "@/shared/ui/button"
 import { ModalBody } from "@/shared/ui/modal-body"
 import { ModalFooter } from "@/shared/ui/modal-footer"
@@ -22,7 +22,7 @@ export default function Page({ params: { id } }: { params: { id: string } }) {
     <ModalRoot>
       <ModalHeader title={t("editUserTitle")} />
       <ModalBody>
-        <FormEditUser user={user} />
+        <FormUser user={user} />
       </ModalBody>
       <ModalFooter>
         <Button label={t("save")} />

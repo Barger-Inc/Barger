@@ -1,4 +1,4 @@
-import { FormCreateUser } from "@/features/user/ui/form-create-user"
+import { FormUser } from "@/features/user/ui/form-user"
 import { Button } from "@/shared/ui/button"
 import { ModalBody } from "@/shared/ui/modal-body"
 import { ModalFooter } from "@/shared/ui/modal-footer"
@@ -7,16 +7,16 @@ import { ModalRoot } from "@/shared/ui/modal-root"
 import { useTranslations } from "next-intl"
 
 export default function Page() {
-  const t = useTranslations()
+  const t = useTranslations("users.user")
 
   return (
     <ModalRoot>
-      <ModalHeader title={`${t("users.modal.create_user")}`} />
+      <ModalHeader title={`${t("createUserTitle")}`} />
       <ModalBody>
-        <FormCreateUser />
+        <FormUser />
       </ModalBody>
       <ModalFooter>
-        <Button label={`${t("users.modal.save")}`} />
+        <Button label={`${t("save")}`} />
       </ModalFooter>
     </ModalRoot>
   )

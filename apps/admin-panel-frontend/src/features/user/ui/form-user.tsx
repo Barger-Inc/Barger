@@ -5,33 +5,25 @@ import { FormField } from "@/shared/ui/form-field"
 import { TextField } from "@/shared/ui/text-field"
 import { Checkbox, Select, Text } from "@radix-ui/themes"
 import { useTranslations } from "next-intl"
-import { useEditUserForm } from "../model/use-form-edit-user"
-
-interface User {
-  id: string
-  display_name: string
-  fname_and_lname: string
-  email: string
-  role: string
-  blocked: boolean
-}
+import { type User, useFormUser } from "../model/use-form-user"
 
 type EditUserProps = {
-  user: User
+  user?: User
 }
 
-export const FormEditUser = ({ user }: EditUserProps) => {
+export const FormUser = ({ user }: EditUserProps) => {
   const t = useTranslations("users.user")
 
   const {
+    type,
     register,
     handleSubmit,
     role,
     setRole,
-    blocked,
-    setBlocked,
+    isBlocked,
+    setIsBlocked,
     onSubmit,
-  } = useEditUserForm({ user })
+  } = useFormUser({ user })
 
   const fillForSelectRole = [
     {
@@ -49,14 +41,15 @@ export const FormEditUser = ({ user }: EditUserProps) => {
       <div className="flex flex-col gap-2">
         <div className="flex flex-col sm:flex-row gap-2 sm:[&>*]:flex-1">
           <TextField
+            type="email"
             label={t("email")}
             placeholder={t("email")}
             {...register("email", { required: true })}
           />
           <TextField
-            label={t("display_name")}
-            placeholder={t("modal.display_name")}
-            {...register("display_name", { required: true })}
+            label={t("displayName")}
+            placeholder={t("displayName")}
+            {...register("displayName", { required: true })}
           />
         </div>
 
@@ -64,12 +57,12 @@ export const FormEditUser = ({ user }: EditUserProps) => {
           <TextField
             label={t("firstName")}
             placeholder={t("firstName")}
-            {...register("fname", { required: true })}
+            {...register("firstName", { required: true })}
           />
           <TextField
             label={t("lastName")}
             placeholder={t("lastName")}
-            {...register("lname", { required: true })}
+            {...register("lastName", { required: true })}
           />
         </div>
 
@@ -86,22 +79,42 @@ export const FormEditUser = ({ user }: EditUserProps) => {
           </Select.Root>
         </FormField>
 
-        <Text as="label" size="2" className="flex gap-2 items-center">
-          <Checkbox
-            defaultChecked={blocked}
-            onCheckedChange={() => setBlocked(!blocked)}
-          />
-          {t("isBlocked")}
-        </Text>
+        {type === "edit" && (
+          <>
+            <Text as="label" size="2" className="flex gap-2 items-center">
+              <Checkbox
+                defaultChecked={isBlocked}
+                onCheckedChange={() => setIsBlocked(!isBlocked)}
+              />
+              {t("isBlocked")}
+            </Text>
+            <Button
+              size="2"
+              variant="soft"
+              color="gray"
+              leadingIcon={"key"}
+              className="flex w-fit"
+              label={t("editPassword")}
+            />
+          </>
+        )}
 
-        <Button
-          size="2"
-          variant="soft"
-          color="gray"
-          leadingIcon={"key"}
-          className="flex w-fit"
-          label={t("editPassword")}
-        />
+        {type === "create" && (
+          <div className={"flex flex-col gap-2 sm:flex-row sm:[&>*]:flex-1"}>
+            <TextField
+              type="password"
+              label={t("password")}
+              placeholder={t("password")}
+              {...register("password", { required: true })}
+            />
+            <TextField
+              type="password"
+              label={t("confirmPassword")}
+              placeholder={t("confirmPassword")}
+              {...register("confirmPassword", { required: true })}
+            />
+          </div>
+        )}
       </div>
     </form>
   )

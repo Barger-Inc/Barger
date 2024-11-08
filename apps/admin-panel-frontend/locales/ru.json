@@ -34,7 +34,7 @@
       "isBlocked": "Заблокировать",
       "editPassword": "Изменить пароль",
       "password": "Пароль",
-      "repeatPassword": "Повторите пароль",
+      "confirmPassword": "Повторите пароль",
       "passwordsNotMatch": "Пароли не совпадают",
       "save": "Сохранить"
     }
