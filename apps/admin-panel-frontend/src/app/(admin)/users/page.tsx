@@ -1,24 +1,17 @@
 "use client"
 
+import { Button } from "@/shared/ui/button"
 import { Icon } from "@/shared/ui/icon"
 import {
   Badge,
-  Button,
   Heading,
   IconButton,
   Switch,
   Table,
-  Text,
   TextField,
 } from "@radix-ui/themes"
 import { useTranslations } from "next-intl"
 import Link from "next/link"
-
-type Props = {
-  params: {
-    locale: string
-  }
-}
 
 const fillOfTable = [
   {
@@ -47,20 +40,21 @@ const fillOfTable = [
   },
 ]
 
-export default function Page({ params: { locale } }: Props) {
-  const t = useTranslations()
+export default function Page() {
+  const t = useTranslations("users")
 
   return (
     <div className="flex flex-col gap-6 relative">
       <div className="sm:flex block sm:justify-between sm:items-center gap-3">
-        <Heading as="h1" size="7">
-          {t("users.title")}
-        </Heading>
-        <Link href={"/users/createUser"}>
-          <Button size="3" variant="soft" className="hidden sm:flex">
-            <Icon name="add-square" size={18} />
-            <Text>{t("users.add_user")}</Text>
-          </Button>
+        <Heading size="7" children={t("title")} />
+        <Link href={"/users/new"}>
+          <Button
+            size="3"
+            variant="soft"
+            className="hidden sm:flex"
+            leadingIcon={"add-square"}
+            label={t("add_user")}
+          />
         </Link>
       </div>
       <div className="flex flex-col gap-6">
@@ -68,7 +62,7 @@ export default function Page({ params: { locale } }: Props) {
           <TextField.Root
             variant="surface"
             size="3"
-            placeholder={`${t("users.search")}`}
+            placeholder={`${t("search")}`}
             className="w-[313px]"
           >
             <TextField.Slot>
@@ -76,50 +70,28 @@ export default function Page({ params: { locale } }: Props) {
             </TextField.Slot>
           </TextField.Root>
           <IconButton size="3" variant="soft">
-            <Icon name="tuning" variant="fill" />
+            <Icon name="tuning" variant="fill" size={18} />
           </IconButton>
         </div>
         <Table.Root variant="surface" size="3" className="overflow-auto">
           <Table.Header>
             <Table.Row align="center">
-              <Table.ColumnHeaderCell>
-                {t("users.table.display_name")}
-              </Table.ColumnHeaderCell>
-              <Table.ColumnHeaderCell>
-                {t("users.table.fname_and_lname")}
-              </Table.ColumnHeaderCell>
-              <Table.ColumnHeaderCell>
-                {t("users.table.email")}
-              </Table.ColumnHeaderCell>
-              <Table.ColumnHeaderCell>
-                {t("users.table.role")}
-              </Table.ColumnHeaderCell>
-              <Table.ColumnHeaderCell>
-                {t("users.table.blocked")}
-              </Table.ColumnHeaderCell>
-              <Table.ColumnHeaderCell>
-                {t("users.table.actions")}
-              </Table.ColumnHeaderCell>
+              <Table.ColumnHeaderCell children={t("table.display_name")} />
+              <Table.ColumnHeaderCell children={t("table.fname_and_lname")} />
+              <Table.ColumnHeaderCell children={t("table.email")} />
+              <Table.ColumnHeaderCell children={t("table.role")} />
+              <Table.ColumnHeaderCell children={t("table.blocked")} />
+              <Table.ColumnHeaderCell children={t("table.actions")} />
             </Table.Row>
           </Table.Header>
           <Table.Body>
             {fillOfTable.map((user) => (
-              <Table.Row align="center" key={user.id}>
-                <Table.RowHeaderCell>
-                  <Link
-                    href={`/users/edit/${user.id}`}
-                    className="underline cursor-pointer"
-                  >
-                    {user.display_name}
-                  </Link>
-                </Table.RowHeaderCell>
-
-                <Table.Cell>{user.fname_and_lname}</Table.Cell>
-                <Table.Cell>{user.email}</Table.Cell>
+              <Table.Row align="center" key={user.id} className="relative">
+                <Table.RowHeaderCell children={user.display_name} />
+                <Table.Cell children={user.fname_and_lname} />
+                <Table.Cell children={user.email} />
                 <Table.Cell>
-                  <Badge size="1" variant="soft">
-                    <Text>{user.role}</Text>
-                  </Badge>
+                  <Badge size="1" variant="soft" children={user.role} />
                 </Table.Cell>
                 <Table.Cell>
                   <Switch
@@ -128,9 +100,14 @@ export default function Page({ params: { locale } }: Props) {
                     defaultChecked={user.blocked}
                   />
                 </Table.Cell>
-                <Table.Cell>
-                  <IconButton variant="soft">
-                    <Icon name="trash-bin" size={24} />
+                <Table.Cell className="flex gap-2">
+                  <Link href={`/users/${user.id}/edit`}>
+                    <IconButton size="1" variant="soft">
+                      <Icon name="pen-new-square" size={16} />
+                    </IconButton>
+                  </Link>
+                  <IconButton size="1" variant="soft">
+                    <Icon name="trash-bin" size={16} />
                   </IconButton>
                 </Table.Cell>
               </Table.Row>
@@ -140,10 +117,12 @@ export default function Page({ params: { locale } }: Props) {
       </div>
       <div className="fixed bottom-0 left-0 w-full p-4">
         <Link href={"/users/new"}>
-          <Button size="4" variant="solid" className="flex sm:hidden w-full">
-            <Icon name="add-square" size={20} />
-            <Text>{t("users.add_user")}</Text>
-          </Button>
+          <Button
+            size="4"
+            className="flex sm:hidden w-full"
+            leadingIcon={"add-square"}
+            label={t("add_user")}
+          />
         </Link>
       </div>
     </div>

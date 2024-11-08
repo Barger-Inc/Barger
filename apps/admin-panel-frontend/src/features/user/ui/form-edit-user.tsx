@@ -2,12 +2,12 @@
 
 import { Icon } from "@/shared/ui/icon"
 import {
-  TextField,
-  Text,
-  Select,
+  Button,
   Checkbox,
   Flex,
-  Button,
+  Select,
+  Text,
+  TextField,
 } from "@radix-ui/themes"
 import { useTranslations } from "next-intl"
 import { useEditUserForm } from "../model/use-form-edit-user"
@@ -26,7 +26,7 @@ type EditUserProps = {
 }
 
 export const FormEditUser = ({ user }: EditUserProps) => {
-  const t = useTranslations()
+  const t = useTranslations("users")
 
   const {
     register,
@@ -56,19 +56,19 @@ export const FormEditUser = ({ user }: EditUserProps) => {
         <div className="flex flex-col sm:flex-row gap-2 justify-between">
           <div className="flex flex-col gap-2 w-full">
             <Text size="2" weight="medium">
-              {t("users.modal.email")}
+              {t("modal.email")}
             </Text>
             <TextField.Root
-              placeholder={t("users.modal.email")}
+              placeholder={t("modal.email")}
               {...register("email", { required: true })}
             />
           </div>
           <div className="flex flex-col gap-2 w-full">
             <Text size="2" weight="medium">
-              {t("users.modal.display_name")}
+              {t("modal.display_name")}
             </Text>
             <TextField.Root
-              placeholder={t("users.modal.display_name")}
+              placeholder={t("modal.display_name")}
               {...register("display_name", { required: true })}
             />
           </div>
@@ -76,26 +76,26 @@ export const FormEditUser = ({ user }: EditUserProps) => {
         <div className="flex gap-2 justify-between">
           <div className="flex flex-col gap-2 w-full">
             <Text size="2" weight="medium">
-              {t("users.modal.fname")}
+              {t("modal.fname")}
             </Text>
             <TextField.Root
-              placeholder={t("users.modal.fname")}
+              placeholder={t("modal.fname")}
               {...register("fname", { required: true })}
             />
           </div>
           <div className="flex flex-col gap-2 w-full">
             <Text size="2" weight="medium">
-              {t("users.modal.lname")}
+              {t("modal.lname")}
             </Text>
             <TextField.Root
-              placeholder={t("users.modal.lname")}
+              placeholder={t("modal.lname")}
               {...register("lname", { required: true })}
             />
           </div>
         </div>
         <div className="flex flex-col gap-2 w-full">
           <Text size="2" weight="medium">
-            {t("users.modal.role")}
+            {t("modal.role")}
           </Text>
           <Select.Root size="2" defaultValue={role} onValueChange={setRole}>
             <Select.Trigger />
@@ -114,7 +114,7 @@ export const FormEditUser = ({ user }: EditUserProps) => {
               defaultChecked={blocked}
               onCheckedChange={() => setBlocked(!blocked)}
             />
-            {t("users.modal.blocked")}
+            {t("modal.blocked")}
           </Flex>
         </Text>
         <Button
@@ -126,7 +126,7 @@ export const FormEditUser = ({ user }: EditUserProps) => {
         >
           <Icon name="key" size={16} />
           <Text size="2" weight="medium">
-            {t("users.modal.edit_password")}
+            {t("modal.edit_password")}
           </Text>
         </Button>
       </div>
