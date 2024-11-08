@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { SubmitHandler, useForm } from "react-hook-form"
+import { type SubmitHandler, useForm } from "react-hook-form"
 
 interface FormValues {
   email: string
@@ -38,7 +38,7 @@ export const useEditUserForm = ({ user }: EditUserProps) => {
   })
 
   const [role, setRole] = useState(user.role)
-  const [blocked, setBlocked] = useState<boolean>(user.blocked)
+  const [blocked, setBlocked] = useState(user.blocked)
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     data.role = role
