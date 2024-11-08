@@ -1,7 +1,9 @@
 "use client"
-import { useState } from "react"
+
 import { Icon } from "@/shared/ui/icon"
 import { Button, Text } from "@radix-ui/themes"
+import { useState } from "react"
+
 export default function Page() {
   const [isEditMode, setIsEditMode] = useState(false)
   const [showCheckboxes, setShowCheckboxes] = useState(false)
@@ -54,10 +56,9 @@ export default function Page() {
             className="hidden sm:flex px-[16px] hover:cursor-pointer"
           >
             <Icon
-              name={"settings-plus"}
+              name={"add-square"}
               size={16}
               className="mr-2 text-primary-foreground"
-              variant={"fill"}
             />
             <Text> Добавить роль </Text>
           </Button>
@@ -70,10 +71,9 @@ export default function Page() {
             className="p-0 hover:cursor-pointer flex items-center justify-center bg-transparent"
           >
             <Icon
-              name={"settings-loop"}
+              name={"magnifier"}
               size={16}
               className="text-primary-foreground"
-              variant={"fill"}
             />
           </Button>
           <input
@@ -90,7 +90,7 @@ export default function Page() {
           className="p-0 rt-reset rt-Basebutton rt-r-size-2 rt-variant-soft rt-button w-10 h-10 mx-[10px] hover:cursor-pointer"
         >
           <Icon
-            name={"settings-parametr"}
+            name={"tuning"}
             size={18}
             className="text-primary-foreground"
             variant={"fill"}
@@ -103,7 +103,7 @@ export default function Page() {
             className="p-0 rt-reset  w-10 h-10 hover:cursor-pointer "
           >
             <Icon
-              name={"settings-edit"}
+              name={"edit"}
               size={18}
               className="text-primary-foreground "
               variant={"fill"}
