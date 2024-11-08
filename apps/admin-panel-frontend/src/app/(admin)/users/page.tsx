@@ -9,16 +9,16 @@ import {
   Text,
   Switch,
   Badge,
-} from "@radix-ui/themes";
-import { Icon } from "@/shared/ui/icon";
-import { useTranslations } from "next-intl";
-import Link from "next/link";
+} from "@radix-ui/themes"
+import { Icon } from "@/shared/ui/icon"
+import { useTranslations } from "next-intl"
+import Link from "next/link"
 
 type Props = {
   params: {
-    locale: string;
-  };
-};
+    locale: string
+  }
+}
 
 const fillOfTable = [
   {
@@ -45,10 +45,10 @@ const fillOfTable = [
     role: "badge",
     blocked: false,
   },
-];
+]
 
 export default function Page({ params: { locale } }: Props) {
-  const t = useTranslations();
+  const t = useTranslations()
 
   return (
     <div className="flex flex-col gap-6 relative">
@@ -106,7 +106,10 @@ export default function Page({ params: { locale } }: Props) {
             {fillOfTable.map((user, index) => (
               <Table.Row align="center" key={index}>
                 <Table.RowHeaderCell>
-                  <Link href={`/users/editUser/${user.id}`} className="underline cursor-pointer">
+                  <Link
+                    href={`/users/editUser/${user.id}`}
+                    className="underline cursor-pointer"
+                  >
                     {user.display_name}
                   </Link>
                 </Table.RowHeaderCell>
@@ -119,7 +122,11 @@ export default function Page({ params: { locale } }: Props) {
                   </Badge>
                 </Table.Cell>
                 <Table.Cell>
-                  <Switch size="2" variant="classic" defaultChecked={user.blocked} />
+                  <Switch
+                    size="2"
+                    variant="classic"
+                    defaultChecked={user.blocked}
+                  />
                 </Table.Cell>
                 <Table.Cell>
                   <IconButton variant="soft">
@@ -140,5 +147,5 @@ export default function Page({ params: { locale } }: Props) {
         </Link>
       </div>
     </div>
-  );
+  )
 }

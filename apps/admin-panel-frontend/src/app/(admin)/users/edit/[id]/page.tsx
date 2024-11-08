@@ -1,7 +1,6 @@
-import { FormEditUser } from "@/features/user/ui/form-edit-user";
+import { FormEditUser } from "@/features/user/ui/form-edit-user"
 
 export default function Page() {
-  
   const user = {
     id: "1",
     display_name: "Text",
@@ -9,7 +8,7 @@ export default function Page() {
     email: "Text",
     role: "badge",
     blocked: false,
-  };
+  }
 
-  return <FormEditUser user={user} />;
+  return <FormEditUser user={user} />
 }

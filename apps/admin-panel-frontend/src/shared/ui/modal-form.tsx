@@ -1,13 +1,13 @@
-import type { ReactNode } from "react";
-import { ModalRoot } from "./modal-root";
-import { ModalBody } from "./modal-body";
+import type { ReactNode } from "react"
+import { ModalRoot } from "./modal-root"
+import { ModalBody } from "./modal-body"
 
 type ModalFormProps = {
-  header: ReactNode;
-  children?: ReactNode;
-  footer: ReactNode;
-  target: () => void;
-};
+  header: ReactNode
+  children?: ReactNode
+  footer: ReactNode
+  target: () => void
+}
 
 export const ModalForm = (props: ModalFormProps) => (
   <ModalRoot>
@@ -17,4 +17,4 @@ export const ModalForm = (props: ModalFormProps) => (
       {props.footer}
     </form>
   </ModalRoot>
-);
+)

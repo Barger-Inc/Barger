@@ -1,25 +1,14 @@
-"use client";
+"use client"
 
-import {
-  TextField,
-  Text,
-  Select,
-} from "@radix-ui/themes";
-import { useTranslations } from "next-intl";
-import { useCreateUserForm } from "../model/use-form-create-user";
+import { TextField, Text, Select } from "@radix-ui/themes"
+import { useTranslations } from "next-intl"
+import { useCreateUserForm } from "../model/use-form-create-user"
 
 export const FormCreateUser = () => {
-  const t = useTranslations();
+  const t = useTranslations()
 
-  const {
-    register,
-    handleSubmit,
-    errors,
-    password,
-    role,
-    setRole,
-    onSubmit,
-  } = useCreateUserForm();
+  const { register, handleSubmit, errors, password, role, setRole, onSubmit } =
+    useCreateUserForm()
 
   const fillForSelectRole = [
     {
@@ -30,8 +19,7 @@ export const FormCreateUser = () => {
       value: "user",
       name: "Пользователь",
     },
-  ];
-  
+  ]
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-2">
@@ -80,7 +68,7 @@ export const FormCreateUser = () => {
           {t("users.modal.role")}
         </Text>
         <Select.Root size="2" defaultValue={role} onValueChange={setRole}>
-          <Select.Trigger  />
+          <Select.Trigger />
           <Select.Content>
             {fillForSelectRole.map((role, index) => (
               <Select.Item key={index} value={role.value}>
@@ -111,8 +99,7 @@ export const FormCreateUser = () => {
             {...register("confirmPassword", {
               required: `${t("users.modal.passwords_required")}`,
               validate: (value) =>
-                value === password ||
-                `${t("users.modal.passwords_required")}`,
+                value === password || `${t("users.modal.passwords_required")}`,
             })}
           />
           {errors.confirmPassword && (
@@ -121,6 +108,6 @@ export const FormCreateUser = () => {
         </div>
       </div>
       <input type="submit" />
-  </form>
-  );
-};
+    </form>
+  )
+}

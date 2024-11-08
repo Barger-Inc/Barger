@@ -1,6 +1,6 @@
-"use client";
+"use client"
 
-import { Icon } from "@/shared/ui/icon";
+import { Icon } from "@/shared/ui/icon"
 import {
   TextField,
   Text,
@@ -8,25 +8,25 @@ import {
   Checkbox,
   Flex,
   Button,
-} from "@radix-ui/themes";
-import { useTranslations } from "next-intl";
-import { useEditUserForm } from "../model/use-form-edit-user";
+} from "@radix-ui/themes"
+import { useTranslations } from "next-intl"
+import { useEditUserForm } from "../model/use-form-edit-user"
 
 interface User {
-  id: string;
-  display_name: string;
-  fname_and_lname: string;
-  email: string;
-  role: string;
-  blocked: boolean;
+  id: string
+  display_name: string
+  fname_and_lname: string
+  email: string
+  role: string
+  blocked: boolean
 }
 
 type EditUserProps = {
-  user: User;
-};
+  user: User
+}
 
-export const FormEditUser =  ({user}: EditUserProps) => {
-  const t = useTranslations();
+export const FormEditUser = ({ user }: EditUserProps) => {
+  const t = useTranslations()
 
   const {
     register,
@@ -37,7 +37,7 @@ export const FormEditUser =  ({user}: EditUserProps) => {
     blocked,
     setBlocked,
     onSubmit,
-  } = useEditUserForm({user});
+  } = useEditUserForm({ user })
 
   const fillForSelectRole = [
     {
@@ -48,7 +48,7 @@ export const FormEditUser =  ({user}: EditUserProps) => {
       value: "user",
       name: "Пользователь",
     },
-  ];
+  ]
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -98,19 +98,22 @@ export const FormEditUser =  ({user}: EditUserProps) => {
             {t("users.modal.role")}
           </Text>
           <Select.Root size="2" defaultValue={role} onValueChange={setRole}>
-          <Select.Trigger  />
-          <Select.Content>
-            {fillForSelectRole.map((role, index) => (
-              <Select.Item key={index} value={role.value}>
-                {role.name}
-              </Select.Item>
-            ))}
-          </Select.Content>
-        </Select.Root>
+            <Select.Trigger />
+            <Select.Content>
+              {fillForSelectRole.map((role, index) => (
+                <Select.Item key={index} value={role.value}>
+                  {role.name}
+                </Select.Item>
+              ))}
+            </Select.Content>
+          </Select.Root>
         </div>
         <Text as="label" size="2">
           <Flex as="span" gap="2">
-            <Checkbox defaultChecked={blocked} onCheckedChange={() => setBlocked(!blocked)} />
+            <Checkbox
+              defaultChecked={blocked}
+              onCheckedChange={() => setBlocked(!blocked)}
+            />
             {t("users.modal.blocked")}
           </Flex>
         </Text>
@@ -123,11 +126,11 @@ export const FormEditUser =  ({user}: EditUserProps) => {
         >
           <Icon name="key" size={16} />
           <Text size="2" weight="medium">
-          {t("users.modal.edit_password")}
+            {t("users.modal.edit_password")}
           </Text>
         </Button>
       </div>
-      <input type="submit"  />
+      <input type="submit" />
     </form>
-  );
-};
+  )
+}
