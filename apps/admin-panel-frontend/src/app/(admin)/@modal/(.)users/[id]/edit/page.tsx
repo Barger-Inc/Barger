@@ -7,7 +7,7 @@ import { ModalRoot } from "@/shared/ui/modal-root"
 import { useTranslations } from "next-intl"
 
 export default function Page({ params: { id } }: { params: { id: string } }) {
-  const t = useTranslations()
+  const t = useTranslations("users.user")
 
   const user = {
     id,
@@ -20,12 +20,12 @@ export default function Page({ params: { id } }: { params: { id: string } }) {
 
   return (
     <ModalRoot>
-      <ModalHeader title={`${t("users.modal.edit_user")}`} />
+      <ModalHeader title={t("editUserTitle")} />
       <ModalBody>
         <FormEditUser user={user} />
       </ModalBody>
       <ModalFooter>
-        <Button label={`${t("users.modal.save")}`} />
+        <Button label={t("save")} />
       </ModalFooter>
     </ModalRoot>
   )

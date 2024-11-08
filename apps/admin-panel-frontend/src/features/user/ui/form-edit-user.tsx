@@ -1,14 +1,9 @@
 "use client"
 
-import { Icon } from "@/shared/ui/icon"
-import {
-  Button,
-  Checkbox,
-  Flex,
-  Select,
-  Text,
-  TextField,
-} from "@radix-ui/themes"
+import { Button } from "@/shared/ui/button"
+import { FormField } from "@/shared/ui/form-field"
+import { TextField } from "@/shared/ui/text-field"
+import { Checkbox, Select, Text } from "@radix-ui/themes"
 import { useTranslations } from "next-intl"
 import { useEditUserForm } from "../model/use-form-edit-user"
 
@@ -26,12 +21,11 @@ type EditUserProps = {
 }
 
 export const FormEditUser = ({ user }: EditUserProps) => {
-  const t = useTranslations("users")
+  const t = useTranslations("users.user")
 
   const {
     register,
     handleSubmit,
-    errors,
     role,
     setRole,
     blocked,
@@ -41,8 +35,8 @@ export const FormEditUser = ({ user }: EditUserProps) => {
 
   const fillForSelectRole = [
     {
-      value: "badge",
-      name: "badge",
+      value: "admin",
+      name: "Администратор",
     },
     {
       value: "user",
@@ -53,84 +47,62 @@ export const FormEditUser = ({ user }: EditUserProps) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="flex flex-col gap-2">
-        <div className="flex flex-col sm:flex-row gap-2 justify-between">
-          <div className="flex flex-col gap-2 w-full">
-            <Text size="2" weight="medium">
-              {t("modal.email")}
-            </Text>
-            <TextField.Root
-              placeholder={t("modal.email")}
-              {...register("email", { required: true })}
-            />
-          </div>
-          <div className="flex flex-col gap-2 w-full">
-            <Text size="2" weight="medium">
-              {t("modal.display_name")}
-            </Text>
-            <TextField.Root
-              placeholder={t("modal.display_name")}
-              {...register("display_name", { required: true })}
-            />
-          </div>
+        <div className="flex flex-col sm:flex-row gap-2 sm:[&>*]:flex-1">
+          <TextField
+            label={t("email")}
+            placeholder={t("email")}
+            {...register("email", { required: true })}
+          />
+          <TextField
+            label={t("display_name")}
+            placeholder={t("modal.display_name")}
+            {...register("display_name", { required: true })}
+          />
         </div>
-        <div className="flex gap-2 justify-between">
-          <div className="flex flex-col gap-2 w-full">
-            <Text size="2" weight="medium">
-              {t("modal.fname")}
-            </Text>
-            <TextField.Root
-              placeholder={t("modal.fname")}
-              {...register("fname", { required: true })}
-            />
-          </div>
-          <div className="flex flex-col gap-2 w-full">
-            <Text size="2" weight="medium">
-              {t("modal.lname")}
-            </Text>
-            <TextField.Root
-              placeholder={t("modal.lname")}
-              {...register("lname", { required: true })}
-            />
-          </div>
+
+        <div className="flex gap-2 [&>*]:flex-1">
+          <TextField
+            label={t("firstName")}
+            placeholder={t("firstName")}
+            {...register("fname", { required: true })}
+          />
+          <TextField
+            label={t("lastName")}
+            placeholder={t("lastName")}
+            {...register("lname", { required: true })}
+          />
         </div>
-        <div className="flex flex-col gap-2 w-full">
-          <Text size="2" weight="medium">
-            {t("modal.role")}
-          </Text>
+
+        <FormField label={t("role")}>
           <Select.Root size="2" defaultValue={role} onValueChange={setRole}>
             <Select.Trigger />
             <Select.Content>
-              {fillForSelectRole.map((role, index) => (
-                <Select.Item key={index} value={role.value}>
+              {fillForSelectRole.map((role) => (
+                <Select.Item key={role.value} value={role.value}>
                   {role.name}
                 </Select.Item>
               ))}
             </Select.Content>
           </Select.Root>
-        </div>
-        <Text as="label" size="2">
-          <Flex as="span" gap="2">
-            <Checkbox
-              defaultChecked={blocked}
-              onCheckedChange={() => setBlocked(!blocked)}
-            />
-            {t("modal.blocked")}
-          </Flex>
+        </FormField>
+
+        <Text as="label" size="2" className="flex gap-2 items-center">
+          <Checkbox
+            defaultChecked={blocked}
+            onCheckedChange={() => setBlocked(!blocked)}
+          />
+          {t("isBlocked")}
         </Text>
+
         <Button
           size="2"
           variant="soft"
           color="gray"
+          leadingIcon={"key"}
           className="flex w-fit"
-          type="button"
-        >
-          <Icon name="key" size={16} />
-          <Text size="2" weight="medium">
-            {t("modal.edit_password")}
-          </Text>
-        </Button>
+          label={t("editPassword")}
+        />
       </div>
-      <input type="submit" />
     </form>
   )
 }
