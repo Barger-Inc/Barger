@@ -24,9 +24,9 @@ export const metadata: Metadata = {
   title: "Barger",
 }
 
-export default async function Layout(
-  props: Readonly<{ children: ReactNode; modal: ReactNode }>
-) {
+type LayoutProps = { children: ReactNode; modal: ReactNode }
+
+export default async function Layout(props: LayoutProps) {
   const locale = await getLocale()
   const messages = await getMessages()
 

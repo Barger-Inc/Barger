@@ -16,6 +16,7 @@ export type StrokeIconName =
   | "users-group-two"
 
 export type FillIconName =
+  | "arrow-left-alt"
   | "cross"
   | "folder-open"
   | "gallery"

@@ -39,5 +39,30 @@
       "passwords_required": "Пожалуйста, подтвердите пароль",
       "save": "Сохранить"
     }
+  },
+  "profile": {
+    "title": "Мой профиль",
+    "firstName": "Имя",
+    "lastName": "Фамилия",
+    "displayName": "Отображаемое имя",
+    "security": "Безопасность",
+    "changeEmail": "Изменить электронную почту",
+    "changePassword": "Изменить пароль",
+    "save": "Сохранить"
+  },
+  "settingsSidePanel": {
+    "title": "Настройки",
+    "links": {
+      "tokens": "Токены",
+      "media": "Медиа",
+      "language": "Язык",
+      "roles": "Роли",
+      "users": "Пользователи"
+    }
+  },
+  "themeToggle": {
+    "dark": "Темная",
+    "light": "Светлая",
+    "system": "Системная"
   }
 }

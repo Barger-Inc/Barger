@@ -1,5 +1,16 @@
 {
   "welcome": "Welcome to my app!",
   "home": "Home",
-  "about": "About"
+  "about": "About",
+  "profile": {
+    "title": "My profile",
+    "name": "Name",
+    "surname": "Surname",
+    "nickname": "Display name",
+    "placeholder": "Type here...",
+    "security": "Security",
+    "email": "Change email",
+    "password": "Change password",
+    "save": "Save changes"
+  }
 }
