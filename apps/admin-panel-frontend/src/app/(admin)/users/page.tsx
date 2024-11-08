@@ -103,8 +103,8 @@ export default function Page({ params: { locale } }: Props) {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            {fillOfTable.map((user, index) => (
-              <Table.Row align="center" key={index}>
+            {fillOfTable.map((user) => (
+              <Table.Row align="center" key={user.id}>
                 <Table.RowHeaderCell>
                   <Link
                     href={`/users/edit/${user.id}`}
