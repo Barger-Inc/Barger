@@ -13,13 +13,12 @@
   },
   "profile": {
     "title": "Мой профиль",
-    "name": "Имя",
-    "surname": "Фамилия",
-    "nickname": "Отображаемое имя",
-    "placeholder": "Пишите здесь...",
+    "firstName": "Имя",
+    "lastName": "Фамилия",
+    "displayName": "Отображаемое имя",
     "security": "Безопасность",
-    "email": "Изменить электронную почту",
-    "password": "Изменить пароль",
+    "changeEmail": "Изменить электронную почту",
+    "changePassword": "Изменить пароль",
     "save": "Сохранить"
   },
   "settingsSidePanel": {

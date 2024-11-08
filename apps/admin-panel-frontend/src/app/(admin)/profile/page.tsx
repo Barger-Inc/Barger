@@ -1,6 +1,5 @@
 import { Heading } from "@radix-ui/themes"
 import { Text } from "@radix-ui/themes"
-import { Box } from "@radix-ui/themes"
 import { TextField } from "@radix-ui/themes"
 import { Button } from "@radix-ui/themes"
 import { useTranslations } from "next-intl"
@@ -9,74 +8,42 @@ export default function Page() {
   const t = useTranslations("profile")
 
   return (
-    <div>
-      <Heading size="7" className="mb-6">
-        {t("title")}
-      </Heading>
-      <div className="flex-col">
-        <div className="sm:flex sm:gap-2">
-          <div className="mb-4">
-            <Text size="2" as="label" htmlFor="label1" weight="medium">
-              {t("name")}
+    <div className="flex flex-col gap-8 max-w-[720px]">
+      <div className="flex flex-col gap-6">
+        <Heading size="7" children={t("title")} />
+
+        <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 sm:flex-row [&>*]:flex-1">
+            <Text size="2" as="label" weight="medium">
+              {t("firstName")}
+              <TextField.Root size="2" />
             </Text>
-            <Box maxWidth="100%" className="sm:w-[320px]">
-              <TextField.Root
-                size="2"
-                placeholder={t("placeholder")}
-                id="label1"
-              />
-            </Box>
-          </div>
-          <div className="mb-4">
-            <Text size="2" as="label" htmlFor="label1" weight="medium">
-              {t("surname")}
+
+            <Text size="2" as="label" weight="medium">
+              {t("lastName")}
+              <TextField.Root size="2" />
             </Text>
-            <Box maxWidth="100%" className="sm:w-[320px]">
-              <TextField.Root
-                size="2"
-                placeholder={t("placeholder")}
-                id="label1"
-              />
-            </Box>
           </div>
-        </div>
-        <div>
-          <Text size="2" as="label" htmlFor="label1" weight="medium">
-            {t("nickname")}
+
+          <Text size="2" as="label" weight="medium">
+            {t("displayName")}
+            <TextField.Root size="2" />
           </Text>
-          <Box className="sm:w-[648px]" maxWidth="100%">
-            <TextField.Root
-              size="2"
-              placeholder={t("placeholder")}
-              id="label1"
-            />
-          </Box>
         </div>
       </div>
-      <div className="mt-8">
-        <Text size="5" weight="medium">
-          {t("security")}
-        </Text>
-        <div className="mt-6 flex-col sm:flex-row">
-          <Button
-            className="mb-2 w-full sm:w-[324px] sm:mr-2"
-            size="3"
-            variant="soft"
-          >
-            {t("email")}
-          </Button>
-          <Button className="w-full sm:w-[324px]" size="3" variant="soft">
-            {t("password")}
-          </Button>
+
+      <div className="flex flex-col gap-6">
+        <Heading size="5" weight="medium" children={t("security")} />
+
+        <div className="flex flex-col gap-2 sm:flex-row sm:[&>*]:flex-1">
+          <Button size="3" variant="soft" children={t("changeEmail")} />
+          <Button size="3" variant="soft" children={t("changePassword")} />
         </div>
       </div>
-      <Button
-        size="3"
-        variant="solid"
-        className="w-full absolute inset-x-0 bottom-0 mb-4 sm:static sm:mt-8 sm:w-auto"
-      >
-        {t("save")}
-      </Button>
+
+      <div className="fixed left-0 right-0 bottom-0 p-4 sm:static sm:p-0">
+        <Button size="3" className="w-full sm:w-auto" children={t("save")} />
+      </div>
     </div>
   )
 }
