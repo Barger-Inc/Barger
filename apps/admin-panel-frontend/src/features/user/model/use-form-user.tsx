@@ -2,12 +2,12 @@ import { useState } from "react"
 import { type SubmitHandler, useForm } from "react-hook-form"
 
 export interface User {
-  id: string
+  id: number
   displayName: string
   firstName: string
   lastName: string
   email: string
-  role: string
+  role: number
   isBlocked: boolean
   password?: string
   confirmPassword?: string

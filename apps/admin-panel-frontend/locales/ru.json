@@ -13,11 +13,11 @@
   },
   "users": {
     "title": "Пользователи",
-    "search": "Поиск",
-    "add_user": "Добавить пользователя",
+    "searchPlaceholder": "Поиск",
+    "addUser": "Добавить",
     "table": {
       "displayName": "Отображаемое имя",
-      "fullName": "Имя и фамилия",
+      "fullName": "Полное имя",
       "email": "Почта",
       "role": "Роль",
       "isBlocked": "Заблокирован",
