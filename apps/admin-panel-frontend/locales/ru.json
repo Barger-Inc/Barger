@@ -11,6 +11,34 @@
     },
     "exit": "Выход"
   },
+  "users": {
+    "title": "Пользователи",
+    "searchPlaceholder": "Поиск",
+    "addUser": "Добавить",
+    "table": {
+      "displayName": "Отображаемое имя",
+      "fullName": "Полное имя",
+      "email": "Почта",
+      "role": "Роль",
+      "isBlocked": "Заблокирован",
+      "actions": "Действия"
+    },
+    "user": {
+      "editUserTitle": "Редактирование пользователя",
+      "createUserTitle": "Создание пользователя",
+      "displayName": "Отображаемое имя",
+      "firstName": "Имя",
+      "lastName": "Фамилия",
+      "email": "Электронная почта",
+      "role": "Роль",
+      "isBlocked": "Заблокировать",
+      "editPassword": "Изменить пароль",
+      "password": "Пароль",
+      "confirmPassword": "Повторите пароль",
+      "passwordsNotMatch": "Пароли не совпадают",
+      "save": "Сохранить"
+    }
+  },
   "profile": {
     "title": "Мой профиль",
     "firstName": "Имя",
