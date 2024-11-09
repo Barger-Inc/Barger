@@ -1,5 +1,5 @@
-import { FormCreateUser } from "@/features/user/ui/form-create-user"
+import { FormUser } from "@/features/user/ui/form-user"
 
 export default function Page() {
-  return <FormCreateUser />
+  return <FormUser />
 }
