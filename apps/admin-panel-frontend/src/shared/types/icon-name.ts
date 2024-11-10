@@ -1,5 +1,6 @@
 export type StrokeIconName =
   | "add-square"
+  | "closedeye"
   | "exit"
   | "folder-open"
   | "gallery"
@@ -8,6 +9,7 @@ export type StrokeIconName =
   | "key"
   | "magnifier"
   | "moon"
+  | "openeye"
   | "pen-new-square"
   | "settings"
   | "sun"

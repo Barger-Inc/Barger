@@ -1,14 +1,17 @@
 import withDefaultProps from "@/shared/hoc/with-default-props"
-import { Button as DefaultButton } from "@/shared/ui/button"
-import { TextField } from "@/shared/ui/text-field"
-import { Heading } from "@radix-ui/themes"
-import { useTranslations } from "next-intl"
+import { Heading } from "@radix-ui/themes";
+import { TextField } from "@radix-ui/themes";
+import { Button as DefaultButton } from "@/shared/ui";
+import { useTranslations } from "next-intl";
+import {useId} from "react";
+import Link from "next/link";
 
 const Button = withDefaultProps(DefaultButton, { size: "3" })
 const SoftButton = withDefaultProps(Button, { variant: "soft" })
 
 export default function Page() {
   const t = useTranslations("profile")
+  const id=useId();
 
   return (
     <div className="flex flex-col gap-8 max-w-[720px]">
@@ -30,7 +33,9 @@ export default function Page() {
 
         <div className="flex flex-col gap-2 sm:flex-row sm:[&>*]:flex-1">
           <SoftButton label={t("changeEmail")} />
-          <SoftButton label={t("changePassword")} />
+          <Link href={"/profile/changePassword"}>
+            <SoftButton label={t("changePassword")} />
+          </Link>
         </div>
       </div>
 
