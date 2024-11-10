@@ -122,7 +122,7 @@ export default function Page() {
       <div className="fixed sm:hidden bottom-0 left-0 right-0 p-4">
         <Button
           className="w-full"
-          size="3"
+          size="4"
           color={mode === "select" ? "red" : "indigo"}
           leadingIcon={mode === "select" ? "trash-bin" : "add-square"}
           label={t(mode === "select" ? "deleteSelected" : "addRole")}
