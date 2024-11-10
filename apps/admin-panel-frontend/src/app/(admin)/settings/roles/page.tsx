@@ -46,20 +46,20 @@ export default function Page(props: { children: ReactNode }) {
         {isEditMode ? (
           <IconButton size="4" variant="soft" className=" hidden sm:flex px-[16px] hover:cursor-pointer bg-transparent text-red-10 border border-solid border-red-500 w-[228px] h-10" >
             <Icon
-              name={"settings-recycle"}
+              name={"trash-bin"}
               size={16}
               className="mr-2 text-primary-foreground"
-              variant={"fill"}
+              variant={"stroke"}
             />
            <Text className="text-nowrap" size="3"  children={tRoles("deleteSelected")} />
           </IconButton>
         ) : (
           <IconButton size="3" variant="soft" className="hidden sm:flex px-[16px] hover:cursor-pointer w-[184px] h-10  bg-accent-9 " >
             <Icon
-              name={"settings-plus"}
+              name={"add-square"}
               size={16}
-              className="mr-2 text-primary-foreground bg-whiteA-11"
-              variant={"fill"}
+              className="mr-2 text-primary-foreground bg-accent-contrast"
+              variant={"stroke"}
             />
               <Text className="text-accent-contrast" size="3"  children={tRoles("addRole")} />
           </IconButton>
@@ -73,11 +73,11 @@ export default function Page(props: { children: ReactNode }) {
           className=""
         >
           <TextField.Slot>
-            <Icon name={"settings-loop"} size={16} className="text-primary-foreground" variant={"fill"} />
+            <Icon name={"magnifier"} size={16} className="text-primary-foreground" variant={"stroke"} />
           </TextField.Slot>
         </TextField.Root>
         <IconButton size="3" variant="soft" className="ml-2 hover:cursor-pointer">
-          <Icon name={"settings-parametr"}
+          <Icon name={"tuning"}
             size={18}
             className="text-primary-foreground"
             variant={"fill"} />
@@ -85,16 +85,16 @@ export default function Page(props: { children: ReactNode }) {
 
         {isEditMode ? (
 
-          <IconButton size="3" variant="soft" className="p-0 ml-2 rt-r-size-2   hover:cursor-pointer bg-accent-10 color:currentcolor " onClick={toggleEditMode}>
-            <Icon name={"settings-edit"}
+          <IconButton size="3" variant="soft" className="p-0 ml-2 rt-r-size-2   hover:cursor-pointer bg-accent-9 color:currentcolor " onClick={toggleEditMode}>
+            <Icon name={"pencil"}
               size={18}
-              className="text-primary-foreground  bg-whiteA-11 "
+              className="text-primary-foreground  bg-accent-contrast "
               variant={"fill"} />
           </IconButton>
 
         ) : (
           <IconButton size="3" variant="soft" className="p-0 rt-reset rt-Basebutton rt-r-size-2 ml-2  hover:cursor-pointer " onClick={toggleEditMode}>
-            <Icon name={"settings-edit"}
+            <Icon name={"pencil"}
               size={18}
               className="text-primary-foreground"
               variant={"fill"} />
@@ -146,22 +146,22 @@ export default function Page(props: { children: ReactNode }) {
 
           <IconButton size="3" variant="soft" className="sm:hidden px-[16px] hover:cursor-pointer w-full bg-transparent text-red-10 border border-solid border-red-500 mx-auto"  >
             <Icon
-              name={"settings-recycle"}
+              name={"trash-bin"}
               size={16}
               className="mr-2 text-primary-foreground"
-              variant={"fill"}
+              variant={"stroke"}
             />
              <Text className="text-nowrap" size="4"  children={tRoles("deleteSelected")} />
           </IconButton>
         ) : (
           <IconButton size="3" variant="soft" className="sm:hidden px-[16px] hover:cursor-pointer w-full bg-accent-9"  >
             <Icon
-              name={"settings-plus"}
+              name={"add-square"}
               size={16}
-              className="mr-2 text-primary-foreground"
-              variant={"fill"}
+              className="mr-2 text-primary-foreground bg-accent-contrast"
+              variant={"stroke"}
             />
-            <Text className="text-nowrap" size="4" children={tRoles("addRole")}/> 
+            <Text className="text-nowrap text-accent-contrast" size="3" children={tRoles("addRole")}/> 
           </IconButton>
         )}
       </div>
