@@ -13,7 +13,8 @@
     "@types/eslint": "^9.6.1",
     "husky": "^9.1.6",
     "turbo": "^2.1.3",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "yarn": "^1.22.22"
   },
   "engines": {
     "node": ">=18"

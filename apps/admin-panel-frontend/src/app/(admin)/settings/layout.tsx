@@ -38,7 +38,12 @@ export default function Layout(props: { children: ReactNode }) {
         ))}
       </div>
 
-      <div className={cn("w-full p-4 sm:p-8", isRoot && "hidden sm:block")}>
+      <div
+        className={cn(
+          "p-4 sm:p-8 overflow-hidden flex-1",
+          isRoot && "hidden sm:block"
+        )}
+      >
         <div className="sm:hidden pb-3">
           <Link href={"/settings"}>
             <Button variant={"ghost"} color={"gray"}>
