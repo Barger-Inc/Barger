@@ -1,6 +1,8 @@
 export type StrokeIconName =
   | "add-square"
   | "exit"
+  | "eye-closed"
+  | "eye"
   | "folder-open"
   | "gallery"
   | "hamburger"
@@ -21,6 +23,7 @@ export type FillIconName =
   | "folder-open"
   | "gallery"
   | "home-2"
+  | "info-circle"
   | "maximize"
   | "minimize"
   | "pen-new-square"
