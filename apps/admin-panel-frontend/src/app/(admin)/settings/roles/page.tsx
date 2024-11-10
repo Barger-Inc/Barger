@@ -1,225 +1,132 @@
 "use client"
-import { useState } from "react"
+
+import { Button } from "@/shared/ui/button"
 import { Icon } from "@/shared/ui/icon"
-import { Button, Text, IconButton, Table, TextField } from "@radix-ui/themes"
+import {
+  Checkbox,
+  Heading,
+  IconButton,
+  Table,
+  TextField,
+} from "@radix-ui/themes"
 import { useTranslations } from "next-intl"
-import Link from "next/link"
-import type { ReactNode } from "react"
+import { useCallback, useState } from "react"
 
-export default function Page(props: { children: ReactNode }) {
-  const tRoles = useTranslations("settingsRoles")
-  const tSidePanel = useTranslations("settingsSidePanel")
-  const [isEditMode, setIsEditMode] = useState(false)
-  const [showCheckboxes, setShowCheckboxes] = useState(false)
-  const [selectedRows, setSelectedRows] = useState(new Array(3).fill(false))
-  const [selectAll, setSelectAll] = useState(false)
+const rolesData = [
+  { id: 1, name: "Chris", description: "Описание для Chris", userCount: 10 },
+  { id: 2, name: "Alex", description: "Описание для Alex", userCount: 20 },
+  { id: 3, name: "Jordan", description: "Описание Jordan", userCount: 30 },
+]
 
-  const toggleEditMode = () => {
-    setIsEditMode(!isEditMode)
-    setShowCheckboxes(!isEditMode)
-  }
+export default function Page() {
+  const t = useTranslations("settingsRoles")
 
-  const toggleSelectAll = () => {
-    const newSelectedRows = selectedRows.map(() => !selectAll)
-    setSelectedRows(newSelectedRows)
-    setSelectAll(!selectAll)
-  }
+  const [mode, setMode] = useState<"view" | "select">("view")
+  const [selectedRolesId, setSelectedRolesId] = useState<number[]>([])
+  const [isAllRolesSelected, setIsAllRolesSelected] = useState(false)
 
-  const handleRowSelect = (index: number) => {
-    const newSelectedRows = [...selectedRows]
-    newSelectedRows[index] = !newSelectedRows[index]
-    setSelectedRows(newSelectedRows)
-    setSelectAll(newSelectedRows.every(Boolean))
-  }
+  const toggleEditMode = useCallback(
+    () => setMode((prev) => (prev === "view" ? "select" : "view")),
+    []
+  )
 
-  const rolesData = [
-    { name: "Chris", description: "Описание для Chris", userCount: 10 },
-    { name: "Alex", description: "Описание для Alex", userCount: 20 },
-    { name: "Jordan", description: "Описание для Jordan", userCount: 30 },
-  ]
+  const toggleIsAllRolesSelected = useCallback(() => {
+    setIsAllRolesSelected((prev) => !prev)
+    setSelectedRolesId(
+      isAllRolesSelected ? [] : rolesData.map((role) => role.id)
+    )
+  }, [isAllRolesSelected])
+
+  const onRoleSelect = useCallback(
+    (roleId: number) => () => {
+      setSelectedRolesId((prev) =>
+        prev.includes(roleId)
+          ? prev.filter((id) => id !== roleId)
+          : [...prev, roleId]
+      )
+    },
+    []
+  )
 
   return (
-    <div className="w-full">
-      <div className="flex justify-between items-center text-center h-10">
-        <Text
-          className="rt-Text rt-r-size-7 rt-r-weight-bold"
-          size="3"
-          weight="bold"
-          children={tSidePanel("links.roles")}
-        />
-        {isEditMode ? (
-          <IconButton
-            size="4"
-            variant="soft"
-            className=" hidden sm:flex px-[16px] hover:cursor-pointer bg-transparent text-red-10 border border-solid border-red-500 w-[228px] h-10"
-          >
-            <Icon
-              name={"trash-bin"}
-              size={16}
-              className="mr-2 text-primary-foreground"
-              variant={"stroke"}
-            />
-            <Text
-              className="text-nowrap"
-              size="3"
-              children={tRoles("deleteSelected")}
-            />
-          </IconButton>
-        ) : (
-          <IconButton
-            size="3"
-            variant="soft"
-            className="hidden sm:flex px-[16px] hover:cursor-pointer w-[184px] h-10  bg-accent-9 "
-          >
-            <Icon
-              name={"add-square"}
-              size={16}
-              className="mr-2 text-primary-foreground bg-accent-contrast"
-              variant={"stroke"}
-            />
-            <Text
-              className="text-accent-contrast"
-              size="3"
-              children={tRoles("addRole")}
-            />
-          </IconButton>
-        )}
-      </div>
-      <div className="flex items-center py-6">
-        <TextField.Root
-          variant="surface"
-          size="3"
-          placeholder={tRoles("search")}
-          className=""
-        >
-          <TextField.Slot>
-            <Icon
-              name={"magnifier"}
-              size={16}
-              className="text-primary-foreground"
-              variant={"stroke"}
-            />
-          </TextField.Slot>
-        </TextField.Root>
-        <IconButton
+    <div className="flex flex-col gap-6">
+      <div className="flex items-center">
+        <Heading className="flex-1" size="7" children={t("title")} />
+        <Button
+          className="hidden sm:flex"
           size="3"
           variant="soft"
-          className="ml-2 hover:cursor-pointer"
-        >
-          <Icon
-            name={"tuning"}
-            size={18}
-            className="text-primary-foreground"
-            variant={"fill"}
-          />
+          color={mode === "select" ? "red" : "indigo"}
+          leadingIcon={mode === "select" ? "trash-bin" : "add-square"}
+          label={t(mode === "select" ? "deleteSelected" : "addRole")}
+        />
+      </div>
+
+      <div className="flex items-center gap-2">
+        <TextField.Root variant="surface" size="3" placeholder={t("search")}>
+          <TextField.Slot>
+            <Icon name={"magnifier"} size={16} />
+          </TextField.Slot>
+        </TextField.Root>
+
+        <IconButton size="3" variant="soft">
+          <Icon name={"tuning"} size={18} variant={"fill"} />
         </IconButton>
 
-        {isEditMode ? (
-          <IconButton
-            size="3"
-            variant="soft"
-            className="p-0 ml-2 rt-r-size-2   hover:cursor-pointer bg-accent-9 color:currentcolor "
-            onClick={toggleEditMode}
-          >
-            <Icon
-              name={"pencil"}
-              size={18}
-              className="text-primary-foreground  bg-accent-contrast "
-              variant={"fill"}
-            />
-          </IconButton>
-        ) : (
-          <IconButton
-            size="3"
-            variant="soft"
-            className="p-0 rt-reset rt-Basebutton rt-r-size-2 ml-2  hover:cursor-pointer "
-            onClick={toggleEditMode}
-          >
-            <Icon
-              name={"pencil"}
-              size={18}
-              className="text-primary-foreground"
-              variant={"fill"}
-            />
-          </IconButton>
-        )}
+        <IconButton
+          size="3"
+          variant={mode === "select" ? "solid" : "soft"}
+          onClick={toggleEditMode}
+        >
+          <Icon name={"pencil"} size={18} variant={"fill"} />
+        </IconButton>
       </div>
-      <Table.Root className="min-w-full border-collapse rounded-3 overflow-hidden border-y border-x">
+
+      <Table.Root variant="surface" size="3" className="overflow-auto">
         <Table.Header>
-          <Table.Row className="bg-blue-3 text-white ">
-            {showCheckboxes && (
+          <Table.Row>
+            {mode === "select" && (
               <Table.ColumnHeaderCell>
-                <input
-                  type="checkbox"
-                  checked={selectAll}
-                  onChange={toggleSelectAll}
-                  className="cursor-pointer"
+                <Checkbox
+                  checked={isAllRolesSelected}
+                  onCheckedChange={toggleIsAllRolesSelected}
                 />
               </Table.ColumnHeaderCell>
             )}
-            <Table.ColumnHeaderCell children={tRoles("name")} />
-            <Table.ColumnHeaderCell children={tRoles("description")} />
-            <Table.ColumnHeaderCell children={tRoles("numberOfUsers")} />
+            <Table.ColumnHeaderCell children={t("name")} />
+            <Table.ColumnHeaderCell children={t("description")} />
+            <Table.ColumnHeaderCell children={t("numberOfUsers")} />
           </Table.Row>
         </Table.Header>
         <Table.Body>
-          {rolesData.map((role, index) => (
-            <Table.Row key={index} className="">
-              {showCheckboxes && (
+          {rolesData.map((role) => (
+            <Table.Row key={role.id}>
+              {mode === "select" && (
                 <Table.RowHeaderCell>
-                  <input
-                    type="checkbox"
-                    checked={selectedRows[index]}
-                    onChange={() => handleRowSelect(index)}
-                    className="cursor-pointer"
+                  <Checkbox
+                    checked={
+                      isAllRolesSelected || selectedRolesId.includes(role.id)
+                    }
+                    onCheckedChange={onRoleSelect(role.id)}
                   />
                 </Table.RowHeaderCell>
               )}
-              <Table.RowHeaderCell>{role.name}</Table.RowHeaderCell>
-              <Table.Cell>{role.description}</Table.Cell>
-              <Table.Cell>{role.userCount}</Table.Cell>
+              <Table.RowHeaderCell children={role.name} />
+              <Table.Cell children={role.description} />
+              <Table.Cell children={role.userCount} />
             </Table.Row>
           ))}
         </Table.Body>
       </Table.Root>
-      <div className="fixed bottom-0 left-0 right-0 p-4 ">
-        {isEditMode ? (
-          <IconButton
-            size="3"
-            variant="soft"
-            className="sm:hidden px-[16px] hover:cursor-pointer w-full bg-transparent text-red-10 border border-solid border-red-500 mx-auto"
-          >
-            <Icon
-              name={"trash-bin"}
-              size={16}
-              className="mr-2 text-primary-foreground"
-              variant={"stroke"}
-            />
-            <Text
-              className="text-nowrap"
-              size="4"
-              children={tRoles("deleteSelected")}
-            />
-          </IconButton>
-        ) : (
-          <IconButton
-            size="3"
-            variant="soft"
-            className="sm:hidden px-[16px] hover:cursor-pointer w-full bg-accent-9"
-          >
-            <Icon
-              name={"add-square"}
-              size={16}
-              className="mr-2 text-primary-foreground bg-accent-contrast"
-              variant={"stroke"}
-            />
-            <Text
-              className="text-nowrap text-accent-contrast"
-              size="3"
-              children={tRoles("addRole")}
-            />
-          </IconButton>
-        )}
+
+      <div className="fixed sm:hidden bottom-0 left-0 right-0 p-4">
+        <Button
+          className="w-full"
+          size="3"
+          color={mode === "select" ? "red" : "indigo"}
+          leadingIcon={mode === "select" ? "trash-bin" : "add-square"}
+          label={t(mode === "select" ? "deleteSelected" : "addRole")}
+        />
       </div>
     </div>
   )

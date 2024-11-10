@@ -60,8 +60,9 @@
     }
   },
   "settingsRoles": {
+    "title": "Роли",
     "deleteSelected": "Удалить выбранное",
-    "addRole": "Добавить роль",
+    "addRole": "Добавить",
     "search": "Поиск",
     "name": "Название",
     "description": "Описание",
