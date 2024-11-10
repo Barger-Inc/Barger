@@ -49,7 +49,7 @@
     "changePassword": "Изменить пароль",
     "save": "Сохранить"
   },
-  "change-password-modal":{
+  "change-password-modal": {
     "title": "Изменение пароля",
     "undo": "Отменить",
     "save": "Сохранить",

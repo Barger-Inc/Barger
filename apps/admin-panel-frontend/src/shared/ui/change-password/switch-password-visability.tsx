@@ -1,33 +1,45 @@
-'use client'
+// TODO: move this components to widgets folder
 
-import { Text } from "@radix-ui/themes";
-import { Box } from "@radix-ui/themes";
-import { TextField } from "@radix-ui/themes";
-import { useState } from "react";
-import { IconButton } from "@radix-ui/themes";
-import { Icon } from "../icon";
+"use client"
+
+import { TextField } from "@radix-ui/themes"
+import { IconButton } from "@radix-ui/themes"
+import { type ChangeEventHandler, type RefObject, useState } from "react"
+import { Icon } from "../icon"
 
 type SwitchPasswordVisabilityProps = {
-  passwordref: React.RefObject<HTMLInputElement>;
-  onupdate: React.ChangeEventHandler<HTMLInputElement>
+  passwordref: RefObject<HTMLInputElement>
+  onupdate: ChangeEventHandler<HTMLInputElement>
 }
 
-export const SwitchPasswordVisability = (props: SwitchPasswordVisabilityProps) =>{ 
-  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+export const SwitchPasswordVisability = (
+  props: SwitchPasswordVisabilityProps
+) => {
+  const [isPasswordVisible, setisPasswordVisible] = useState(false)
 
   const togglePasswordVisibility = () => {
-    setIsPasswordVisible(prevState => !prevState);
-  };
-  
-  return(
-    <Box maxWidth="100%" className="sm:w-full">
-		  <TextField.Root size="2" placeholder="" id="label1" type={isPasswordVisible ? 'text' : 'password'} ref={props.passwordref} onChange={props.onupdate}>
-      <TextField.Slot pr="2" side="right">
-				<IconButton size="1" variant="ghost" onClick={togglePasswordVisibility}>
-          <Icon name={isPasswordVisible ? "openeye" : "closedeye"} variant={"stroke"} color="gray"/>
-				</IconButton>
-			</TextField.Slot>
-      </TextField.Root>
-	  </Box>
+    setisPasswordVisible((prevState) => !prevState)
+  }
+
+  return (
+    <TextField.Root
+      size="2"
+      type={isPasswordVisible ? "text" : "password"}
+      ref={props.passwordref}
+      onChange={props.onupdate}
+    >
+      <TextField.Slot side="right">
+        <IconButton
+          variant="ghost"
+          color={"gray"}
+          onClick={togglePasswordVisibility}
+        >
+          <Icon
+            name={isPasswordVisible ? "openeye" : "closedeye"}
+            variant={"stroke"}
+          />
+        </IconButton>
+      </TextField.Slot>
+    </TextField.Root>
   )
 }

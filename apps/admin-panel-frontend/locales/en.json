@@ -12,7 +12,7 @@
     "password": "Change password",
     "save": "Save changes"
   },
-  "change-password-modal":{
+  "change-password-modal": {
     "title": "Password change",
     "undo": "Undo",
     "save": "Save changes",
