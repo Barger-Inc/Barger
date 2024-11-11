@@ -1,15 +1,16 @@
 "use client"
 
-import { useTranslations } from "next-intl"
-import { Heading, IconButton, Callout } from "@radix-ui/themes"
-import { Button } from "@/shared/ui/button"
-import { TextField } from "@/shared/ui/text-field"
-import { Icon } from "@/shared/ui/icon"
-import { TextField as PrimitiveTextField } from "@radix-ui/themes"
-import logo from "../../assets/logo.svg"
-import Image from "next/image"
-import React, { useState } from "react"
 import { isValidEmail } from "@/features/auth/lib/is-valid-email"
+import { Button } from "@/shared/ui/button"
+import { Icon } from "@/shared/ui/icon"
+import { TextField } from "@/shared/ui/text-field"
+import { Callout, Heading, IconButton } from "@radix-ui/themes"
+import { TextField as PrimitiveTextField } from "@radix-ui/themes"
+import { useTranslations } from "next-intl"
+import Image from "next/image"
+import type React from "react"
+import { useState } from "react"
+import logo from "../../assets/logo.svg"
 
 export default function Auth() {
   const t = useTranslations("login")
@@ -72,12 +73,11 @@ export default function Auth() {
         >
           <PrimitiveTextField.Slot side="right">
             <IconButton
-              className="mr-1 text-gray-11"
+              color={"gray"}
               variant="ghost"
-              size={"1"}
               onClick={togglePasswordVisibility}
             >
-              <Icon name={isPasswordVisible ? "eye" : "eye-closed"} />
+              <Icon size={16} name={isPasswordVisible ? "eye" : "eye-closed"} />
             </IconButton>
           </PrimitiveTextField.Slot>
         </TextField>
