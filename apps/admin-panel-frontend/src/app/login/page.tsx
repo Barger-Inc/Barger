@@ -1,31 +1,31 @@
-"use client"
+"use client";
 
-import { useTranslations } from "next-intl"
-import { Heading, IconButton, Callout } from "@radix-ui/themes"
-import { Button } from "@/shared/ui/button"
-import { TextField } from "@/shared/ui/text-field"
-import { Icon } from "@/shared/ui/icon"
-import { TextField as PrimitiveTextField } from "@radix-ui/themes"
-import logo from "../../assets/logo.svg"
-import Image from "next/image"
-import React, { useState } from "react"
-import { isValidEmail } from "@/features/auth/lib/is-valid-email"
+import { useTranslations } from "next-intl";
+import { Heading, IconButton, Callout } from "@radix-ui/themes";
+import { Button } from "@/shared/ui/button";
+import { TextField } from "@/shared/ui/text-field";
+import { Icon } from "@/shared/ui/icon";
+import { TextField as PrimitiveTextField } from "@radix-ui/themes";
+import logo from "../../assets/logo.svg";
+import Image from "next/image";
+import React, { useState } from "react";
+import { isValidEmail } from "@/features/auth/lib/is-valid-email";
 
 export default function Auth() {
-  const t = useTranslations("login")
-  const [isPasswordVisible, setIsPasswordVisible] = useState(false)
-  const [email, setEmail] = useState("")
-  const [isEmailValid, setIsEmailValid] = useState<boolean | null>(null)
+  const t = useTranslations("login");
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const [email, setEmail] = useState("");
+  const [isEmailValid, setIsEmailValid] = useState<boolean | null>(null);
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value
-    setEmail(value)
-    setIsEmailValid(isValidEmail(value))
-  }
+    const value = e.target.value;
+    setEmail(value);
+    setIsEmailValid(isValidEmail(value));
+  };
 
   const togglePasswordVisibility = () => {
-    setIsPasswordVisible((prev) => !prev)
-  }
+    setIsPasswordVisible((prev) => !prev);
+  };
   return (
     <div className="flex items-center justify-center h-screen bg-gray-1">
       <div className="flex flex-col w-[400px] rounded-5 p-4 sm:border sm:border-gray-6 sm:bg-gray-2">
@@ -90,5 +90,5 @@ export default function Auth() {
         />
       </div>
     </div>
-  )
+  );
 }
