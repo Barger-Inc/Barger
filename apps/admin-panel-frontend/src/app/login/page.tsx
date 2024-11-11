@@ -1,6 +1,5 @@
 "use client"
-
-import { isValidEmail } from "@/features/auth/lib/is-valid-email"
+import withDefaultProps from "@/shared/hoc/with-default-props"
 import { Button } from "@/shared/ui/button"
 import { Icon } from "@/shared/ui/icon"
 import { TextField } from "@/shared/ui/text-field"
@@ -8,27 +7,35 @@ import { Callout, Heading, IconButton } from "@radix-ui/themes"
 import { TextField as PrimitiveTextField } from "@radix-ui/themes"
 import { useTranslations } from "next-intl"
 import Image from "next/image"
-import type React from "react"
-import { useState } from "react"
+import { type ChangeEvent, useCallback, useState } from "react"
 import logo from "../../assets/logo.svg"
+
+// TODO: add logic for appearing error callout
+const SHOW_CALLOUT = false
 
 export default function Auth() {
   const t = useTranslations("login")
-  const [isPasswordVisible, setIsPasswordVisible] = useState(false)
-  const [email, setEmail] = useState("")
-  const [isEmailValid, setIsEmailValid] = useState<boolean | null>(null)
 
-  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const [email, setEmail] = useState("")
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false)
+
+  const handleEmailChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value
     setEmail(value)
-    setIsEmailValid(isValidEmail(value))
-  }
+  }, [])
 
-  const togglePasswordVisibility = () => {
-    setIsPasswordVisible((prev) => !prev)
-  }
+  const togglePasswordVisibility = useCallback(
+    () => setIsPasswordVisible((prev) => !prev),
+    []
+  )
+
+  const AuthButton = withDefaultProps(Button, {
+    size: "2",
+    label: t("login"),
+  })
+
   return (
-    <div className="flex items-center justify-center h-screen bg-gray-1">
+    <div className="grid place-items-center h-screen bg-gray-1">
       <div className="flex flex-col gap-6 w-[400px] rounded-5 p-4 sm:border sm:border-gray-6 sm:bg-gray-2">
         <Heading size="7" className="flex justify-center items-center gap-2.5">
           <Image
@@ -40,8 +47,8 @@ export default function Auth() {
           <span>Barger</span>
         </Heading>
 
-        <div className="flex flex-col gap-4">
-          {isEmailValid === false && (
+        <form className="flex flex-col gap-4">
+          {SHOW_CALLOUT && (
             <Callout.Root size="1" color="red" variant="surface">
               <Callout.Icon>
                 <Icon size={16} name={"info-circle"} variant="fill" />
@@ -55,12 +62,16 @@ export default function Auth() {
             placeholder={t("enterEmail")}
             value={email}
             onChange={handleEmailChange}
+            required={true}
+            autoComplete={"email webauthn"}
           />
 
           <TextField
             label={t("password")}
             placeholder={t("enterPassword")}
             type={isPasswordVisible ? "text" : "password"}
+            required={true}
+            autoComplete={"current-password webauthn"}
           >
             <PrimitiveTextField.Slot side="right">
               <IconButton
@@ -76,20 +87,9 @@ export default function Auth() {
             </PrimitiveTextField.Slot>
           </TextField>
 
-          <Button
-            label={t("login")}
-            size="2"
-            variant="solid"
-            className="self-end hidden sm:block"
-          />
-
-          <Button
-            label={t("login")}
-            size="4"
-            variant="solid"
-            className="sm:hidden"
-          />
-        </div>
+          <AuthButton type="submit" className="self-end hidden sm:block" />
+          <AuthButton type="submit" size="4" className="sm:hidden" />
+        </form>
       </div>
     </div>
   )
