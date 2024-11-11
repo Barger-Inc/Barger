@@ -29,65 +29,67 @@ export default function Auth() {
   }
   return (
     <div className="flex items-center justify-center h-screen bg-gray-1">
-      <div className="flex flex-col w-[400px] rounded-5 p-4 sm:border sm:border-gray-6 sm:bg-gray-2">
-        <Heading
-          size="7"
-          className="mb-6 flex justify-center items-center gap-2.5"
-        >
+      <div className="flex flex-col gap-6 w-[400px] rounded-5 p-4 sm:border sm:border-gray-6 sm:bg-gray-2">
+        <Heading size="7" className="flex justify-center items-center gap-2.5">
           <Image
             className="size-10 rounded-3"
             src={logo}
-            alt="logo"
+            alt=""
             draggable={false}
           />
           <span>Barger</span>
         </Heading>
 
-        {isEmailValid === false && (
-          <Callout.Root
-            size={"1"}
-            color="red"
-            variant="surface"
-            className="mb-4"
+        <div className="flex flex-col gap-4">
+          {isEmailValid === false && (
+            <Callout.Root size="1" color="red" variant="surface">
+              <Callout.Icon>
+                <Icon size={16} name={"info-circle"} variant="fill" />
+              </Callout.Icon>
+              <Callout.Text children={t("error")} />
+            </Callout.Root>
+          )}
+
+          <TextField
+            label={t("email")}
+            placeholder={t("enterEmail")}
+            value={email}
+            onChange={handleEmailChange}
+          />
+
+          <TextField
+            label={t("password")}
+            placeholder={t("enterPassword")}
+            type={isPasswordVisible ? "text" : "password"}
           >
-            <Callout.Icon>
-              <Icon name={"info-circle"} variant="fill" />
-            </Callout.Icon>
-            <Callout.Text>{t("error")}</Callout.Text>
-          </Callout.Root>
-        )}
+            <PrimitiveTextField.Slot side="right">
+              <IconButton
+                color={"gray"}
+                variant="ghost"
+                onClick={togglePasswordVisibility}
+              >
+                <Icon
+                  size={16}
+                  name={isPasswordVisible ? "eye" : "eye-closed"}
+                />
+              </IconButton>
+            </PrimitiveTextField.Slot>
+          </TextField>
 
-        <TextField
-          label={t("email")}
-          placeholder={t("enterEmail")}
-          value={email}
-          onChange={handleEmailChange}
-          className="mb-4"
-        />
+          <Button
+            label={t("login")}
+            size="2"
+            variant="solid"
+            className="self-end hidden sm:block"
+          />
 
-        <TextField
-          label={t("password")}
-          placeholder={t("enterPassword")}
-          type={isPasswordVisible ? "text" : "password"}
-          className="mb-4 flex items-center"
-        >
-          <PrimitiveTextField.Slot side="right">
-            <IconButton
-              color={"gray"}
-              variant="ghost"
-              onClick={togglePasswordVisibility}
-            >
-              <Icon size={16} name={isPasswordVisible ? "eye" : "eye-closed"} />
-            </IconButton>
-          </PrimitiveTextField.Slot>
-        </TextField>
-
-        <Button
-          label={t("login")}
-          size="2"
-          variant="solid"
-          className="self-end w-full sm:w-[66px]"
-        />
+          <Button
+            label={t("login")}
+            size="4"
+            variant="solid"
+            className="sm:hidden"
+          />
+        </div>
       </div>
     </div>
   )
