@@ -20,8 +20,10 @@ export type StrokeIconName =
 export type FillIconName =
   | "arrow-left-alt"
   | "cross"
+  | "discord"
   | "folder-open"
   | "gallery"
+  | "github"
   | "home-2"
   | "info-circle"
   | "maximize"
@@ -31,3 +33,5 @@ export type FillIconName =
   | "tuning"
   | "user-circle"
   | "users-group-two"
+  | "vk"
+  | "youtube"
