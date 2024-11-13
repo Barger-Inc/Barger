@@ -1,3 +1,4 @@
+import withDefaultProps from "@/shared/hoc/with-default-props"
 import type { FillIconName, StrokeIconName } from "@/shared/types/icon-name"
 import { Icon } from "@/shared/ui/icon"
 import { cn } from "@/shared/utils"
@@ -17,6 +18,8 @@ type NavigationButtonProps = {
 export const NavigationButton = (props: NavigationButtonProps) => {
   const { icon, title, isMinified, isActive, href, disableGhostArea, ...rest } =
     props
+
+  const NavigationButtonIcon = withDefaultProps(Icon, { name: icon, size: 24 })
 
   return (
     <Link
@@ -38,7 +41,16 @@ export const NavigationButton = (props: NavigationButtonProps) => {
         )}
       >
         {icon && (
-          <Icon name={icon} size={24} variant={isActive ? "fill" : "stroke"} />
+          <div className={"relative"}>
+            <NavigationButtonIcon
+              variant={"fill"}
+              className={cn(!isActive && "invisible")}
+            />
+            <NavigationButtonIcon
+              variant={"stroke"}
+              className={cn("absolute left-0 top-0", isActive && "invisible")}
+            />
+          </div>
         )}
         {!isMinified && <Text size={"3"} children={title} />}
       </div>
