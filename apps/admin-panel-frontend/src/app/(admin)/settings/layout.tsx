@@ -46,8 +46,12 @@ export default function Layout(props: { children: ReactNode }) {
       >
         <div className="sm:hidden pb-3">
           <Link href={"/settings"}>
-            <Button variant={"ghost"} color={"gray"}>
-              <Icon name={"arrow-left-alt"} variant={"fill"} />
+            <Button variant={"ghost"} color={"gray"} className={"gap-2"}>
+              <Icon
+                name={"arrow-left-alt"}
+                className={"w-2"}
+                variant={"fill"}
+              />
               Настройки
             </Button>
           </Link>

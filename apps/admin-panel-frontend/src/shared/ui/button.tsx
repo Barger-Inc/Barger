@@ -31,7 +31,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             icon={leadingIcon}
           />
         )}
-        {label && <span className="text-center w-full">{label}</span>}
+        {label && <span children={label} />}
         {trailingIcon && (
           <ButtonIcon
             size={props.size}
