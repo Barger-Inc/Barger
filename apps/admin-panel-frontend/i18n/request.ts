@@ -1,16 +1,12 @@
 import { getRequestConfig } from "next-intl/server"
 import { cookies } from "next/headers"
 
-const x = ["ru", "en"]
+const availableLanguages = ["ru", "en"]
 
 export default getRequestConfig(async () => {
-  const cookieStore = cookies()
+  let locale = cookies().get("preferredLanguage")?.value ?? "ru"
 
-  let locale = cookieStore.get("preferredLanguage")?.value
-
-  if (!x.includes(locale ?? "en")) {
-    locale = "en"
-  }
+  if (!availableLanguages.includes(locale)) locale = "ru"
 
   try {
     return {
@@ -18,10 +14,11 @@ export default getRequestConfig(async () => {
       messages: (await import(`../locales/${locale}.json`)).default,
     }
   } catch (error) {
-    console.error(`Ошибка загрузки файла перевода для ${locale}:`, error)
+    console.error(`Error loading translation ${locale} file`, error)
+
     return {
-      locale: "en",
-      messages: (await import(`../locales/en.json`)).default,
+      locale: "ru",
+      messages: (await import("../locales/ru.json")).default,
     }
   }
 })

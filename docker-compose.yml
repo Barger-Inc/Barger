@@ -1,0 +1,9 @@
+name: barger
+services:
+  admin-panel-frontend:
+    restart: always
+    build:
+      context: .
+      dockerfile: frontend.Dockerfile
+    ports:
+      - "8089:3000"

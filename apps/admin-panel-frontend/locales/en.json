@@ -2,7 +2,7 @@
   "welcome": "Welcome to my app!",
   "home": "Home",
   "about": "About",
-  "profile":{
+  "profile": {
     "title": "My profile",
     "name": "Name",
     "surname": "Surname",
