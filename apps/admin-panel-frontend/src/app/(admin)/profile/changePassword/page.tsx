@@ -8,9 +8,9 @@ import { useRouter } from "next/navigation"
 
 export default function Page() {
   const t = useTranslations("change-password-modal")
-  const [currentPassword, setcurrentPassword]=useState<string|null>(null)
-  const [newPassword, setnewPassword]=useState<string|null>(null)
-  const [passwordAgain, setpasswordAgain]=useState<string|null>(null)
+  const [currentPassword, setCurrentPassword]=useState<string|null>(null)
+  const [newPassword, setNewPassword]=useState<string|null>(null)
+  const [passwordAgain, setPasswordAgain]=useState<string|null>(null)
 
   const router=useRouter();
   
@@ -22,9 +22,9 @@ export default function Page() {
     <div>
       <ChangePassword
           onUpdate={(currentPassword, newPassword, passwordAgain) =>{
-            setcurrentPassword(currentPassword)
-            setnewPassword(newPassword)
-            setpasswordAgain(passwordAgain)
+            setCurrentPassword(currentPassword)
+            setNewPassword(newPassword)
+            setPasswordAgain(passwordAgain)
           }}
         />
       <Button label={t("save")} 

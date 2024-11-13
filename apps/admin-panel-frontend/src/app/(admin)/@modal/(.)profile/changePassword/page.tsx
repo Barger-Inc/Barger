@@ -11,7 +11,7 @@ import { useRouter } from "next/navigation"
 import { useState } from "react"
 
 export default function Page() {
-  const t = useTranslations("change-password-modal")
+  const t = useTranslations("changePasswordModal")
   const [currentPassword, setcurrentPassword]=useState<string|null>(null)
   const [newPassword, setnewPassword]=useState<string|null>(null)
   const [passwordAgain, setpasswordAgain]=useState<string|null>(null)

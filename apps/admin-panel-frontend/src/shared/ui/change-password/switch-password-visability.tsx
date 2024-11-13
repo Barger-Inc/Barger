@@ -7,12 +7,12 @@ import { useState } from "react";
 import { IconButton } from "@radix-ui/themes";
 import { Icon } from "../icon";
 
-type SwitchPasswordVisabilityProps = {
-  passwordref: React.RefObject<HTMLInputElement>;
-  onupdate: React.ChangeEventHandler<HTMLInputElement>
+type SwitchPasswordVisibilityProps = {
+  passwordRef: React.RefObject<HTMLInputElement>;
+  onUpdate: React.ChangeEventHandler<HTMLInputElement>
 }
 
-export const SwitchPasswordVisability = (props: SwitchPasswordVisabilityProps) =>{ 
+export const SwitchPasswordVisibility = (props: SwitchPasswordVisibilityProps) =>{ 
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   const togglePasswordVisibility = () => {

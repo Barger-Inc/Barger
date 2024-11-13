@@ -1,5 +1,5 @@
 import { Text } from "@radix-ui/themes";
-import { SwitchPasswordVisability } from "@/shared/ui/change-password/switch-password-visability";
+import { SwitchPasswordVisibility } from "@/shared/ui/change-password/switch-password-visability";
 import { useTranslations } from "next-intl";
 import { useRef } from "react";
 
@@ -28,15 +28,15 @@ export const ChangePassword = (props: ChangePasswordProps) =>{
     <div>
       <div className="mb-4">
           <Text size="2" as="label" htmlFor="label1" weight="medium">{t("current-password")}</Text>
-          <SwitchPasswordVisability passwordref={currentPasswordRef} onupdate={onUpdated}/>
+          <SwitchPasswordVisibility passwordRef={currentPasswordRef} onUpdate={onUpdated}/>
         </div>
         <div className="mb-4">
           <Text size="2" as="label" htmlFor="label1" weight="medium">{t("new-password")}</Text>
-          <SwitchPasswordVisability passwordref={newPasswordRef} onupdate={onUpdated}/>
+          <SwitchPasswordVisibility passwordRef={newPasswordRef} onUpdate={onUpdated}/>
         </div>
         <div className="mb-4">
           <Text size="2" as="label" htmlFor="label1" weight="medium">{t("password-again")}</Text>
-          <SwitchPasswordVisability passwordref={passwordAgainRef} onupdate={onUpdated}/>
+          <SwitchPasswordVisibility passwordRef={passwordAgainRef} onUpdate={onUpdated}/>
         </div>
     </div>
   )

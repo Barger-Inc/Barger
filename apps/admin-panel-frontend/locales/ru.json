@@ -22,7 +22,7 @@
     "password": "Изменить пароль",
     "save": "Сохранить"
   },
-  "change-password-modal":{
+  "changePasswordModal":{
     "title": "Изменение пароля",
     "undo": "Отменить",
     "save": "Сохранить",
