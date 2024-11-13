@@ -20,7 +20,7 @@ type PasswordInputProps = {
 
 export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
   (props, ref) => {
-    const { label, ...otherProps } = props
+    const { label, errorMessage, ...otherProps } = props
 
     // TODO: make hook useSwitch or smth
     const [isVisible, setIsVisible] = useState(false)
@@ -44,7 +44,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
             </IconButton>
           </PrimitiveTextField.Slot>
         </TextField>
-        {props.errorMessage && <ErrorCaption children={props.errorMessage} />}
+        {errorMessage && <ErrorCaption children={errorMessage} />}
       </div>
     )
   }
