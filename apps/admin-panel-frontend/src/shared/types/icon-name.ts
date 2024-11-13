@@ -11,6 +11,7 @@ export type StrokeIconName =
   | "magnifier"
   | "moon"
   | "pen-new-square"
+  | "plus"
   | "settings"
   | "sun"
   | "trash-bin"
