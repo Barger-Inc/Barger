@@ -72,7 +72,7 @@
     "login": "Войти",
     "error": "Неверная электронная почта или пароль"
   },
-  "changePasswordModal":{
+  "changePasswordModal": {
     "title": "Изменение пароля",
     "undo": "Отменить",
     "save": "Сохранить",

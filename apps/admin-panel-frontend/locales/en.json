@@ -13,7 +13,7 @@
     "password": "Change password",
     "save": "Save changes"
   },
-  "changePasswordModal":{
+  "changePasswordModal": {
     "title": "Password change",
     "undo": "Undo",
     "save": "Save changes",

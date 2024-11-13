@@ -1,35 +1,4 @@
-'use client'
-
-import { ChangePassword } from "@/widgets/change-password"
-import { useState } from "react"
-import { Button } from "@/shared/ui/button"
-import { useTranslations } from "next-intl"
-import { useRouter } from "next/navigation"
-
+// TODO: Вытащить содержимое из https://github.com/Barger-Inc/Barger/blob/c4eb7727800cfba30e5245043646138ad1f520aa/apps/admin-panel-frontend/src/app/(admin)/@modal/(.)profile/changePassword/page.tsx и вставить как виджет
 export default function Page() {
-  const t = useTranslations("change-password-modal")
-  const [currentPassword, setCurrentPassword]=useState<string|null>(null)
-  const [newPassword, setNewPassword]=useState<string|null>(null)
-  const [passwordAgain, setPasswordAgain]=useState<string|null>(null)
-
-  const router=useRouter();
-  
-  const routefun=()=>{
-    router.back()
-  }
-
-  return(
-    <div>
-      <ChangePassword
-          onUpdate={(currentPassword, newPassword, passwordAgain) =>{
-            setCurrentPassword(currentPassword)
-            setNewPassword(newPassword)
-            setPasswordAgain(passwordAgain)
-          }}
-        />
-      <Button label={t("save")} 
-          onClick={()=>{routefun()}}
-        />
-    </div>
-  )
+  return null
 }
