@@ -59,15 +59,6 @@
       "users": "Пользователи"
     }
   },
-  "settingsRoles": {
-    "title": "Роли",
-    "deleteSelected": "Удалить выбранное",
-    "addRole": "Добавить",
-    "search": "Поиск",
-    "name": "Название",
-    "description": "Описание",
-    "numberOfUsers": "Количество пользователей"
-  },
   "themeToggle": {
     "dark": "Темная",
     "light": "Светлая",

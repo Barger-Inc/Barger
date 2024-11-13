@@ -57,7 +57,7 @@ export default function Page() {
           size="3"
           variant="soft"
           color={mode === "select" ? "red" : "indigo"}
-          leadingIcon={mode === "select" ? "trash-bin" : "add-square"}
+          leadingIcon={mode === "select" ? "trash-bin" : "plus"}
           label={t(mode === "select" ? "deleteSelected" : "addRole")}
         />
       </div>
@@ -124,7 +124,7 @@ export default function Page() {
           className="w-full"
           size="4"
           color={mode === "select" ? "red" : "indigo"}
-          leadingIcon={mode === "select" ? "trash-bin" : "add-square"}
+          leadingIcon={mode === "select" ? "trash-bin" : "plus"}
           label={t(mode === "select" ? "deleteSelected" : "addRole")}
         />
       </div>
