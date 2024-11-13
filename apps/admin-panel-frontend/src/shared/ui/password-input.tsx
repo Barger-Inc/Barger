@@ -35,7 +35,12 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
           {...otherProps}
         >
           <PrimitiveTextField.Slot side="right">
-            <IconButton variant="ghost" color="gray" onClick={toggleVisibility}>
+            <IconButton
+              type="button"
+              variant="ghost"
+              color="gray"
+              onClick={toggleVisibility}
+            >
               <Icon
                 size={16}
                 name={isVisible ? "eye-open" : "eye-closed"}
