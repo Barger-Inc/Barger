@@ -19,8 +19,10 @@ export type StrokeIconName =
 
 export type FillIconName =
   | "arrow-left-alt"
+  | "code"
   | "cross"
   | "discord"
+  | "document"
   | "folder-open"
   | "gallery"
   | "github"
@@ -29,6 +31,7 @@ export type FillIconName =
   | "maximize"
   | "minimize"
   | "pen-new-square"
+  | "play"
   | "settings"
   | "tuning"
   | "user-circle"
