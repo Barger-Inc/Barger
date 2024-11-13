@@ -30,9 +30,7 @@ export default function Page() {
         <Heading size="5" weight="medium" children={t("security")} />
 
         <div className="flex flex-col gap-2 sm:flex-row sm:[&>*]:flex-1 sm:[&>*>*]:w-full">
-          <Link href={"/profile/changeEmail"}>
-            <SoftButton label={t("changeEmail")} />
-          </Link>
+          <SoftButton label={t("changeEmail")} />
           <Link href={"/profile/changePassword"}>
             <SoftButton label={t("changePassword")} />
           </Link>

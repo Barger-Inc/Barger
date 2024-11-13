@@ -1,6 +1,7 @@
 {
   "welcome": "Welcome to my app!",
   "home": "Home",
+  "about": "About",
   "profile": {
     "title": "My profile",
     "name": "Name",
@@ -12,47 +13,12 @@
     "password": "Change password",
     "save": "Save changes"
   },
-  "change-password-modal": {
+  "changePasswordModal": {
     "title": "Password change",
     "undo": "Undo",
     "save": "Save changes",
     "current-password": "Enter the current password",
     "new-password": "New password",
     "password-again": "Repeat the new password"
-  },
-  "sidePanel": {
-    "links": {
-      "home": "Home",
-      "collections": "Collections",
-      "content": "Content",
-      "media": "Media",
-      "profile": "Profile",
-      "users": "Users",
-      "settings": "Settings"
-    },
-    "exit": "Exit"
-  },
-  "settingsSidePanel": {
-    "title": "Settings",
-    "links": {
-      "tokens": "Tokens",
-      "media": "Media",
-      "language": "Language",
-      "roles": "Roles",
-      "users": "Users"
-    }
-  },
-  "settingsRoles": {
-    "deleteSelected": "delete selected",
-    "addRole": "Add role",
-    "search": "search",
-    "name": "Title",
-    "description": "Description",
-    "numberOfUsers": "Number of Users"
-  },
-  "themeToggle": {
-    "dark": "Dark",
-    "light": "Light",
-    "system": "System"
   }
 }

@@ -49,14 +49,6 @@
     "changePassword": "Изменить пароль",
     "save": "Сохранить"
   },
-  "change-password-modal": {
-    "title": "Изменение пароля",
-    "undo": "Отменить",
-    "save": "Сохранить",
-    "current-password": "Введите текущий пароль",
-    "new-password": "Новый пароль",
-    "password-again": "Повторите новый пароль"
-  },
   "settingsSidePanel": {
     "title": "Настройки",
     "links": {
@@ -66,15 +58,6 @@
       "roles": "Роли",
       "users": "Пользователи"
     }
-  },
-  "settingsRoles": {
-    "title": "Роли",
-    "deleteSelected": "Удалить выбранное",
-    "addRole": "Добавить",
-    "search": "Поиск",
-    "name": "Название",
-    "description": "Описание",
-    "numberOfUsers": "Количество пользователей"
   },
   "themeToggle": {
     "dark": "Темная",
@@ -88,5 +71,13 @@
     "enterEmail": "Введите электронную почту",
     "login": "Войти",
     "error": "Неверная электронная почта или пароль"
+  },
+  "changePasswordModal": {
+    "title": "Изменение пароля",
+    "undo": "Отменить",
+    "save": "Сохранить",
+    "current-password": "Введите текущий пароль",
+    "new-password": "Новый пароль",
+    "password-again": "Повторите новый пароль"
   }
 }
