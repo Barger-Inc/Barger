@@ -2,7 +2,7 @@ export type StrokeIconName =
   | "add-square"
   | "exit"
   | "eye-closed"
-  | "eye"
+  | "eye-open"
   | "folder-open"
   | "gallery"
   | "hamburger"
