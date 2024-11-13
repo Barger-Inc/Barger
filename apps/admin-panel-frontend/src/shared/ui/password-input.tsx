@@ -1,17 +1,12 @@
 "use client"
-
-import withDefaultProps from "@/shared/hoc/with-default-props"
 import { TextField } from "@/shared/ui/text-field"
-import { TextField as PrimitiveTextField } from "@radix-ui/themes"
-import { IconButton } from "@radix-ui/themes"
-import { Text } from "@radix-ui/themes"
+import {
+  IconButton,
+  TextField as PrimitiveTextField,
+  Text,
+} from "@radix-ui/themes"
 import { type ComponentPropsWithoutRef, forwardRef, useState } from "react"
 import { Icon } from "./icon"
-
-const ErrorCaption = withDefaultProps(Text, {
-  color: "red",
-  size: "1",
-})
 
 type PasswordInputProps = {
   label?: string
@@ -49,7 +44,9 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
             </IconButton>
           </PrimitiveTextField.Slot>
         </TextField>
-        {errorMessage && <ErrorCaption children={errorMessage} />}
+        {errorMessage && (
+          <Text size={"2"} color={"red"} children={errorMessage} />
+        )}
       </div>
     )
   }
