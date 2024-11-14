@@ -67,7 +67,18 @@
     "search": "Поиск",
     "name": "Название",
     "description": "Описание",
-    "numberOfUsers": "Количество пользователей"
+    "numberOfUsers": "Количество пользователей",
+    "editRole": "Редактировать роли",
+    "createRole": "Создание роли",
+    "saveRole": "Сохранить",
+    "createPermission": "Создание",
+    "publishPermission": "Публикация",
+    "updatePermission": "Обновление",
+    "readPermission": "Чтение",
+    "deletePermission": "Удаление",
+    "newsCategory": "Новости",
+    "productsCategory": "Товары",
+    "announcementsCategory": "Объявления"
   },
   "themeToggle": {
     "dark": "Темная",

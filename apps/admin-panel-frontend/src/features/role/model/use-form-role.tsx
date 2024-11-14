@@ -1,14 +1,14 @@
-import { useState } from "react";
-import { type SubmitHandler, useForm } from "react-hook-form";
+import { useState } from "react"
+import { type SubmitHandler, useForm } from "react-hook-form"
 
 export interface Role {
-  name: string;
-  description: string;
+  name: string
+  description: string
   permissions: {
     [key: string]: {
-      allowed: boolean;
-    };
-  }; 
+      allowed: boolean
+    }
+  }
 }
 
 export const useFormRole = () => {
@@ -16,29 +16,31 @@ export const useFormRole = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<Role>();
+  } = useForm<Role>()
 
-  const [currentRole, setCurrentRole] = useState<string>(""); 
-  const [currentDescription, setCurrentDescription] = useState<string>(""); 
-  const [currentPermissions, setCurrentPermissions] = useState<{ [key: string]: { allowed: boolean } }>({}); 
+  const [currentRole, setCurrentRole] = useState<string>("")
+  const [currentDescription, setCurrentDescription] = useState<string>("")
+  const [currentPermissions, setCurrentPermissions] = useState<{
+    [key: string]: { allowed: boolean }
+  }>({})
 
   const onSubmit: SubmitHandler<Role> = (data) => {
-    data.name = currentRole; 
-    data.description = currentDescription;
-    data.permissions = currentPermissions; 
+    data.name = currentRole
+    data.description = currentDescription
+    data.permissions = currentPermissions
 
-    console.log("Form data:", data);
-  };
+    console.log("Form data:", data)
+  }
 
   return {
     register,
-    handleSubmit: handleSubmit(onSubmit), 
+    handleSubmit: handleSubmit(onSubmit),
     errors,
-    role: currentRole, 
-    setRole: setCurrentRole, 
+    role: currentRole,
+    setRole: setCurrentRole,
     description: currentDescription,
     setDescription: setCurrentDescription,
     permissions: currentPermissions,
     setPermissions: setCurrentPermissions,
-  };
-};
+  }
+}

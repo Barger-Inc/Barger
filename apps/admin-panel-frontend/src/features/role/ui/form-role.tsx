@@ -1,15 +1,11 @@
-"use client"; // This line marks the component as a Client Component
+"use client";
 
 import { Button } from "@/shared/ui/button";
 import { TextField } from "@/shared/ui/text-field";
 import { useTranslations } from "next-intl";
 import { useForm, Controller } from "react-hook-form";
 import { FormField } from "@/shared/ui/form-field";
-import {
-  Checkbox,
-  Table,
-  TextArea,
-} from "@radix-ui/themes";
+import { Checkbox, Table, TextArea } from "@radix-ui/themes";
 import { type Role } from "../model/use-form-role";
 
 interface Permissions {
@@ -21,28 +17,41 @@ interface Permissions {
 }
 
 export const FormRole = () => {
-  const permissionsList = ["Создание", "Публикация", "Обновление", "Чтение", "Удаление"];
-  const categories = ["Новости", "Товары", "Объявления"];
-
   const t = useTranslations("settingsRoles");
-  
+
+  const permissionsList = [
+    t("createPermission"),
+    t("publishPermission"),
+    t("updatePermission"),
+    t("readPermission"),
+    t("deletePermission"),
+  ];
+
+  const categories = [
+    t("newsCategory"),
+    t("productsCategory"),
+    t("announcementsCategory"),
+  ];
+
   const { register, handleSubmit, control } = useForm<Role>({
     defaultValues: {
       name: "",
       description: "",
       permissions: categories.reduce<Permissions>((acc, category) => {
-        acc[category] = permissionsList.reduce((permAcc, permission) => {
-          permAcc[permission] = { allowed: false }; 
-          return permAcc;
-        }, {} as { [key: string]: { allowed: boolean } }); 
+        acc[category] = permissionsList.reduce(
+          (permAcc, permission) => {
+            permAcc[permission] = { allowed: false };
+            return permAcc;
+          },
+          {} as { [key: string]: { allowed: boolean } }
+        );
         return acc;
-      }, {} as Permissions), 
+      }, {} as Permissions),
     },
   });
 
   const onSubmit = (data: Role) => {
     console.log("Form data:", data);
- 
   };
 
   return (
@@ -54,12 +63,12 @@ export const FormRole = () => {
           {...register("name", { required: true })}
         />
         <FormField label={t("description")}>
-          <TextArea 
-            placeholder={t("description")} 
-            {...register("description", { required: true })} 
+          <TextArea
+            placeholder={t("description")}
+            {...register("description", { required: true })}
           />
         </FormField>
-        
+
         <Table.Root variant="surface" size="3" className="overflow-auto">
           <Table.Header>
             <Table.Row>
@@ -93,7 +102,6 @@ export const FormRole = () => {
             ))}
           </Table.Body>
         </Table.Root>
-
       </div>
     </form>
   );

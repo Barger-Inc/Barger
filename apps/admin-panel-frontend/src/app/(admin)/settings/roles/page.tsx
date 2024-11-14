@@ -51,17 +51,19 @@ export default function Page() {
   )
 
   const deleteSelectedRoles = useCallback(() => {
-    setRolesData((prev) => prev.filter(role => !selectedRolesId.includes(role.id)))
-    setSelectedRolesId([]) 
-    setIsAllRolesSelected(false) 
+    setRolesData((prev) =>
+      prev.filter((role) => !selectedRolesId.includes(role.id))
+    )
+    setSelectedRolesId([])
+    setIsAllRolesSelected(false)
   }, [selectedRolesId])
 
   return (
     <div className="flex flex-col gap-6">
       <div className="flex items-center">
         <Heading className="flex-1" size="7" children={t("title")} />
-        {mode === "view" ? ( 
-          <Link href={"/settings/roles/CreateRole"} >
+        {mode === "view" ? (
+          <Link href={"/settings/roles/CreateRole"}>
             <Button
               className="hidden sm:flex cursor-pointer"
               size="3"
@@ -79,7 +81,7 @@ export default function Page() {
             color="red"
             leadingIcon="trash-bin"
             label={t("deleteSelected")}
-            onClick={deleteSelectedRoles} 
+            onClick={deleteSelectedRoles}
           />
         )}
       </div>
@@ -95,7 +97,7 @@ export default function Page() {
           <Icon name={"tuning"} size={18} variant={"fill"} />
         </IconButton>
 
-        <IconButton 
+        <IconButton
           className="cursor-pointer"
           size="3"
           variant={mode === "select" ? "solid" : "soft"}
@@ -135,8 +137,8 @@ export default function Page() {
                 </Table.RowHeaderCell>
               )}
               <Table.RowHeaderCell>
-                <Link 
-                  href={`/settings/roles/${role.id}/edit`} 
+                <Link
+                  href={`/settings/roles/${role.id}/edit`}
                   className="text-blue-600 hover:underline cursor-pointer"
                 >
                   {role.name}
@@ -150,7 +152,7 @@ export default function Page() {
       </Table.Root>
 
       <div className="fixed sm:hidden bottom-0 left-0 right-0 p-4">
-        {mode === "view" ? ( 
+        {mode === "view" ? (
           <Link href={"/settings/roles/CreateRole"}>
             <Button
               className="w-full cursor-pointer"
@@ -167,7 +169,7 @@ export default function Page() {
             color="red"
             leadingIcon="trash-bin"
             label={t("deleteSelected")}
-            onClick={deleteSelectedRoles} 
+            onClick={deleteSelectedRoles}
           />
         )}
       </div>

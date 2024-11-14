@@ -1,4 +1,4 @@
-{  
+{
   "welcome": "Welcome to my app!",
   "home": "Home",
   "about": "About",
@@ -36,12 +36,24 @@
     }
   },
   "settingsRoles": {
-    "deleteSelected": "delete selected",
-    "addRole": "Add role",
-    "search": "search",
+    "title": "Roles",
+    "deleteSelected": "Delete Selected",
+    "addRole": "Add Role",
+    "search": "Search",
     "name": "Title",
     "description": "Description",
-    "numberOfUsers": "Number of Users"
+    "numberOfUsers": "Number of Users",
+    "editRole": "Edit Roles",
+    "createRole": "Create Role",
+    "saveRole": "Save",
+    "createPermission": "Create",
+    "publishPermission": "Publish",
+    "updatePermission": "Update",
+    "readPermission": "Read",
+    "deletePermission": "Delete",
+    "newsCategory": "News",
+    "productsCategory": "Products",
+    "announcementsCategory": "Announcements"
   },
   "themeToggle": {
     "dark": "Dark",
