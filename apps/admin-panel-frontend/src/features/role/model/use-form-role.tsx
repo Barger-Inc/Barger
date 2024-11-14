@@ -28,8 +28,6 @@ export const useFormRole = () => {
     data.name = currentRole
     data.description = currentDescription
     data.permissions = currentPermissions
-
-    console.log("Form data:", data)
   }
 
   return {

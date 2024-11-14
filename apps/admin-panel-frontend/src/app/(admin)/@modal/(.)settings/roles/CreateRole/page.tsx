@@ -15,13 +15,10 @@ export default function Page() {
         <FormRole />
       </ModalBody>
       <ModalFooter>
-      <Button 
-          label={t("saveRole")} 
-          className="sm:hidden w-full" 
-        />
-        <Button 
-          label={t("saveRole")} 
-          className="hidden sm:flex items-center cursor-pointer" 
+        <Button label={t("saveRole")} className="sm:hidden w-full" />
+        <Button
+          label={t("saveRole")}
+          className="hidden sm:flex items-center cursor-pointer"
         />
       </ModalFooter>
     </ModalRoot>
