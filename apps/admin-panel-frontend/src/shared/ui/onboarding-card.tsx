@@ -5,7 +5,7 @@ interface OnboardingCardProps {
   id: number | string
   title: string
   description: string
-  iconSrc: string
+  iconSrc: () => JSX.Element
   imageSrc: string
 }
 
@@ -17,24 +17,27 @@ export const OnboardingCard = ({
   imageSrc,
 }: OnboardingCardProps) => {
   return (
-    <Box maxWidth="518px">
-      <Card>
-      <Inset  side="top" pb="current">
-			<img src={imageSrc} alt="Обложка карточки"/>
-		</Inset>
-        
-        <Flex gap="2" align="center">
-        <IconButton size="4" variant="soft">
-          <img src={iconSrc} alt="r" />
+    <Box maxWidth="518px" >
+      <Card className="bg-gray-200">
+        <Inset side="top" pb="current">
+          <img src={imageSrc} alt="Обложка карточки" />
+        </Inset>
+
+        <Flex gap="4" align="center">
+          <div className="hidden sm:flex">
+            <IconButton size="4" variant="soft">
+              {iconSrc()}
             </IconButton>
-          <Box height="64px">
+          </div>
+
+          <Flex height="70px" display="flex" direction="column" justify="center">
             <Text as="div" size="6" weight="medium">
               {title}
             </Text>
             <Text as="div" size="2" color="gray" weight="regular">
               {description}
             </Text>
-          </Box>
+          </Flex>
         </Flex>
       </Card>
     </Box>
