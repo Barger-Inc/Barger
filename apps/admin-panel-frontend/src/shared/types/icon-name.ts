@@ -1,5 +1,7 @@
 export type StrokeIconName =
   | "add-square"
+  | "code"
+  | "document"
   | "exit"
   | "eye-closed"
   | "eye-open"
@@ -11,6 +13,7 @@ export type StrokeIconName =
   | "magnifier"
   | "moon"
   | "pen-new-square"
+  | "play"
   | "plus"
   | "settings"
   | "sun"
@@ -21,8 +24,10 @@ export type StrokeIconName =
 export type FillIconName =
   | "arrow-left-alt"
   | "cross"
+  | "discord"
   | "folder-open"
   | "gallery"
+  | "github"
   | "home-2"
   | "info-circle"
   | "maximize"
@@ -32,3 +37,5 @@ export type FillIconName =
   | "tuning"
   | "user-circle"
   | "users-group-two"
+  | "vk"
+  | "youtube"
