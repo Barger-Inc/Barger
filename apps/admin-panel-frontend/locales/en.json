@@ -12,5 +12,13 @@
     "email": "Change email",
     "password": "Change password",
     "save": "Save changes"
+  },
+  "changePasswordModal": {
+    "title": "Password change",
+    "undo": "Undo",
+    "save": "Save changes",
+    "current-password": "Enter the current password",
+    "new-password": "New password",
+    "password-again": "Repeat the new password"
   }
 }

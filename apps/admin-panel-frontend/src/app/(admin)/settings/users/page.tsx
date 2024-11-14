@@ -49,7 +49,7 @@ export default function Page() {
             size="3"
             variant="soft"
             className="hidden sm:flex"
-            leadingIcon={"add-square"}
+            leadingIcon={"plus"}
             label={t("addUser")}
           />
         </Link>
@@ -63,7 +63,7 @@ export default function Page() {
             className="w-80"
           >
             <TextField.Slot>
-              <Icon name="magnifer" size={16} />
+              <Icon name="magnifier" size={16} />
             </TextField.Slot>
           </TextField.Root>
           <IconButton size="3" variant="soft">
@@ -117,7 +117,7 @@ export default function Page() {
           <Button
             size="4"
             className="flex sm:hidden w-full"
-            leadingIcon={"add-square"}
+            leadingIcon={"plus"}
             label={t("addUser")}
           />
         </Link>
