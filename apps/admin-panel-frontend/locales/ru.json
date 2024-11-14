@@ -91,5 +91,22 @@
     "name": "Название",
     "description": "Описание",
     "numberOfUsers": "Количество пользователей"
+  },
+  "home": {
+    "title": "Добро пожаловать",
+    "onboarding": {
+      "tutorials": {
+        "title": "Туториалы",
+        "description": "Пошаговые инструкции, чтобы использовать Barger"
+      },
+      "blog": {
+        "title": "Блог",
+        "description": "Узнайте последние новости о Barger"
+      },
+      "docs": {
+        "title": "Документация",
+        "description": "Узнайте, как использовать Barger CMS"
+      }
+    }
   }
 }
