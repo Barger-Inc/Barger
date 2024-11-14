@@ -63,7 +63,7 @@ export default function Page() {
             className="w-80"
           >
             <TextField.Slot>
-              <Icon name="magnifer" size={16} />
+              <Icon name="magnifier" variant="stroke"  size={16} />
             </TextField.Slot>
           </TextField.Root>
           <IconButton size="3" variant="soft">

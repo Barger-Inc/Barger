@@ -1,4 +1,5 @@
 {
+  "home": "Главная",
   "sidePanel": {
     "links": {
       "home": "Главная",
@@ -58,6 +59,15 @@
       "roles": "Роли",
       "users": "Пользователи"
     }
+  },
+  "settingsRoles": {
+    "title": "Роли",
+    "deleteSelected": "Удалить выбранное",
+    "addRole": "Добавить роль",
+    "search": "Поиск",
+    "name": "Название",
+    "description": "Описание",
+    "numberOfUsers": "Количество пользователей"
   },
   "themeToggle": {
     "dark": "Темная",
