@@ -93,19 +93,19 @@ export const SidePanel = (props: SidePanelProps) => {
           >
             <ThemeToggle />
 
-            {isCollapsed ? (
-              <IconButton variant="soft" size={"3"}>
-                <Icon name="exit" size={18} />
-              </IconButton>
-            ) : (
-              // TODO: add some logic to this button
-              <Link href="/login">
+            {/* TODO: move to separate component and add logic to this button */}
+            <Link href="/login">
+              {isCollapsed ? (
+                <IconButton variant="soft" size={"3"}>
+                  <Icon name="exit" size={18} />
+                </IconButton>
+              ) : (
                 <Button className="px-[11px]" variant="soft" size={"3"}>
                   <Icon name="exit" size={18} />
                   {t("exit")}
                 </Button>
-              </Link>
-            )}
+              )}
+            </Link>
           </div>
         </div>
       </div>
