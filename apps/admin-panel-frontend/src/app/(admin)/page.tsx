@@ -1,8 +1,6 @@
-"use client"
-
-import { Icon } from "@/shared/ui/icon"
 import { OnboardingCard } from "@/shared/ui/onboarding-card"
-import { Heading, IconButton } from "@radix-ui/themes"
+import { SocialMediaIconButton } from "@/shared/ui/social-media-icon-button"
+import { Heading } from "@radix-ui/themes"
 import { useTranslations } from "next-intl"
 
 const cards = [
@@ -31,18 +29,10 @@ export default function Page() {
       <div className="flex justify-between items-center flex-wrap gap-6">
         <Heading weight="bold" size="7" children={t("title")} />
         <div className="flex gap-3">
-          <IconButton size="3" variant="soft">
-            <Icon name="discord" variant="fill" size={18} />
-          </IconButton>
-          <IconButton size="3" variant="soft">
-            <Icon name="vk" variant="fill" size={18} />
-          </IconButton>
-          <IconButton size="3" variant="soft">
-            <Icon name="youtube" variant="fill" size={18} />
-          </IconButton>
-          <IconButton size="3" variant="soft">
-            <Icon name="github" variant="fill" size={18} />
-          </IconButton>
+          <SocialMediaIconButton name={"discord"} />
+          <SocialMediaIconButton name={"vk"} />
+          <SocialMediaIconButton name={"youtube"} />
+          <SocialMediaIconButton name={"github"} />
         </div>
       </div>
       <div>
