@@ -1,40 +1,43 @@
 import { Box, Card, Flex, Text, IconButton, Inset } from "@radix-ui/themes"
-import { Icon } from "./icon"
+
 
 interface OnboardingCardProps {
   id: number | string
   title: string
   description: string
-  iconSrc: () => JSX.Element
+  iconSrc: () => React.ReactNode;
   imageSrc: string
 }
 
 export const OnboardingCard = ({
-  id,
   title,
   description,
   iconSrc,
   imageSrc,
 }: OnboardingCardProps) => {
   return (
-    <Box maxWidth="518px" >
-      <Card className="bg-gray-200">
-        <Inset side="top" pb="current">
+    <Box maxWidth="518px">
+      <Card>
+        <Inset side="top">
           <img src={imageSrc} alt="Обложка карточки" />
         </Inset>
 
         <Flex gap="4" align="center">
           <div className="hidden sm:flex">
-            <IconButton size="4" variant="soft">
+            <div className="size-14 rounded rounded-4 grid place-items-center bg-accent-5">
               {iconSrc()}
-            </IconButton>
+            </div>
           </div>
 
-          <Flex height="70px" display="flex" direction="column" justify="center">
+          <Flex
+            height="70px"
+            direction="column"
+            justify="center"
+          >
             <Text as="div" size="6" weight="medium">
               {title}
             </Text>
-            <Text as="div" size="2" color="gray" weight="regular">
+            <Text as="div" size="2" className="text-gray-11" weight="regular">
               {description}
             </Text>
           </Flex>
