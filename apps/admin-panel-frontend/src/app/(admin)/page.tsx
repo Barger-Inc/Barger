@@ -2,7 +2,7 @@
 
 import { Icon } from "@/shared/ui/icon"
 import { OnboardingCard } from "@/shared/ui/onboarding-card"
-import { Flex, Heading, IconButton } from "@radix-ui/themes"
+import { Heading, IconButton } from "@radix-ui/themes"
 import { useTranslations } from "next-intl"
 
 const cards = [
@@ -27,9 +27,9 @@ export default function Page() {
   const t = useTranslations("home")
 
   return (
-    <Flex direction="column" gap="5">
+    <div className="flex flex-col gap-6">
       <div className="flex justify-between items-center flex-wrap gap-6">
-        <Heading weight="bold" size="7" children={t("welcome")} />
+        <Heading weight="bold" size="7" children={t("title")} />
         <div className="flex gap-3">
           <IconButton size="3" variant="soft">
             <Icon name="discord" variant="fill" size={18} />
@@ -46,8 +46,9 @@ export default function Page() {
         </div>
       </div>
       <div>
-        <div className="flex gap-4 flex-wrap">
-          {cards.map((card) => (
+        <div
+          className="grid gap-4 grid-cols-[repeat(auto-fill,minmax(400px,1fr))]"
+          children={cards.map((card) => (
             <OnboardingCard
               key={card.name}
               title={t(`onboarding.${card.name}.title`)}
@@ -56,8 +57,8 @@ export default function Page() {
               image={card.image}
             />
           ))}
-        </div>
+        />
       </div>
-    </Flex>
+    </div>
   )
 }
