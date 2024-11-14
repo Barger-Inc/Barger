@@ -1,70 +1,63 @@
 "use client"
 
-import { useTranslations } from "next-intl"
+import { Icon } from "@/shared/ui/icon"
 import { OnboardingCard } from "@/shared/ui/onboarding-card"
 import { Flex, Heading, IconButton } from "@radix-ui/themes"
-import { Icon } from "@/shared/ui/icon"
+import { useTranslations } from "next-intl"
 
-const cardData = [
+const cards = [
   {
-    id: 1,
-    title: "Туториалы",
-    description: "Пошаговые инструкции, чтобы использовать Barger",
-    iconSrc: <Icon name="play" variant="fill" size={24} />,
-    imageSrc: "/onboarding/onboarding.png",
+    name: "tutorials",
+    icon: "play",
+    image: "/onboarding/onboarding.png",
   },
   {
-    id: 2,
-    title: "Блог",
-    description: "Узнайте последние новости о Barger",
-    iconSrc: <Icon name="document" variant="fill" size={24} />,
-    imageSrc: "/onboarding/onboarding.png",
+    name: "blog",
+    icon: "document",
+    image: "/onboarding/onboarding.png",
   },
   {
-    id: 3,
-    title: "Документация",
-    description: "Узнайте, как использовать Barger CMS",
-    iconSrc: <Icon name="code" variant="fill" size={24} />,
-    imageSrc: "/onboarding/onboarding.png",
+    name: "docs",
+    icon: "code",
+    image: "/onboarding/onboarding.png",
   },
-]
+] as const
 
 export default function Page() {
   const t = useTranslations("home")
+
   return (
-    <>
-      <Flex direction="column" gap="5">
-        <div className="flex justify-between items-center flex-wrap gap-6">
-          <Heading className="font-bold text-2xl" children={t("Welcome")} />
-          <div className="flex gap-4 ">
-            <IconButton size="4" variant="soft">
-              <Icon name="discord" variant="fill" size={25} />
-            </IconButton>
-            <IconButton size="4" variant="soft">
-              <Icon name="vk" variant="fill" size={25} />
-            </IconButton>
-            <IconButton size="4" variant="soft">
-              <Icon name="youtube" variant="fill" size={25} />
-            </IconButton>
-            <IconButton size="4" variant="soft">
-              <Icon name="github" variant="fill" size={25} />
-            </IconButton>
-          </div>
+    <Flex direction="column" gap="5">
+      <div className="flex justify-between items-center flex-wrap gap-6">
+        <Heading weight="bold" size="7" children={t("welcome")} />
+        <div className="flex gap-3">
+          <IconButton size="3" variant="soft">
+            <Icon name="discord" variant="fill" size={18} />
+          </IconButton>
+          <IconButton size="3" variant="soft">
+            <Icon name="vk" variant="fill" size={18} />
+          </IconButton>
+          <IconButton size="3" variant="soft">
+            <Icon name="youtube" variant="fill" size={18} />
+          </IconButton>
+          <IconButton size="3" variant="soft">
+            <Icon name="github" variant="fill" size={18} />
+          </IconButton>
         </div>
-        <div>
-          <div className="flex gap-1 flex-wrap">
-            {cardData.map((card) => (
-              <OnboardingCard
-                id={card.id}
-                title={card.title}
-                description={card.description}
-                iconSrc={card.iconSrc}
-                imageSrc={card.imageSrc}
-              />
-            ))}
-          </div>
+      </div>
+      <div>
+        <div className="flex gap-4 flex-wrap">
+          {cards.map((card) => (
+            <OnboardingCard
+              key={card.name}
+              title={t(`onboarding.${card.name}.title`)}
+              description={t(`onboarding.${card.name}.description`)}
+              icon={card.icon}
+              image={card.image}
+            />
+          ))}
         </div>
-      </Flex>
-    </>
+      </div>
+    </Flex>
   )
 }
