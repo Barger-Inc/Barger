@@ -7,13 +7,14 @@ import {
   forwardRef,
 } from "react"
 
-type ButtonProps = {
+type ButtonProps = ComponentPropsWithoutRef<typeof PrimitiveButton> & {
   before?: ReactNode
   after?: ReactNode
   leadingIcon?: IconResolvable
   trailingIcon?: IconResolvable
   label?: string
-} & ComponentPropsWithoutRef<typeof PrimitiveButton>
+  size?: 1 | 2 | 3 | 4
+}
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (props, ref) => {
@@ -23,10 +24,20 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <PrimitiveButton {...otherProps} ref={ref}>
         {before}
-        {leadingIcon && <ButtonIcon variant={"leading"} icon={leadingIcon} />}
+        {leadingIcon && (
+          <ButtonIcon
+            size={props.size}
+            variant={"leading"}
+            icon={leadingIcon}
+          />
+        )}
         {label && <span className="text-center w-full">{label}</span>}
         {trailingIcon && (
-          <ButtonIcon variant={"trailing"} icon={trailingIcon} />
+          <ButtonIcon
+            size={props.size}
+            variant={"trailing"}
+            icon={trailingIcon}
+          />
         )}
         {after}
       </PrimitiveButton>

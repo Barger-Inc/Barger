@@ -2,7 +2,7 @@ export type StrokeIconName =
   | "add-square"
   | "exit"
   | "eye-closed"
-  | "eye"
+  | "eye-open"
   | "folder-open"
   | "gallery"
   | "hamburger"
@@ -20,9 +20,13 @@ export type StrokeIconName =
 
 export type FillIconName =
   | "arrow-left-alt"
+  | "code"
   | "cross"
+  | "discord"
+  | "document"
   | "folder-open"
   | "gallery"
+  | "github"
   | "home-2"
   | "info-circle"
   | "maximize"
@@ -33,3 +37,5 @@ export type FillIconName =
   | "tuning"
   | "user-circle"
   | "users-group-two"
+  | "vk"
+  | "youtube"

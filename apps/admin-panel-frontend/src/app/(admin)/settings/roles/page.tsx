@@ -1,5 +1,4 @@
-"use client" // This line marks the component as a Client Component
-
+"use client" 
 import { Button } from "@/shared/ui/button"
 import { Icon } from "@/shared/ui/icon"
 import Link from "next/link"
@@ -66,7 +65,7 @@ export default function Page() {
           <Link href={"/settings/roles/CreateRole"}>
             <Button
               className="hidden sm:flex cursor-pointer"
-              size="3"
+              size={3}
               variant="soft"
               color="indigo"
               leadingIcon="plus"
@@ -76,7 +75,7 @@ export default function Page() {
         ) : (
           <Button
             className="hidden sm:flex cursor-pointer"
-            size="3"
+            size={3}
             variant="soft"
             color="red"
             leadingIcon="trash-bin"
@@ -156,7 +155,7 @@ export default function Page() {
           <Link href={"/settings/roles/CreateRole"}>
             <Button
               className="w-full cursor-pointer"
-              size="3"
+              size={3}
               color="indigo"
               leadingIcon="plus"
               label={t("addRole")}
@@ -165,7 +164,7 @@ export default function Page() {
         ) : (
           <Button
             className="w-full cursor-pointer"
-            size="3"
+            size={3}
             color="red"
             leadingIcon="trash-bin"
             label={t("deleteSelected")}

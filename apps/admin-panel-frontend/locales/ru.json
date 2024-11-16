@@ -92,5 +92,30 @@
     "enterEmail": "Введите электронную почту",
     "login": "Войти",
     "error": "Неверная электронная почта или пароль"
+  },
+  "changePasswordModal": {
+    "title": "Изменение пароля",
+    "undo": "Отменить",
+    "save": "Сохранить",
+    "current-password": "Введите текущий пароль",
+    "new-password": "Новый пароль",
+    "password-again": "Повторите новый пароль"
+  },
+  "home": {
+    "title": "Добро пожаловать",
+    "onboarding": {
+      "tutorials": {
+        "title": "Туториалы",
+        "description": "Пошаговые инструкции, чтобы использовать Barger"
+      },
+      "blog": {
+        "title": "Блог",
+        "description": "Узнайте последние новости о Barger"
+      },
+      "docs": {
+        "title": "Документация",
+        "description": "Узнайте, как использовать Barger CMS"
+      }
+    }
   }
 }
