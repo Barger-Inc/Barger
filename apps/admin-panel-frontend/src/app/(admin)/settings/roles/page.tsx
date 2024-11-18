@@ -1,4 +1,4 @@
-"use client" 
+"use client"
 import { Button } from "@/shared/ui/button"
 import { Icon } from "@/shared/ui/icon"
 import Link from "next/link"
