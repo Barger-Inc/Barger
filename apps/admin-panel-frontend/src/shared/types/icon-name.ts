@@ -33,6 +33,7 @@ export type FillIconName =
   | "maximize"
   | "minimize"
   | "pen-new-square"
+  | "pencil"
   | "settings"
   | "tuning"
   | "user-circle"
