@@ -1,14 +1,10 @@
-import type { ComponentType } from "react"
+import type { ComponentProps, FC } from "react"
 
-type WithDefaultProps<P> = Partial<P> & Omit<P, keyof P>
-
-function withDefaultProps<P>(
-  Component: ComponentType<P>,
-  defaultProps: Partial<P>
+export default function withDefaultProps<P extends FC>(
+  Component: P,
+  defaultProps: Partial<ComponentProps<P>>
 ) {
-  type Props = WithDefaultProps<P>
-
-  return (props: Props) => <Component {...defaultProps} {...(props as P)} />
+  return (props: Partial<ComponentProps<P>>) => (
+    <Component {...defaultProps} {...props} />
+  )
 }
-
-export default withDefaultProps

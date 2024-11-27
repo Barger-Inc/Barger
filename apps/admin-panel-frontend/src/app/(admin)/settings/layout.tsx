@@ -8,7 +8,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import type { ReactNode } from "react"
 
-const links = ["tokens", "media", "language", "roles", "users"]
+const links = ["roles", "users"]
 
 export default function Layout(props: { children: ReactNode }) {
   const pathname = usePathname()

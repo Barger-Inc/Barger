@@ -79,7 +79,7 @@
   "settingsRoles": {
     "title": "Роли",
     "deleteSelected": "Удалить выбранное",
-    "addRole": "Добавить роль",
+    "addRole": "Добавить",
     "search": "Поиск",
     "name": "Название",
     "description": "Описание",
@@ -96,8 +96,33 @@
     "productsCategory": "Товары",
     "announcementsCategory": "Объявления"
   },
+  "collections": {
+    "title": "Коллекции",
+    "mediaDragAndDropPlaceholder": "Нажмите, чтобы добавить медиа или перетяните медиа в область"
+  },
   "content": {
-    "title": "Контент"
+    "title": "Контент",
+    "tabs": {
+      "planned": "Запланировано",
+      "published": "Опубликовано"
+    },
+    "searchPlaceholder": "Поиск",
+    "addContent": "Добавить",
+    "newContent": "Новый контент",
+    "created": "Создано",
+    "edited": "Изменено",
+    "draftCard": {
+      "true": {
+        "title": "Вы редактируете черновик",
+        "description": "Этот контент не отображается для остальных пользователей",
+        "button": "Опубликовать"
+      },
+      "false": {
+        "title": "Вы редактируете итоговый вариант",
+        "description": "Этот контент отображается в итоговой версии",
+        "button": "Отменить публикацию"
+      }
+    }
   },
   "themeToggle": {
     "dark": "Темная",
