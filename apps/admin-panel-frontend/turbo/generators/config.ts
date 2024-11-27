@@ -30,6 +30,7 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
                 const name = file.replace("-fill.svg", "")
                 return `  | "${name}"`
               }),
+            "",
           ].join("\n")
         },
       },

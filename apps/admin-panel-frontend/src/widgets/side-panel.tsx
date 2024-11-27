@@ -8,6 +8,7 @@ import { cn } from "@/shared/utils"
 import { ThemeToggle } from "@/widgets/theme-toggle"
 import { Button, IconButton } from "@radix-ui/themes"
 import { useTranslations } from "next-intl"
+import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
 
@@ -92,16 +93,19 @@ export const SidePanel = (props: SidePanelProps) => {
           >
             <ThemeToggle />
 
-            {isCollapsed ? (
-              <IconButton variant="soft" size={"3"}>
-                <Icon name="exit" size={18} />
-              </IconButton>
-            ) : (
-              <Button className="px-[11px]" variant="soft" size={"3"}>
-                <Icon name="exit" size={18} />
-                {t("exit")}
-              </Button>
-            )}
+            {/* TODO: move to separate component and add logic to this button */}
+            <Link href="/login">
+              {isCollapsed ? (
+                <IconButton variant="soft" size={"3"}>
+                  <Icon name="exit" size={18} />
+                </IconButton>
+              ) : (
+                <Button className="px-[11px]" variant="soft" size={"3"}>
+                  <Icon name="exit" size={18} />
+                  {t("exit")}
+                </Button>
+              )}
+            </Link>
           </div>
         </div>
       </div>

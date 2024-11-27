@@ -1,11 +1,11 @@
-import type { FillIconName } from "@/shared/types/icon-name"
+import type { StrokeIconName } from "@/shared/types/icon-name"
 import { Icon } from "@/shared/ui/icon"
 import { Text } from "@radix-ui/themes"
 
 interface OnboardingCardProps {
   title: string
   description: string
-  icon: FillIconName
+  icon: StrokeIconName
   image: string
 }
 
@@ -19,7 +19,7 @@ export const OnboardingCard = (props: OnboardingCardProps) => {
       />
       <div className="flex items-center p-4 gap-4">
         <div className="hidden sm:grid size-14 rounded-4 place-items-center bg-accent-5">
-          <Icon variant={"fill"} name={props.icon} size={24} />
+          <Icon name={props.icon} size={24} />
         </div>
         <div className="flex flex-col flex-1">
           <Text size="6" weight="medium" children={props.title} />

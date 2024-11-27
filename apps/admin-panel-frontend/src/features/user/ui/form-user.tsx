@@ -1,11 +1,11 @@
 "use client"
 
+import { type User, useFormUser } from "@/features/user/lib/use-form-user"
 import { Button } from "@/shared/ui/button"
 import { FormField } from "@/shared/ui/form-field"
 import { TextField } from "@/shared/ui/text-field"
 import { Checkbox, Select, Text } from "@radix-ui/themes"
 import { useTranslations } from "next-intl"
-import { type User, useFormUser } from "../model/use-form-user"
 
 type EditUserProps = {
   user?: User

@@ -97,9 +97,21 @@
     "title": "Изменение пароля",
     "undo": "Отменить",
     "save": "Сохранить",
-    "current-password": "Введите текущий пароль",
-    "new-password": "Новый пароль",
-    "password-again": "Повторите новый пароль"
+    "currentPassword": "Введите текущий пароль",
+    "newPassword": "Новый пароль",
+    "confirmPassword": "Повторите новый пароль",
+    "passwordsDontMatch": "Пароли не совпадают",
+    "requiredField": "Обязательное поле",
+    "minPasswordLength": "Минимальная длина пароля {length, plural, one {# символ} few {# символа} many {# символов} other {# символов}}"
+  },
+  "settingsRoles": {
+    "title": "Роли",
+    "deleteSelected": "Удалить выбранное",
+    "addRole": "Добавить",
+    "search": "Поиск",
+    "name": "Название",
+    "description": "Описание",
+    "numberOfUsers": "Количество пользователей"
   },
   "home": {
     "title": "Добро пожаловать",

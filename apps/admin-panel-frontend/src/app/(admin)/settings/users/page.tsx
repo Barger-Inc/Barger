@@ -1,6 +1,6 @@
 "use client"
 
-import type { User } from "@/features/user/model/use-form-user"
+import type { User } from "@/features/user/lib/use-form-user"
 import { Button } from "@/shared/ui/button"
 import { Icon } from "@/shared/ui/icon"
 import { Badge, Heading, IconButton, Table, TextField } from "@radix-ui/themes"
