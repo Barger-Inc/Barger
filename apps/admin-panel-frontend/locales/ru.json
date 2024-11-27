@@ -1,5 +1,21 @@
 {
-  "home": "Главная",
+  "home": {
+    "title": "Добро пожаловать",
+    "onboarding": {
+      "tutorials": {
+        "title": "Туториалы",
+        "description": "Пошаговые инструкции, чтобы использовать Barger"
+      },
+      "blog": {
+        "title": "Блог",
+        "description": "Узнайте последние новости о Barger"
+      },
+      "docs": {
+        "title": "Документация",
+        "description": "Узнайте, как использовать Barger CMS"
+      }
+    }
+  },
   "sidePanel": {
     "links": {
       "home": "Главная",
@@ -80,6 +96,9 @@
     "productsCategory": "Товары",
     "announcementsCategory": "Объявления"
   },
+  "content": {
+    "title": "Контент"
+  },
   "themeToggle": {
     "dark": "Темная",
     "light": "Светлая",
@@ -103,31 +122,5 @@
     "passwordsDontMatch": "Пароли не совпадают",
     "requiredField": "Обязательное поле",
     "minPasswordLength": "Минимальная длина пароля {length, plural, one {# символ} few {# символа} many {# символов} other {# символов}}"
-  },
-  "settingsRoles": {
-    "title": "Роли",
-    "deleteSelected": "Удалить выбранное",
-    "addRole": "Добавить",
-    "search": "Поиск",
-    "name": "Название",
-    "description": "Описание",
-    "numberOfUsers": "Количество пользователей"
-  },
-  "home": {
-    "title": "Добро пожаловать",
-    "onboarding": {
-      "tutorials": {
-        "title": "Туториалы",
-        "description": "Пошаговые инструкции, чтобы использовать Barger"
-      },
-      "blog": {
-        "title": "Блог",
-        "description": "Узнайте последние новости о Barger"
-      },
-      "docs": {
-        "title": "Документация",
-        "description": "Узнайте, как использовать Barger CMS"
-      }
-    }
   }
 }
