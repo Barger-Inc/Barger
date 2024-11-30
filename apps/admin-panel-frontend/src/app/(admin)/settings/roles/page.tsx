@@ -1,7 +1,6 @@
 "use client"
 import { Button } from "@/shared/ui/button"
 import { Icon } from "@/shared/ui/icon"
-import Link from "next/link"
 import {
   Checkbox,
   Heading,
@@ -10,7 +9,8 @@ import {
   TextField,
 } from "@radix-ui/themes"
 import { useTranslations } from "next-intl"
-import { Children, useCallback, useState } from "react"
+import Link from "next/link"
+import { useCallback, useState } from "react"
 
 const initialRolesData = [
   { id: 1, name: "Chris", description: "Описание для Chris", userCount: 10 },
@@ -92,12 +92,11 @@ export default function Page() {
           </TextField.Slot>
         </TextField.Root>
 
-        <IconButton size="3" variant="soft" className="cursor-pointer">
+        <IconButton size="3" variant="soft">
           <Icon name={"tuning"} size={18} variant={"fill"} />
         </IconButton>
 
         <IconButton
-          className="cursor-pointer"
           size="3"
           variant={mode === "select" ? "solid" : "soft"}
           onClick={toggleEditMode}

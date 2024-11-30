@@ -6,6 +6,7 @@ export type StrokeIconName =
   | "eye-closed"
   | "eye-open"
   | "folder-open"
+  | "gallery-add"
   | "gallery"
   | "hamburger"
   | "home-2"

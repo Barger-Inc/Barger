@@ -1,5 +1,21 @@
 {
-  "home": "Главная",
+  "home": {
+    "title": "Добро пожаловать",
+    "onboarding": {
+      "tutorials": {
+        "title": "Туториалы",
+        "description": "Пошаговые инструкции, чтобы использовать Barger"
+      },
+      "blog": {
+        "title": "Блог",
+        "description": "Узнайте последние новости о Barger"
+      },
+      "docs": {
+        "title": "Документация",
+        "description": "Узнайте, как использовать Barger CMS"
+      }
+    }
+  },
   "sidePanel": {
     "links": {
       "home": "Главная",
@@ -63,7 +79,7 @@
   "settingsRoles": {
     "title": "Роли",
     "deleteSelected": "Удалить выбранное",
-    "addRole": "Добавить роль",
+    "addRole": "Добавить",
     "search": "Поиск",
     "name": "Название",
     "description": "Описание",
@@ -79,6 +95,36 @@
     "newsCategory": "Новости",
     "productsCategory": "Товары",
     "announcementsCategory": "Объявления"
+  },
+  "collections": {
+    "title": "Коллекции",
+    "mediaDragAndDropPlaceholder": "Нажмите, чтобы добавить медиа или перетяните медиа в область"
+  },
+  "content": {
+    "title": "Контент",
+    "tabs": {
+      "planned": "Запланировано",
+      "published": "Опубликовано"
+    },
+    "searchPlaceholder": "Поиск",
+    "addContent": "Добавить",
+    "newContent": "Новый контент",
+    "created": "Создано",
+    "edited": "Изменено",
+    "draftCard": {
+      "true": {
+        "title": "Вы редактируете черновик",
+        "description": "Этот контент не отображается для остальных пользователей",
+        "button": "Опубликовать"
+      },
+      "false": {
+        "title": "Вы редактируете итоговый вариант",
+        "description": "Этот контент отображается в итоговой версии",
+        "button": "Отменить публикацию"
+      }
+    },
+    "save": "Сохранить",
+    "delete": "Удалить"
   },
   "themeToggle": {
     "dark": "Темная",
@@ -103,31 +149,5 @@
     "passwordsDontMatch": "Пароли не совпадают",
     "requiredField": "Обязательное поле",
     "minPasswordLength": "Минимальная длина пароля {length, plural, one {# символ} few {# символа} many {# символов} other {# символов}}"
-  },
-  "settingsRoles": {
-    "title": "Роли",
-    "deleteSelected": "Удалить выбранное",
-    "addRole": "Добавить",
-    "search": "Поиск",
-    "name": "Название",
-    "description": "Описание",
-    "numberOfUsers": "Количество пользователей"
-  },
-  "home": {
-    "title": "Добро пожаловать",
-    "onboarding": {
-      "tutorials": {
-        "title": "Туториалы",
-        "description": "Пошаговые инструкции, чтобы использовать Barger"
-      },
-      "blog": {
-        "title": "Блог",
-        "description": "Узнайте последние новости о Barger"
-      },
-      "docs": {
-        "title": "Документация",
-        "description": "Узнайте, как использовать Barger CMS"
-      }
-    }
   }
 }
