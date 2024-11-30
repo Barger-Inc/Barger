@@ -57,9 +57,10 @@ export default function Page(props: Props) {
     boolean: true,
   }
 
-  const collectionData = Array.from({ length: 50 }).fill(
-    collectionContent
-  ) as CollectionContent[]
+  const collectionData = Array.from({ length: 50 }).map((_, i) => ({
+    ...collectionContent,
+    id: i + 1,
+  })) as CollectionContent[]
 
   if (!collection) return "Not Found"
 
@@ -130,27 +131,33 @@ export default function Page(props: Props) {
       </div>
       <Table.Root variant="surface" size="3" className="overflow-auto">
         <Table.Header>
-          <Table.Row>
-            {collectionFields.map((field) => (
+          <Table.Row
+            children={collectionFields.map((field) => (
               <Table.ColumnHeaderCell key={field.name} children={field.name} />
             ))}
-          </Table.Row>
+          />
         </Table.Header>
-        <Table.Body>
-          {collectionData.map((content) => (
+        <Table.Body
+          children={collectionData.map((content) => (
             <Table.Row key={content.id} align="center">
               {collectionFields.map((field) => (
                 <Table.Cell key={field.name}>
-                  <CollectionFieldCell
-                    type={field.type}
-                    // @ts-expect-error
-                    value={content[field.name]}
-                  />
+                  <Link
+                    href={`/content/edit/${content.id}`}
+                    className={"-m-4 p-4 block"}
+                    legacyBehavior={field.type === "link"}
+                  >
+                    <CollectionFieldCell
+                      type={field.type}
+                      // @ts-expect-error
+                      value={content[field.name]}
+                    />
+                  </Link>
                 </Table.Cell>
               ))}
             </Table.Row>
           ))}
-        </Table.Body>
+        />
       </Table.Root>
       <div className="fixed left-0 bottom-0 right-0 bg-gray-1 p-4 z-10 sm:hidden">
         <Link href={`/content/${collectionId}/new`}>

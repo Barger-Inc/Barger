@@ -7,5 +7,5 @@ type Props = {
 }
 
 export default function Page(props: Props) {
-  return <ContentEdit collectionId={Number(props.params.id)} />
+  return <ContentEdit collectionId={1} />
 }
