@@ -4,4 +4,6 @@ export type SidePanelLink = {
   href: string
   title: string
   icon?: StrokeIconName & FillIconName
+  prefetch?: boolean
+  isActive?: boolean
 }

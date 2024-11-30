@@ -1,9 +1,14 @@
+"use client"
+
 import { mockCollections } from "@/app/(admin)/content/mock"
 import { SecondarySidePanel } from "@/features/navigation/ui/secondary-side-panel"
 import { useTranslations } from "next-intl"
+import { usePathname } from "next/navigation"
 import type { ReactNode } from "react"
 
 export default function Layout(props: { children: ReactNode }) {
+  const pathname = usePathname()
+
   const t = useTranslations("content")
 
   return (
@@ -14,6 +19,7 @@ export default function Layout(props: { children: ReactNode }) {
           links={mockCollections.map((collection) => ({
             title: collection.title,
             href: `/content/${collection.id}/planned`,
+            isActive: pathname.includes(`/content/${collection.id}`),
           }))}
         />
       </div>

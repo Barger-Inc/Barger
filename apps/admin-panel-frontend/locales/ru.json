@@ -98,7 +98,8 @@
   },
   "collections": {
     "title": "Коллекции",
-    "mediaDragAndDropPlaceholder": "Нажмите, чтобы добавить медиа или перетяните медиа в область"
+    "mediaDragAndDropPlaceholder": "Нажмите, чтобы добавить медиа или перетяните медиа в область",
+    "create": "Создать"
   },
   "content": {
     "title": "Контент",

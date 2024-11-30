@@ -1,4 +1,5 @@
 "use client"
+
 import { SecondarySidePanel } from "@/features/navigation/ui/secondary-side-panel"
 import { Icon } from "@/shared/ui/icon"
 import { Link } from "@/shared/ui/link"
@@ -29,6 +30,8 @@ export default function Layout(props: { children: ReactNode }) {
           links={links.map((link) => ({
             title: t(`links.${link}`),
             href: `/settings/${link}`,
+            isActive: pathname.includes(`/settings/${link}`),
+            prefetch: true,
           }))}
         />
       </div>
