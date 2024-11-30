@@ -99,7 +99,20 @@
   "collections": {
     "title": "Коллекции",
     "mediaDragAndDropPlaceholder": "Нажмите, чтобы добавить медиа или перетяните медиа в область",
-    "create": "Создать"
+    "create": "Создать",
+    "delete": "Удалить",
+    "fieldsTable": {
+      "name": "Название",
+      "type": "Тип"
+    },
+    "fieldType": {
+      "text": "Текст",
+      "media": "Медиа",
+      "link": "Ссылка",
+      "number": "Число",
+      "boolean": "Логическое"
+    },
+    "addField": "Добавить поле"
   },
   "content": {
     "title": "Контент",

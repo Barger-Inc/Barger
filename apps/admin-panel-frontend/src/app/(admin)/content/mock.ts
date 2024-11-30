@@ -8,3 +8,26 @@ export const mockCollections = [
   { id: 6, title: "Статьи" },
   { id: 7, title: "Кейсы" },
 ] as const
+
+export const mockCollectionFields = [
+  {
+    name: "cover",
+    type: "media",
+  },
+  {
+    name: "name",
+    type: "text",
+  },
+  {
+    name: "link",
+    type: "link",
+  },
+  {
+    name: "price",
+    type: "number",
+  },
+  {
+    name: "boolean",
+    type: "boolean",
+  },
+] as const
