@@ -6,6 +6,7 @@ import type { ReactNode } from "react"
 type SecondarySidePanelProps = {
   title: ReactNode
   links: SidePanelLink[]
+  after?: ReactNode
 }
 
 export const SecondarySidePanel = (props: SecondarySidePanelProps) => {
@@ -14,8 +15,15 @@ export const SecondarySidePanel = (props: SecondarySidePanelProps) => {
       <Text size="7" weight="bold" children={props.title} />
       <div className="w-full h-px rounded-full bg-gray-6" />
       {props.links.map((link) => (
-        <NavigationButton key={link.href} href={link.href} title={link.title} />
+        <NavigationButton
+          key={link.href}
+          href={link.href}
+          title={link.title}
+          isActive={link.isActive}
+          prefetch={link.prefetch}
+        />
       ))}
+      {props.after}
     </div>
   )
 }

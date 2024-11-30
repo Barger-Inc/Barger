@@ -1,21 +1,21 @@
 "use client"
 
+import { mockCollections } from "@/app/(admin)/content/mock"
 import { SecondarySidePanel } from "@/features/navigation/ui/secondary-side-panel"
+import { Button } from "@/shared/ui/button"
 import { Icon } from "@/shared/ui/icon"
 import { Link } from "@/shared/ui/link"
 import { cn } from "@/shared/utils"
-import { Button } from "@radix-ui/themes"
+import { Button as PrimitiveButton } from "@radix-ui/themes"
 import { useTranslations } from "next-intl"
 import { usePathname } from "next/navigation"
 import type { ReactNode } from "react"
 
-const links = ["roles", "users"]
-
 export default function Layout(props: { children: ReactNode }) {
   const pathname = usePathname()
-  const isRoot = pathname === "/settings"
+  const isRoot = pathname === "/collections"
 
-  const t = useTranslations("settingsSidePanel")
+  const t = useTranslations("collections")
 
   return (
     <div className="-m-4 sm:-m-8 flex h-[calc(100%+64px)]">
@@ -27,15 +27,24 @@ export default function Layout(props: { children: ReactNode }) {
       >
         <SecondarySidePanel
           title={t("title")}
-          links={links.map((link) => ({
-            title: t(`links.${link}`),
-            href: `/settings/${link}`,
-            isActive: pathname.includes(`/settings/${link}`),
-            prefetch: true,
+          links={mockCollections.map((collection) => ({
+            title: collection.title,
+            href: `/collections/${collection.id}`,
+            isActive: pathname.includes(`/collections/${collection.id}`),
           }))}
+          after={
+            <Link href="/collections/new">
+              <Button
+                className="self-start"
+                variant="soft"
+                size="3"
+                leadingIcon="plus"
+                label={t("create")}
+              />
+            </Link>
+          }
         />
       </div>
-
       <div
         className={cn(
           "p-4 sm:p-8 overflow-hidden flex-1",
@@ -43,15 +52,19 @@ export default function Layout(props: { children: ReactNode }) {
         )}
       >
         <div className="sm:hidden pb-3">
-          <Link href={"/settings"}>
-            <Button variant={"ghost"} color={"gray"} className={"gap-2"}>
+          <Link href={"/collections"}>
+            <PrimitiveButton
+              variant={"ghost"}
+              color={"gray"}
+              className={"gap-2"}
+            >
               <Icon
                 name={"arrow-left-alt"}
                 className={"w-2"}
                 variant={"fill"}
               />
               {t("title")}
-            </Button>
+            </PrimitiveButton>
           </Link>
         </div>
         {props.children}

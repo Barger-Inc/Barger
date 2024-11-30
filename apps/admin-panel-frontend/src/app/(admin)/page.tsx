@@ -37,7 +37,7 @@ export default function Page() {
       </div>
       <div>
         <div
-          className="grid gap-4 grid-cols-[repeat(auto-fill,minmax(400px,1fr))]"
+          className="grid gap-4 sm:grid-cols-[repeat(auto-fill,minmax(400px,1fr))]"
           children={cards.map((card) => (
             <OnboardingCard
               key={card.name}

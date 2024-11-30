@@ -9,20 +9,21 @@ import { useTranslations } from "next-intl"
 export default function Page({ params: { id } }: { params: { id: string } }) {
   const t = useTranslations("users.user")
 
-  const user = {
-    id,
-    display_name: "Text",
-    fname_and_lname: "Text text",
-    email: "Text",
-    role: "badge",
-    blocked: false,
-  }
-
   return (
     <ModalRoot>
       <ModalHeader title={t("editUserTitle")} />
       <ModalBody>
-        <FormUser user={user} />
+        <FormUser
+          user={{
+            id: Number(id),
+            displayName: "Text",
+            firstName: "Text text",
+            lastName: "Text text",
+            email: "Text",
+            role: 1,
+            isBlocked: false,
+          }}
+        />
       </ModalBody>
       <ModalFooter>
         <Button label={t("save")} />

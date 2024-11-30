@@ -3,9 +3,9 @@
 import type { User } from "@/features/user/lib/use-form-user"
 import { Button } from "@/shared/ui/button"
 import { Icon } from "@/shared/ui/icon"
+import { Link } from "@/shared/ui/link"
 import { Badge, Heading, IconButton, Table, TextField } from "@radix-ui/themes"
 import { useTranslations } from "next-intl"
-import Link from "next/link"
 
 const mockedUsers: User[] = [
   {

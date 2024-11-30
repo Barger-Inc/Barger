@@ -1,4 +1,7 @@
-import { mockCollections } from "@/app/(admin)/content/mock"
+import {
+  mockCollectionFields,
+  mockCollections,
+} from "@/app/(admin)/content/mock"
 import { CollectionFieldCell } from "@/features/collection/ui/collection-field-cell"
 import { Button } from "@/shared/ui/button"
 import { Icon } from "@/shared/ui/icon"
@@ -19,31 +22,8 @@ export default function Page(props: Props) {
   const collectionId = Number(props.params.id)
   const collection = mockCollections.find(({ id }) => id === collectionId)
 
-  const collectionFields = [
-    {
-      name: "cover",
-      type: "media",
-    },
-    {
-      name: "name",
-      type: "text",
-    },
-    {
-      name: "link",
-      type: "link",
-    },
-    {
-      name: "price",
-      type: "number",
-    },
-    {
-      name: "boolean",
-      type: "boolean",
-    },
-  ] as const
-
   type CollectionContent = {
-    [key in (typeof collectionFields)[number]["name"]]?: unknown
+    [key in (typeof mockCollectionFields)[number]["name"]]?: unknown
   } & {
     id: number
   }
@@ -132,7 +112,7 @@ export default function Page(props: Props) {
       <Table.Root variant="surface" size="3" className="overflow-auto">
         <Table.Header>
           <Table.Row
-            children={collectionFields.map((field) => (
+            children={mockCollectionFields.map((field) => (
               <Table.ColumnHeaderCell key={field.name} children={field.name} />
             ))}
           />
@@ -140,7 +120,7 @@ export default function Page(props: Props) {
         <Table.Body
           children={collectionData.map((content) => (
             <Table.Row key={content.id} align="center">
-              {collectionFields.map((field) => (
+              {mockCollectionFields.map((field) => (
                 <Table.Cell key={field.name}>
                   <Link
                     href={`/content/edit/${content.id}`}
