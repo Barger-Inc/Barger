@@ -2,9 +2,9 @@ import { mockCollections } from "@/app/(admin)/content/mock"
 import { CollectionFieldCell } from "@/features/collection/ui/collection-field-cell"
 import { Button } from "@/shared/ui/button"
 import { Icon } from "@/shared/ui/icon"
+import { Link } from "@/shared/ui/link"
 import { Heading, IconButton, TabNav, Table, TextField } from "@radix-ui/themes"
 import { useTranslations } from "next-intl"
-import Link from "next/link"
 
 type Props = {
   params: {
