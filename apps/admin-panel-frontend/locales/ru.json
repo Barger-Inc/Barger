@@ -105,14 +105,73 @@
       "name": "Название",
       "type": "Тип"
     },
-    "fieldType": {
-      "text": "Текст",
-      "media": "Медиа",
-      "link": "Ссылка",
-      "number": "Число",
-      "boolean": "Логическое"
+    "field": {
+      "text": {
+        "name": "Текст",
+        "description": "Небольшой и простой текст"
+      },
+      "link": {
+        "name": "Ссылка",
+        "description": "Ссылка на другую страницу"
+      },
+      "boolean": {
+        "name": "Логическое",
+        "description": "Выбор из двух вариантов"
+      },
+      "media": {
+        "name": "Медиа",
+        "description": "Загрузка изображений и файлов"
+      },
+      "date": {
+        "name": "Дата и время",
+        "description": "Отметка даты и времени"
+      },
+      "enumeration": {
+        "name": "Перечисление",
+        "description": "Выбор из списка"
+      },
+      "markdown": {
+        "name": "Markdown",
+        "description": "Большой текст с форматированием"
+      },
+      "password": {
+        "name": "Пароль",
+        "description": "Зашифрованное поле"
+      },
+      "uid": {
+        "name": "UID",
+        "description": "Уникальный идентификатор"
+      },
+      "number": {
+        "name": "Число",
+        "description": "Число"
+      },
+      "email": {
+        "name": "Электронная почта",
+        "description": "Электронная почта"
+      }
     },
-    "addField": "Добавить поле"
+    "addField": "Добавить поле",
+    "createCollection": {
+      "title": "Создание коллекции",
+      "name": "Название",
+      "save": "Создать"
+    },
+    "createField": {
+      "title": "Новое поле",
+      "next": "Далее",
+      "save": "Создать",
+      "back": "Назад",
+      "chooseType": "Выберите тип поля",
+      "setupType": "Настройте поле",
+      "displayName": "Отображаемое имя",
+      "displayNameHint": "Отображается в админ-панели",
+      "displayNamePlaceholder": "Новости",
+      "apiName": "Имя в API",
+      "apiNameHint": "Используется в API",
+      "apiNamePlaceholder": "news",
+      "isRequired": "Обязательное поле"
+    }
   },
   "content": {
     "title": "Контент",

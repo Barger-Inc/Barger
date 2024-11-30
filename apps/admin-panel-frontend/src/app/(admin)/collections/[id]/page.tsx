@@ -2,9 +2,11 @@ import {
   mockCollectionFields,
   mockCollections,
 } from "@/app/(admin)/content/mock"
+import { fieldTypes } from "@/features/collection/lib/field-types"
 import { Button } from "@/shared/ui/button"
 import { Icon } from "@/shared/ui/icon"
 import { Link } from "@/shared/ui/link"
+import { getIconProps } from "@/shared/utils/get-icon-props"
 import { Heading, IconButton, Table } from "@radix-ui/themes"
 import { useTranslations } from "next-intl"
 
@@ -54,8 +56,19 @@ export default function Page(props: Props) {
         <Table.Body
           children={mockCollectionFields.map((field) => (
             <Table.Row key={field.name} align="center">
-              <Table.Cell>{field.name}</Table.Cell>
-              <Table.Cell>{t(`fieldType.${field.type}`)}</Table.Cell>
+              <Table.Cell>
+                <div className="flex gap-3 items-center">
+                  <Icon
+                    {...getIconProps(
+                      fieldTypes.find((x) => x.name === field.type)?.icon,
+                      { size: 16 }
+                    )}
+                    className="bg-accentA-11"
+                  />
+                  <span children={field.name} />
+                </div>
+              </Table.Cell>
+              <Table.Cell>{t(`field.${field.type}.name`)}</Table.Cell>
             </Table.Row>
           ))}
         />

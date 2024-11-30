@@ -33,13 +33,15 @@ export default function Layout(props: { children: ReactNode }) {
             isActive: pathname.includes(`/collections/${collection.id}`),
           }))}
           after={
-            <Button
-              className="self-start"
-              variant="soft"
-              size="3"
-              leadingIcon="plus"
-              label={t("create")}
-            />
+            <Link href="/collections/new">
+              <Button
+                className="self-start"
+                variant="soft"
+                size="3"
+                leadingIcon="plus"
+                label={t("create")}
+              />
+            </Link>
           }
         />
       </div>
