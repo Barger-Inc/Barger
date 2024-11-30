@@ -3,6 +3,7 @@ import { CollectionFieldInput } from "@/features/collection/ui/collection-field-
 import { IsDraftCard } from "@/features/content/ui/is-draft-card"
 import { Button } from "@/shared/ui/button"
 import { Icon } from "@/shared/ui/icon"
+import { Link } from "@/shared/ui/link"
 import {
   Badge,
   Heading,
@@ -10,7 +11,6 @@ import {
   Text,
 } from "@radix-ui/themes"
 import { useTranslations } from "next-intl"
-import Link from "next/link"
 
 type ContentEditProps = {
   collectionId: number

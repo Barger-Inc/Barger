@@ -1,10 +1,10 @@
 "use client"
 import { SecondarySidePanel } from "@/features/navigation/ui/secondary-side-panel"
 import { Icon } from "@/shared/ui/icon"
+import { Link } from "@/shared/ui/link"
 import { cn } from "@/shared/utils"
 import { Button } from "@radix-ui/themes"
 import { useTranslations } from "next-intl"
-import Link from "next/link"
 import { usePathname } from "next/navigation"
 import type { ReactNode } from "react"
 

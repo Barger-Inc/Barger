@@ -1,6 +1,7 @@
 "use client"
 import { Button } from "@/shared/ui/button"
 import { Icon } from "@/shared/ui/icon"
+import { Link } from "@/shared/ui/link"
 import {
   Checkbox,
   Heading,
@@ -9,7 +10,6 @@ import {
   TextField,
 } from "@radix-ui/themes"
 import { useTranslations } from "next-intl"
-import Link from "next/link"
 import { useCallback, useState } from "react"
 
 const initialRolesData = [
