@@ -9,6 +9,14 @@ export type CollectionFieldCellProps = {
       value: string
     }
   | {
+      type: "date"
+      value: string
+    }
+  | {
+      type: "uid"
+      value: string
+    }
+  | {
       type: "link"
       value: string
     }
@@ -29,6 +37,8 @@ export type CollectionFieldCellProps = {
 export const CollectionFieldCell = (props: CollectionFieldCellProps) => {
   switch (props.type) {
     case "text":
+    case "date":
+    case "uid":
       return props.value
     case "link":
       return (

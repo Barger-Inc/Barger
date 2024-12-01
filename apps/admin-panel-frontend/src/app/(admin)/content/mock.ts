@@ -11,6 +11,14 @@ export const mockCollections = [
 
 export const mockCollectionFields = [
   {
+    name: "slug",
+    type: "uid",
+  },
+  {
+    name: "publishedAt",
+    type: "date",
+  },
+  {
     name: "cover",
     type: "media",
   },
@@ -27,7 +35,7 @@ export const mockCollectionFields = [
     type: "number",
   },
   {
-    name: "boolean",
+    name: "soldOut",
     type: "boolean",
   },
 ] as const

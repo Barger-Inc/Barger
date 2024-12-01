@@ -13,9 +13,19 @@ import { useTranslations } from "next-intl"
 import { useCallback, useState } from "react"
 
 const initialRolesData = [
-  { id: 1, name: "Chris", description: "Описание для Chris", userCount: 10 },
-  { id: 2, name: "Alex", description: "Описание для Alex", userCount: 20 },
-  { id: 3, name: "Jordan", description: "Описание Jordan", userCount: 30 },
+  { id: 1, name: "Админ", description: "Имеет доступ ко всему", userCount: 1 },
+  {
+    id: 2,
+    name: "Редактор",
+    description: "Может редактировать контент",
+    userCount: 3,
+  },
+  {
+    id: 3,
+    name: "Фотограф",
+    description: "Может загружать файлы в медиа",
+    userCount: 2,
+  },
 ]
 
 export default function Page() {
@@ -86,7 +96,12 @@ export default function Page() {
       </div>
 
       <div className="flex items-center gap-2">
-        <TextField.Root variant="surface" size="3" placeholder={t("search")}>
+        <TextField.Root
+          variant="surface"
+          size="3"
+          placeholder={t("search")}
+          className="w-80"
+        >
           <TextField.Slot>
             <Icon name={"magnifier"} size={16} />
           </TextField.Slot>

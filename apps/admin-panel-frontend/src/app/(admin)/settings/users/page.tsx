@@ -10,30 +10,48 @@ import { useTranslations } from "next-intl"
 const mockedUsers: User[] = [
   {
     id: 1,
-    displayName: "Проверочный",
-    firstName: "Константин",
-    lastName: "Text",
-    email: "example@gmail.com",
-    role: 1,
+    displayName: "AstralVortex",
+    firstName: "Кира",
+    lastName: "Лейтнер",
+    email: "kira.leitner@example.com",
+    role: "Админ",
     isBlocked: false,
   },
   {
     id: 2,
-    displayName: "Короткий",
-    firstName: "Константин",
-    lastName: "Text",
-    email: "example@gmail.com",
-    role: 1,
+    displayName: "PixelEcho",
+    firstName: "Эрик",
+    lastName: "Штайнер",
+    email: "erik.steiner@example.com",
+    role: "Редактор",
     isBlocked: false,
   },
   {
     id: 3,
-    displayName: "Text",
-    firstName: "Константин",
-    lastName: "Text",
-    email: "example@gmail.com",
-    role: 1,
+    displayName: "NovaLoom",
+    firstName: "Лиана",
+    lastName: "Ортега",
+    email: "liana.ortega@example.com",
+    role: "Редактор",
     isBlocked: false,
+  },
+  {
+    id: 4,
+    displayName: "CircuitMist",
+    firstName: "Дрейк",
+    lastName: "Аксельсон",
+    email: "drake.axelson@example.com",
+    role: "Фотограф",
+    isBlocked: false,
+  },
+  {
+    id: 5,
+    displayName: "VelvetShade",
+    firstName: "Скайлар",
+    lastName: "Морайес",
+    email: "skylar.morales@example.com",
+    role: "Редактор",
+    isBlocked: true,
   },
 ]
 
@@ -100,9 +118,9 @@ export default function Page() {
                     </IconButton>
                   </Link>
                   {/* TODO: blocking button */}
-                  <IconButton size="1" variant="soft">
-                    <Icon name="trash-bin" size={16} />
-                  </IconButton>
+                  {/*<IconButton size="1" variant="soft">*/}
+                  {/*  <Icon name="lock" size={16} />*/}
+                  {/*</IconButton>*/}
                   <IconButton size="1" variant="soft">
                     <Icon name="trash-bin" size={16} />
                   </IconButton>

@@ -29,17 +29,22 @@ export default function Page(props: Props) {
   }
 
   const collectionContent: CollectionContent = {
+    slug: "content-1",
+    publishedAt: "2023-01-01",
     id: 1,
     name: "Content 1",
     link: "https://google.com",
     cover: "/onboarding/onboarding.png",
     price: 1200,
-    boolean: true,
+    soldOut: true,
   }
 
   const collectionData = Array.from({ length: 50 }).map((_, i) => ({
     ...collectionContent,
     id: i + 1,
+    slug: `content-${i + 1}`,
+    name: `Content ${i + 1}`,
+    price: Math.ceil(Math.random() * 10000),
   })) as CollectionContent[]
 
   if (!collection) return "Not Found"

@@ -83,7 +83,7 @@
     "search": "Поиск",
     "name": "Название",
     "description": "Описание",
-    "numberOfUsers": "Количество пользователей",
+    "numberOfUsers": "Пользователи",
     "editRole": "Редактировать роли",
     "createRole": "Создание роли",
     "saveRole": "Сохранить",
