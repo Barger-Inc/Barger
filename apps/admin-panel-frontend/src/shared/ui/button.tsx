@@ -13,7 +13,7 @@ type ButtonProps = ComponentPropsWithoutRef<typeof PrimitiveButton> & {
   leadingIcon?: IconResolvable
   trailingIcon?: IconResolvable
   label?: string
-  size?: 1 | 2 | 3 | 4
+  size?: 1 | 2 | 3 | 4 | "1" | "2" | "3" | "4"
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -22,7 +22,11 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       props
 
     return (
-      <PrimitiveButton {...otherProps} ref={ref}>
+      <PrimitiveButton
+        {...otherProps}
+        size={props.size?.toString() as "1" | "2" | "3" | "4"}
+        ref={ref}
+      >
         {before}
         {leadingIcon && (
           <ButtonIcon

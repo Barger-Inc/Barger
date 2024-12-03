@@ -6,7 +6,7 @@ import { memo } from "react"
 type ButtonIconProps = {
   variant?: "leading" | "trailing"
   icon: IconResolvable
-  size?: 1 | 2 | 3 | 4
+  size?: 1 | 2 | 3 | 4 | "1" | "2" | "3" | "4"
 }
 
 const iconSizes = {
@@ -17,7 +17,7 @@ const iconSizes = {
 }
 
 export const ButtonIcon = memo((props: ButtonIconProps) => {
-  const size = props.size ?? 2
+  const size = (Number(props.size) ?? 2) as 1 | 2 | 3 | 4
 
   return <Icon {...getIconProps(props.icon, { size: iconSizes[size] })} />
 })

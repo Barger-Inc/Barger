@@ -20,7 +20,6 @@ const initialRolesData = [
   { id: 3, name: "Jordan", description: "Описание Jordan", userCount: 30 },
 ]
 
-
 export default function Page() {
 
   const t = useTranslations("settingsRoles")

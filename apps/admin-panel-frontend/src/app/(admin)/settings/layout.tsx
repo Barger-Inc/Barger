@@ -1,15 +1,15 @@
 "use client"
 
-import { NavigationButton } from "@/features/navigation/ui/navigation-button"
+import { SecondarySidePanel } from "@/features/navigation/ui/secondary-side-panel"
 import { Icon } from "@/shared/ui/icon"
+import { Link } from "@/shared/ui/link"
 import { cn } from "@/shared/utils"
-import { Button, Text } from "@radix-ui/themes"
+import { Button } from "@radix-ui/themes"
 import { useTranslations } from "next-intl"
-import Link from "next/link"
 import { usePathname } from "next/navigation"
 import type { ReactNode } from "react"
 
-const links = ["tokens", "media", "language", "roles", "users"]
+const links = ["roles", "users"]
 
 export default function Layout(props: { children: ReactNode }) {
   const pathname = usePathname()
@@ -19,23 +19,21 @@ export default function Layout(props: { children: ReactNode }) {
 
   return (
     <div className="-m-4 sm:-m-8 flex h-[calc(100%+64px)]">
-      {/* TODO: move to separate component */}
       <div
         className={cn(
-          "w-full sm:w-[260px] sm:border-r sm:border-gray-6 p-4 sm:p-8 flex flex-col gap-3",
-          !isRoot && "hidden sm:flex"
+          "w-full sm:w-[260px] sm:border-r sm:border-gray-6",
+          !isRoot && "hidden sm:block"
         )}
       >
-        <Text size="7" weight="bold" children={t("title")} />
-        <div className="w-full h-px rounded-full bg-gray-6" />
-
-        {links.map((link) => (
-          <NavigationButton
-            key={link}
-            href={`/settings/${link}`}
-            title={t(`links.${link}`)}
-          />
-        ))}
+        <SecondarySidePanel
+          title={t("title")}
+          links={links.map((link) => ({
+            title: t(`links.${link}`),
+            href: `/settings/${link}`,
+            isActive: pathname.includes(`/settings/${link}`),
+            prefetch: true,
+          }))}
+        />
       </div>
 
       <div
@@ -52,7 +50,7 @@ export default function Layout(props: { children: ReactNode }) {
                 className={"w-2"}
                 variant={"fill"}
               />
-              Настройки
+              {t("title")}
             </Button>
           </Link>
         </div>

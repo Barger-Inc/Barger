@@ -1,9 +1,9 @@
 import withDefaultProps from "@/shared/hoc/with-default-props"
 import type { FillIconName, StrokeIconName } from "@/shared/types/icon-name"
 import { Icon } from "@/shared/ui/icon"
+import { Link } from "@/shared/ui/link"
 import { cn } from "@/shared/utils"
 import { Text } from "@radix-ui/themes"
-import Link from "next/link"
 import type { ComponentProps } from "react"
 
 type NavigationButtonProps = {

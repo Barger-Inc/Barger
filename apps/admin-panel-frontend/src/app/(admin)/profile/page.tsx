@@ -1,9 +1,9 @@
 import withDefaultProps from "@/shared/hoc/with-default-props"
 import { Button as DefaultButton } from "@/shared/ui/button"
+import { Link } from "@/shared/ui/link"
 import { TextField } from "@/shared/ui/text-field"
 import { Heading } from "@radix-ui/themes"
 import { useTranslations } from "next-intl"
-import Link from "next/link"
 
 const Button = withDefaultProps(DefaultButton, { size: "3" })
 const SoftButton = withDefaultProps(Button, { variant: "soft" })

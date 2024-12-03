@@ -31,8 +31,12 @@ export const FormUser = ({ user }: EditUserProps) => {
       name: "Администратор",
     },
     {
-      value: "user",
-      name: "Пользователь",
+      value: "editor",
+      name: "Редактор",
+    },
+    {
+      value: "photographer",
+      name: "Фотограф",
     },
   ]
 

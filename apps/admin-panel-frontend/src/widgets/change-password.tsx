@@ -42,7 +42,7 @@ export const ChangePassword = (props: ChangePasswordProps) => {
         />
         <PasswordInput
           label={t("newPassword")}
-          autoComplete={"new-password webauthn"}
+          autoComplete={"[id]-password webauthn"}
           errorMessage={errors.newPassword?.message}
           {...register("newPassword", {
             required: t("requiredField"),
@@ -54,7 +54,7 @@ export const ChangePassword = (props: ChangePasswordProps) => {
         />
         <PasswordInput
           label={t("confirmPassword")}
-          autoComplete={"new-password webauthn"}
+          autoComplete={"[id]-password webauthn"}
           errorMessage={errors.confirmPassword?.message}
           {...register("confirmPassword", {
             required: t("requiredField"),
