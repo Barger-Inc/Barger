@@ -9,6 +9,7 @@ type ModalRootProps = {
   children: ReactNode
   isOpen?: boolean
   onIsOpenChange?: (isOpen: boolean) => void
+  maxWidth?: number
 }
 
 export const ModalRoot = (props: ModalRootProps) => {
@@ -53,10 +54,12 @@ export const ModalRoot = (props: ModalRootProps) => {
       >
         <div
           className={cn(
-            "flex flex-col p-1 gap-1 bg-gray-2 rounded-t-5 w-full sm:w-[580px] z-10 rounded-b-none sm:rounded-5 sm:border-gray-6 sm:border sm:border-solid",
+            "flex flex-col p-1 gap-1 bg-gray-2 rounded-t-5 w-full max-w-[580px] z-10 rounded-b-none sm:rounded-5 sm:border-gray-6 sm:border sm:border-solid",
+            props.maxWidth && "max-w-[--max-width]",
             isOpen && "modal-opening",
             !isOpen && "modal-closing"
           )}
+          style={{ "--max-width": `${props.maxWidth}px` }}
           onAnimationEnd={handleAnimationEnd}
           onClick={(e) => e.stopPropagation()}
         >
