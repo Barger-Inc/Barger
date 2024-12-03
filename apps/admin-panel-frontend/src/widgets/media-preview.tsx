@@ -19,11 +19,7 @@ export const MediaPreview = (props: MediaPreviewProps) => {
   return (
     <div className="flex flex-col sm:flex-row gap-4">
       <div className="overflow-hidden">
-        <img
-          className="w-full max-h-84 object-cover"
-          src={props.url}
-          alt=""
-        />
+        <img className="w-full max-h-84 object-cover" src={props.url} alt="" />
       </div>
       <div className="flex-1 flex flex-col gap-4">
         <TextField label="Название" />
@@ -31,7 +27,9 @@ export const MediaPreview = (props: MediaPreviewProps) => {
         <div className="grid sm:grid-cols-2 gap-x-6 gap-y-4">
           <div className="flex justify-between items-center">
             <Text size="2" weight="medium" children={t("resolution")} />
-            <Badge>{props.width}x{props.height}</Badge>
+            <Badge>
+              {props.width}x{props.height}
+            </Badge>
           </div>
           <div className="flex justify-between items-center">
             <Text size="2" weight="medium" children="Вид" />

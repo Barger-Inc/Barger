@@ -10,7 +10,15 @@ export default function Page({ params: { id } }: { params: { id: number } }) {
     <ModalRoot maxWidth={1080}>
       <ModalHeader title="Загрузка медиа" />
       <ModalBody>
-        <MediaPreview id={id} width={1920} height={1080} extension={"jpeg"} size={500} date={new Date()} url={"/mediaImg/loadMediaPreview.png"} />
+        <MediaPreview
+          id={id}
+          width={1920}
+          height={1080}
+          extension={"jpeg"}
+          size={500}
+          date={new Date()}
+          url={"/mediaImg/loadMediaPreview.png"}
+        />
       </ModalBody>
       <ModalFooter>
         <Button
