@@ -4,6 +4,7 @@ import { NavigationButton } from "@/features/navigation/ui/navigation-button"
 import type { SidePanelLink } from "@/shared/types/side-panel-link"
 import { Header } from "@/shared/ui/header"
 import { Icon } from "@/shared/ui/icon"
+import { Link } from "@/shared/ui/link"
 import { cn } from "@/shared/utils"
 import { ThemeToggle } from "@/widgets/theme-toggle"
 import { Button, IconButton } from "@radix-ui/themes"
@@ -92,16 +93,19 @@ export const SidePanel = (props: SidePanelProps) => {
           >
             <ThemeToggle />
 
-            {isCollapsed ? (
-              <IconButton variant="soft" size={"3"}>
-                <Icon name="exit" size={18} />
-              </IconButton>
-            ) : (
-              <Button className="px-[11px]" variant="soft" size={"3"}>
-                <Icon name="exit" size={18} />
-                {t("exit")}
-              </Button>
-            )}
+            {/* TODO: move to separate component and add logic to this button */}
+            <Link href="/login">
+              {isCollapsed ? (
+                <IconButton variant="soft" size={"3"}>
+                  <Icon name="exit" size={18} />
+                </IconButton>
+              ) : (
+                <Button className="px-[11px]" variant="soft" size={"3"}>
+                  <Icon name="exit" size={18} />
+                  {t("exit")}
+                </Button>
+              )}
+            </Link>
           </div>
         </div>
       </div>

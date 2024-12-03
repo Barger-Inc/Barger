@@ -3,5 +3,7 @@ import type { FillIconName, StrokeIconName } from "@/shared/types/icon-name"
 export type SidePanelLink = {
   href: string
   title: string
-  icon: StrokeIconName & FillIconName
+  icon?: StrokeIconName & FillIconName
+  prefetch?: boolean
+  isActive?: boolean
 }

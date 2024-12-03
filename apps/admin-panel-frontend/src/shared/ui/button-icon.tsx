@@ -6,14 +6,18 @@ import { memo } from "react"
 type ButtonIconProps = {
   variant?: "leading" | "trailing"
   icon: IconResolvable
+  size?: 1 | 2 | 3 | 4 | "1" | "2" | "3" | "4"
+}
+
+const iconSizes = {
+  1: 16,
+  2: 16,
+  3: 18,
+  4: 20,
 }
 
 export const ButtonIcon = memo((props: ButtonIconProps) => {
-  const variant = props.variant ?? "leading"
+  const size = (Number(props.size) ?? 2) as 1 | 2 | 3 | 4
 
-  return (
-    <span className={variant === "leading" ? "mr-2" : "ml-2"}>
-      <Icon {...getIconProps(props.icon, { size: 16 })} />
-    </span>
-  )
+  return <Icon {...getIconProps(props.icon, { size: iconSizes[size] })} />
 })
