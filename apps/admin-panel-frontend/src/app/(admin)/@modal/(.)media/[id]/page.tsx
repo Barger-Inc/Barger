@@ -8,7 +8,7 @@ import { MediaPreview } from "@/widgets/media-preview"
 export default function Page({ params: { id } }: { params: { id: number } }) {
   return (
     <ModalRoot>
-      <ModalHeader title="Modal title" />
+      <ModalHeader title="Загрузка медиа" />
       <ModalBody>
         <MediaPreview id={id} />
       </ModalBody>
