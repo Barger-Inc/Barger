@@ -13,9 +13,20 @@ export default function Page({ params: { id } }: { params: { id: number } }) {
         <MediaPreview id={id} />
       </ModalBody>
       <ModalFooter>
-        <Button className="hidden sm:block" color="gray" variant={"soft"} label="Отменить" />
+        <Button
+          className="hidden sm:block"
+          color="gray"
+          variant={"soft"}
+          label="Отменить"
+        />
         <Button className="hidden sm:block" label="Сохранить" />
-        <Button className="sm:hidden flex-1" size={"4"} color="gray" variant={"soft"} label="Отменить" />
+        <Button
+          className="sm:hidden flex-1"
+          size={"4"}
+          color="gray"
+          variant={"soft"}
+          label="Отменить"
+        />
         <Button className="sm:hidden flex-1" size={"4"} label="Сохранить" />
       </ModalFooter>
     </ModalRoot>
