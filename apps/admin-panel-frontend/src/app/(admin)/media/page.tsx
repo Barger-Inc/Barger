@@ -23,6 +23,7 @@ const initialRolesData = [
 export default function Page() {
 
   const t = useTranslations("settingsRoles")
+  //const t = useTranslations("media")
 
   const [mode, setMode] = useState<"view" | "select">("view")
   const [rolesData, setRolesData] = useState(initialRolesData)
@@ -34,7 +35,7 @@ export default function Page() {
     []
   )
 
-  const toggleIsAllRolesSelected = useCallback(() => {
+  const toggleIsAllMediaSelected = useCallback(() => {
     setIsAllRolesSelected((prev) => !prev)
     setSelectedRolesId(
       isAllRolesSelected ? [] : rolesData.map((role) => role.id)
