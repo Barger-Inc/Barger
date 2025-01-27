@@ -7,14 +7,35 @@ import { MediaPreview } from "@/widgets/media-preview"
 
 export default function Page({ params: { id } }: { params: { id: number } }) {
   return (
-    <ModalRoot>
-      <ModalHeader title="Modal title" />
+    <ModalRoot maxWidth={1080}>
+      <ModalHeader title="Загрузка медиа" />
       <ModalBody>
-        <MediaPreview id={id} />
+        <MediaPreview
+          id={id}
+          width={1920}
+          height={1080}
+          extension={"jpeg"}
+          size={500}
+          date={new Date()}
+          url={"/mediaImg/loadMediaPreview.png"}
+        />
       </ModalBody>
       <ModalFooter>
-        <Button variant={"outline"} label="Отменить" />
-        <Button label="Сохранить" />
+        <Button
+          className="hidden sm:block"
+          color="gray"
+          variant={"soft"}
+          label="Отменить"
+        />
+        <Button className="hidden sm:block" label="Сохранить" />
+        <Button
+          className="sm:hidden flex-1"
+          size={"4"}
+          color="gray"
+          variant={"soft"}
+          label="Отменить"
+        />
+        <Button className="sm:hidden flex-1" size={"4"} label="Сохранить" />
       </ModalFooter>
     </ModalRoot>
   )

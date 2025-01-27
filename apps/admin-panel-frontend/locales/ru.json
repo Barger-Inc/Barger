@@ -222,5 +222,8 @@
     "passwordsDontMatch": "Пароли не совпадают",
     "requiredField": "Обязательное поле",
     "minPasswordLength": "Минимальная длина пароля {length, plural, one {# символ} few {# символа} many {# символов} other {# символов}}"
+  },
+  "mediaPreview": {
+    "resolution": "Разрешение"
   }
 }
