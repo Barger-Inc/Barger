@@ -27,11 +27,6 @@ export const sidePanelLinks: SidePanelLink[] = [
     icon: "user-circle",
   },
   {
-    href: "/users",
-    title: "users",
-    icon: "users-group-two",
-  },
-  {
     href: "/settings",
     title: "settings",
     icon: "settings",

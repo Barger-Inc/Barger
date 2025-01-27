@@ -5,7 +5,7 @@ export default defineConfig({
     input: "./src/schema.yaml",
     output: {
       target: "./src/generate",
-      schemas: "./src/model",
+      schemas: "./src/lib",
       client: "react-query",
       biome: true,
       mode: "tags",

@@ -1,5 +1,63 @@
 {
   "welcome": "Welcome to my app!",
   "home": "Home",
-  "about": "About"
+  "about": "About",
+  "profile": {
+    "title": "My profile",
+    "name": "Name",
+    "surname": "Surname",
+    "nickname": "Display name",
+    "placeholder": "Type here...",
+    "security": "Security",
+    "email": "Change email",
+    "password": "Change password",
+    "save": "Save changes"
+  },
+  "sidePanel": {
+    "links": {
+      "home": "Home",
+      "collections": "Collections",
+      "content": "Content",
+      "media": "Media",
+      "profile": "Profile",
+      "users": "Users",
+      "settings": "Settings"
+    },
+    "exit": "Exit"
+  },
+  "settingsSidePanel": {
+    "title": "Settings",
+    "links": {
+      "tokens": "Tokens",
+      "media": "Media",
+      "language": "Language",
+      "roles": "Roles",
+      "users": "Users"
+    }
+  },
+  "settingsRoles": {
+    "title": "Roles",
+    "deleteSelected": "Delete Selected",
+    "addRole": "Add Role",
+    "search": "Search",
+    "name": "Title",
+    "description": "Description",
+    "numberOfUsers": "Number of Users",
+    "editRole": "Edit Roles",
+    "createRole": "Create Role",
+    "saveRole": "Save",
+    "createPermission": "Create",
+    "publishPermission": "Publish",
+    "updatePermission": "Update",
+    "readPermission": "Read",
+    "deletePermission": "Delete",
+    "newsCategory": "News",
+    "productsCategory": "Products",
+    "announcementsCategory": "Announcements"
+  },
+  "themeToggle": {
+    "dark": "Dark",
+    "light": "Light",
+    "system": "System"
+  }
 }
